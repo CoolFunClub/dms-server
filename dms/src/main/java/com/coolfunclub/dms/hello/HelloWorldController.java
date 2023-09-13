@@ -8,4 +8,9 @@ public class HelloWorldController {
     public String helloWorld(){
         return "Hello World!";
     }
+
+    @RequestMapping("/kml")
+    public String cats() {
+        return "(^=◕ᴥ◕=^)";
+    }
 }
