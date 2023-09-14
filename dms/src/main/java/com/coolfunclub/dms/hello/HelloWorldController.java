@@ -13,4 +13,11 @@ public class HelloWorldController {
     public String cats() {
         return "(^=◕ᴥ◕=^)";
     }
+
+
+    @RequestMapping("/dog")
+    public String dog() {
+        return "Here U go!";
+    }
+
 }
