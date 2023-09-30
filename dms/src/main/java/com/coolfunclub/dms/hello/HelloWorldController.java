@@ -39,6 +39,8 @@ public class HelloWorldController {
         List<String> processedStrings = Lists.newArrayList(splitStrings); // Using Guava's Lists.newArrayList()
 
         return processedStrings;
+        //Test URL-> http://localhost:8080/processStrings?inputStrings=one,two,three,four
+        //Output-> ["one","two","three","four"]
     }
 
 }
