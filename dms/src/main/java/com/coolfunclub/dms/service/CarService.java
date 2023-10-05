@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.coolfunclub.dms.model.Car;
 import com.coolfunclub.dms.repository.CarRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class CarService {
 
@@ -26,7 +28,23 @@ public class CarService {
     public Car getCar(String vin){
         return carRepository.findById(vin).get();
     }
-    public void updateCar(Car car){
-        carRepository.save(car);
+    public void updateCar(Car newCarData){
+        //carRepository.save(car);
+   
+        String vin = newCarData.getVIN(); // Assuming the VIN is what you're using to identify cars
+    
+        Car existingCar = carRepository.findById(vin)
+                                    .orElseThrow(() -> new EntityNotFoundException("Car not found"));
+        
+        existingCar.setManufacturer(newCarData.getManufacturer());
+        existingCar.setModel(newCarData.getModel());
+        existingCar.setcarYear(newCarData.getcarYear());
+        existingCar.setMilage(newCarData.getMileage());
+        existingCar.setPrice(newCarData.getPrice());
+        existingCar.setTrim(newCarData.getTrim());
+        existingCar.setColor(newCarData.getColor());
+        existingCar.setStatus(newCarData.getStatus());
+
+        carRepository.save(existingCar);
     }
 }

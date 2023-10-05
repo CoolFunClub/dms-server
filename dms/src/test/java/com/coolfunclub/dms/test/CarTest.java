@@ -1,9 +1,12 @@
 package com.coolfunclub.dms.test;
 
 import com.coolfunclub.dms.model.Car;
+import com.coolfunclub.dms.repository.CarRepository;
 import com.coolfunclub.dms.web.controller.CarController;
 import com.coolfunclub.dms.service.CarService;
 
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -13,9 +16,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import java.util.List;
+import java.util.Optional;
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,6 +37,9 @@ public class CarTest {
 
     @Autowired
     private CarService myCarService;
+
+    @Mock
+    private CarRepository carRepository;
 
     @Test
     public void contextLoads() throws Exception {
@@ -69,5 +79,7 @@ public class CarTest {
         // Assert
         assertEquals(expectedCar, actualCar);
     }
+    
 
 }
+

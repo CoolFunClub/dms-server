@@ -2,7 +2,13 @@ package com.coolfunclub.dms.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Car {
 
@@ -17,9 +23,6 @@ public class Car {
     private String status;
     private double price;
 
-    public Car(){
-
-    }
     public Car(String vin, String manufacturer, String model, int carYear, int mileage, String trim, String color, double price, String status) { 
         this.vin = vin;
         this.manufacturer = manufacturer;
