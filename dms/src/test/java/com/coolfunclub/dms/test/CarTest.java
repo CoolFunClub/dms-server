@@ -17,6 +17,7 @@ import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @WebMvcTest(CarController.class)
 public class CarTest {
@@ -26,6 +27,9 @@ public class CarTest {
     private MockMvc mockMvc;
     @MockBean
     private CarService service;
+
+    @Autowired
+    private CarService myCarService;
 
     @Test
     public void contextLoads() throws Exception {
@@ -42,4 +46,28 @@ public class CarTest {
 
 		this.mockMvc.perform(get("/cars")).andDo(print()).andExpect(status().isOk());
     }
+
+
+    @Test
+    public void testGetCarByVin() {
+        // Arrange
+        String vin = "246810108642"; // Replace with a valid VIN from your test data
+        Car expectedCar = new Car(vin,
+                         "Toyota",
+                         "Corolla",
+                         2013,
+                         75000,
+                         "LE",
+                         "Red",
+                         25000.0,
+                          "On Stock");
+
+        // Mock the behavior of carRepository.findById() method
+        when(myCarService.getCar(vin)).thenReturn(expectedCar);
+        // Act
+        Car actualCar = myCarService.getCar(vin);
+        // Assert
+        assertEquals(expectedCar, actualCar);
+    }
+
 }
