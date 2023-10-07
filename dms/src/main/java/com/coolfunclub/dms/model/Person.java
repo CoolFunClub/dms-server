@@ -13,7 +13,7 @@ import jakarta.persistence.InheritanceType;
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long  mPersonID; //PK
+    private String  mPersonID; //PK
 
     private String mFirstName;
     private String mLastName;
@@ -79,9 +79,9 @@ public abstract class Person {
 
     // Get methods
 
- /*   public String getpersonID() {
+    public String getpersonID() {
         return mPersonID;
-    }    */
+    }
 
     public String getFirstName() {
         return mFirstName;

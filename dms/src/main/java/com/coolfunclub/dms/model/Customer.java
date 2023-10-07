@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Customer extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mPersonID; //PK
+    private String mPersonID; //PK
 
 
 
@@ -40,7 +40,7 @@ public class Customer extends Person{
         this.mDriverLicenseID = driverLicenseID;
     }
 
-    // Method to set customer information-**
+    /* // Method to set customer information-**
     public void setCustomerInformation(String personID, String firstName, String lastName, String dob, String gender,
                                         String phone, String email, String address, String driverLicenseID) {
         //super.setSSN(personID);
@@ -52,5 +52,5 @@ public class Customer extends Person{
         super.setEmail(email);
         super.setAddress(address);
         this.mDriverLicenseID = driverLicenseID;
-    }
+    } */
 }

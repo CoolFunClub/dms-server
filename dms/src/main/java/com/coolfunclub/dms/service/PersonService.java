@@ -23,11 +23,11 @@ public class PersonService {
         return personRepository.save(person);
     }
 
-    public void deletePerson(Long personId) {
+    public void deletePerson(String personId) {
         personRepository.deleteById(personId);
     }
 
-    public Person getPersonById(Long personId) {
+    public Person getPersonById(String personId) {
         return personRepository.findById(personId).orElse(null);
     }
 
