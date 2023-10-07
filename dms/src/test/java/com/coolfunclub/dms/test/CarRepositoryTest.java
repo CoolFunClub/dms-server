@@ -30,8 +30,6 @@ public class CarRepositoryTest {
                     .status("Available")
                     .price(23400)
                     .build();
-
-        
         //act
         Car savedCar=carRepository.save(car);
         //assert
