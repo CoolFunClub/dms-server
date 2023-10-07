@@ -1,24 +1,28 @@
 package com.coolfunclub.dms.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Customer extends Person{
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long mPersonID; //PK
+
+
+
     private String mDriverLicenseID;
 
-    @OneToOne
+   /* @OneToOne
     @PrimaryKeyJoinColumn
-    private Person person;
+    private Person person;  ------ To Be Deleted*/
 
     // Constructor
-    public Customer(String personID, String firstName, String lastName, String dob, String gender,
+    public Customer(String firstName, String lastName, String dob, String gender,
                     String phone, String email, String address, String driverLicenseID) {
-        super(personID, firstName, lastName, dob, gender, phone, email, address);
+        super(firstName, lastName, dob, gender, phone, email, address);
         this.mDriverLicenseID = driverLicenseID;
     }
 
@@ -39,7 +43,7 @@ public class Customer extends Person{
     // Method to set customer information-**
     public void setCustomerInformation(String personID, String firstName, String lastName, String dob, String gender,
                                         String phone, String email, String address, String driverLicenseID) {
-        super.setSSN(personID);
+        //super.setSSN(personID);
         super.setFirstName(firstName);
         super.setLastName(lastName);
         super.setDateBirth(dob);

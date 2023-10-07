@@ -1,14 +1,20 @@
 package com.coolfunclub.dms.model;
 
 import java.util.Random;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
-public class Person {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Person {
     @Id
-    private String mPersonID; //PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long  mPersonID; //PK
+
     private String mFirstName;
     private String mLastName;
     private String mDateBirth;
@@ -17,8 +23,8 @@ public class Person {
     private String mEmail;
     private String mAddress;
 
-    public Person(String personID, String firstName, String lastName,String dob, String gender, String phone, String email, String address){
-        this.mPersonID = personID;
+    public Person(String firstName, String lastName,String dob, String gender, String phone, String email, String address){
+        //this.mPersonID = personID;
         this.mFirstName = firstName;
         this.mLastName = lastName;
         this.mDateBirth = dob;
@@ -31,10 +37,11 @@ public class Person {
     public Person(){ //Default Constructor
     }
 
-       // Set methods
+/*  // Set methods
        public void setSSN(String personID) {
         this.mPersonID = personID;
-    }
+    }   */
+
     public void setFirstName(String mFirstName) {
         this.mFirstName = mFirstName;
     }
@@ -72,9 +79,9 @@ public class Person {
 
     // Get methods
 
-    public String getpersonID() {
+ /*   public String getpersonID() {
         return mPersonID;
-    }
+    }    */
 
     public String getFirstName() {
         return mFirstName;
