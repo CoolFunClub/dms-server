@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './Menu.css';
 
 function App() {
   const [msg, setMsg] = useState('');
@@ -18,7 +17,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           {msg}
         </p>
