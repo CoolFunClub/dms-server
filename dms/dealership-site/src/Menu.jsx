@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, createContext } from 'react';
 import './Menu.css';
-import logo from "./assets/logo-placeholder.png";
+import logo from './assets/logo-placeholder.png';
+
+const PageContext = createContext(1);
 
 function LogoBar() {
   return (
@@ -11,27 +13,42 @@ function LogoBar() {
 }
 
 function NavBarAndContent() {
+  const [page, setPage] = useState(1);
+
   return (
     <div className="NavBarAndContent">
-      <NavBar />
-      <MainContent />
-    </div>
-  );
-}
-
-function NavBar() {
-  return (
-    <div className="NavBar">
-      <p>
-        buttons
-      </p>
+      <PageContext.Provider value={page}>
+        <div className="NavBar">
+          <button
+            className="NavButton"
+            onClick={() => {
+              setPage(0);
+            }}
+          >
+            Welcome page
+          </button>
+        </div>
+        <MainContent />
+      </PageContext.Provider>
     </div>
   );
 }
 
 function MainContent() {
+  const page = useContext(PageContext);
+
   return (
-    <div className="MainContent">
+    <div>
+      <WelcomePage page={page} />
+    </div>
+  );
+}
+
+function WelcomePage({ page }) {
+  const pageClass = page == 0 ? '' : 'Hidden';
+
+  return (
+    <div className={pageClass}>
       <p>Welcome!</p>
     </div>
   );
