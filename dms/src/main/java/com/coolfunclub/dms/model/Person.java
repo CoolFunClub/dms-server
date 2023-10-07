@@ -2,8 +2,13 @@ package com.coolfunclub.dms.model;
 
 import java.util.Random;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Person {
-    private String mPersonID; //can be assigned
+    @Id
+    private String mPersonID; //PK
     private String mFirstName;
     private String mLastName;
     private String mDateBirth;
