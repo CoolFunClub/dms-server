@@ -45,7 +45,7 @@ public class PersonService {
             existingPerson.setAddress(updatedPerson.getAddress());
 
             // Handle specific properties for subclasses
-            if (existingPerson instanceof Manager && updatedPerson instanceof Manager) {
+            if (existingPerson instanceof ManageR && updatedPerson instanceof ManageR_) {
                 // Update Manager specific properties
                 // ((Manager) existingPerson).setManagerSpecificProperty(((Manager) updatedPerson).getManagerSpecificProperty());
             } else if (existingPerson instanceof Customer && updatedPerson instanceof Customer) {
