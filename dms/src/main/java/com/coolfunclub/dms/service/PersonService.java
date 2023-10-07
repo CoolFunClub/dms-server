@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.coolfunclub.dms.model.Customer;
 import com.coolfunclub.dms.model.Person;
+import com.coolfunclub.dms.repository.PersonRepository;
 
 @Service
 public class PersonService {
