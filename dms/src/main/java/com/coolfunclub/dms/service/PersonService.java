@@ -6,15 +6,16 @@ import org.springframework.stereotype.Service;
 
 import com.coolfunclub.dms.model.Customer;
 import com.coolfunclub.dms.model.Person;
+import com.coolfunclub.dms.model.SalesRep;
 import com.coolfunclub.dms.repository.PersonRepository;
 
 @Service
 public class PersonService {
 
-
+    @Autowired
     private PersonRepository personRepository; //PersonRepository interface
 
-    @Autowired
+    
     public PersonService(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
@@ -45,7 +46,7 @@ public class PersonService {
             existingPerson.setAddress(updatedPerson.getAddress());
 
             // Handle specific properties for subclasses
-            if (existingPerson instanceof ManageR && updatedPerson instanceof ManageR_) {
+            if (existingPerson instanceof Manager && updatedPerson instanceof Manager) {
                 // Update Manager specific properties
                 // ((Manager) existingPerson).setManagerSpecificProperty(((Manager) updatedPerson).getManagerSpecificProperty());
             } else if (existingPerson instanceof Customer && updatedPerson instanceof Customer) {
