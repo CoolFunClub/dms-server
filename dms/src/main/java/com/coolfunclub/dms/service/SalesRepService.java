@@ -18,23 +18,23 @@ public class SalesRepService {
     @Autowired
     private SalesRepRepository salesRepRepository;
 
-    public List<SalesRep> getAllManagers(){
+    public List<SalesRep> getAllSalesReps(){
         List<SalesRep> salesReps=new LinkedList<>();
         salesRepRepository.findAll().forEach(salesReps::add);
         return salesReps;
     }
-    public void addManager(SalesRep Manager){ 
+    public void addSalesRep(SalesRep Manager){ 
         salesRepRepository.save(Manager);
     }
-    public SalesRep getSalesRep(String vin){
-        return salesRepRepository.findById(vin).get();
+    public SalesRep getSalesRep(String personID){
+        return salesRepRepository.findById(personID).get();
     }
     public void updateSalesRep(SalesRep newSalesRep){
         //ManagerRepository.save(Manager);
    
-        String vin = newSalesRep.getpersonID(); 
+        String personID = newSalesRep.getpersonID(); 
     
-        SalesRep existingSalesRep = salesRepRepository.findById(vin)
+        SalesRep existingSalesRep = salesRepRepository.findById(personID)
                                     .orElseThrow(() -> new EntityNotFoundException("Manager not found"));
         
         existingSalesRep.setFirstName(newSalesRep.getFirstName());
@@ -47,8 +47,8 @@ public class SalesRepService {
 
         salesRepRepository.save(existingSalesRep);
     }
-    public void deleteSalesRep(String vin){
-        SalesRep salesRep= getSalesRep(vin);
+    public void deleteSalesRep(String personID){
+        SalesRep salesRep= getSalesRep(personID);
         if(salesRep!=null){
             salesRepRepository.delete(salesRep);
         }

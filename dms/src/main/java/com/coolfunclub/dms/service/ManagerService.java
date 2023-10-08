@@ -24,15 +24,15 @@ public class ManagerService {
     public void addManager(Manager Manager){ 
         managerRepository.save(Manager);
     }
-    public Manager getManager(String vin){
-        return managerRepository.findById(vin).get();
+    public Manager getManager(String personID){
+        return managerRepository.findById(personID).get();
     }
     public void updateManager(Manager newManager){
         //ManagerRepository.save(Manager);
    
-        String vin = newManager.getpersonID(); 
+        String personID = newManager.getpersonID(); 
     
-        Manager existingManager = managerRepository.findById(vin)
+        Manager existingManager = managerRepository.findById(personID)
                                     .orElseThrow(() -> new EntityNotFoundException("Manager not found"));
         
         existingManager.setFirstName(newManager.getFirstName());
@@ -45,10 +45,10 @@ public class ManagerService {
 
         managerRepository.save(existingManager);
     }
-    public void deleteManager(String vin){
-        Manager Manager= getManager(vin);
-        if(Manager!=null){
-            managerRepository.delete(Manager);
+    public void deleteManager(String personID){
+        Manager manager= getManager(personID);
+        if(manager!=null){
+            managerRepository.delete(manager);
         }
     }
 }
