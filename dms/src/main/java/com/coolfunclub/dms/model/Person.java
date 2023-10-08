@@ -1,18 +1,17 @@
 package com.coolfunclub.dms.model;
+import java.util.UUID;
 
-import java.util.Random;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.PrePersist;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String  mPersonID; //PK
 
     private String mFirstName;
@@ -36,6 +35,14 @@ public abstract class Person {
 
     public Person(){ //Default Constructor
     }
+    
+    @PrePersist
+    public void generateId() {
+        if (this.mPersonID == null || this.mPersonID.isEmpty()) {
+            this.mPersonID = UUID.randomUUID().toString();
+        }
+    }
+
 
 /*  // Set methods
        public void setSSN(String personID) {

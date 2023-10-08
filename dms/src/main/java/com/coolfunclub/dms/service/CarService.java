@@ -47,4 +47,10 @@ public class CarService {
 
         carRepository.save(existingCar);
     }
+    public void deleteCar(String vin){
+        Car car= getCar(vin);
+        if(car!=null){
+            carRepository.delete(car);
+        }
+    }
 }
