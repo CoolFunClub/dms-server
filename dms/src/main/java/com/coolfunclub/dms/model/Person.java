@@ -6,12 +6,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.PrePersist;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
-@Entity
+//@Entity
+@MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String  mPersonID; //PK
 
     private String mFirstName;
@@ -53,36 +57,29 @@ public abstract class Person {
         this.mFirstName = mFirstName;
     }
 
-
     public void setLastName(String mLastName) {
         this.mLastName = mLastName;
     }
-
 
     public void setDateBirth(String mDateBirth) {
         this.mDateBirth = mDateBirth;
     }
 
-
     public void setGender(String mGender) {
         this.mGender = mGender;
     }
-
 
     public void setPhone(String mPhone) {
         this.mPhone = mPhone;
     }
 
-
     public void setEmail(String mEmail) {
         this.mEmail = mEmail;
     }
 
-
     public void setAddress(String mAddress) {
         this.mAddress = mAddress;
     }
-
 
     // Get methods
     public String getpersonID() {
@@ -98,25 +95,22 @@ public abstract class Person {
         return mLastName;
     }
 
-
     public String getDateBirth() {
         return mDateBirth;
     }
-
 
     public String getGender() {
         return mGender;
     }
 
-
     public String getPhone() {
         return mPhone;
     }
 
-
     public String getEmail() {
         return mEmail;
     }
+
     public String getAddress() {
         return mAddress;
     }

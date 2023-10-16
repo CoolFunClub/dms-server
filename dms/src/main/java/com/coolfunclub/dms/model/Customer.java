@@ -1,16 +1,17 @@
 package com.coolfunclub.dms.model;
 
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "mPersonID")
 public class Customer extends Person{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String mPersonID; //PK
-
+   // @Id
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // private String mPersonID; //PK
 
 
     private String mDriverLicenseID;

@@ -1,9 +1,13 @@
 package com.coolfunclub.dms.service;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coolfunclub.dms.model.Customer;
+import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.CustomerRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -19,23 +23,31 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
+     public List<Customer> getAllCustomers(){
+        List<Customer> Customers = new LinkedList<>();
+        customerRepository.findAll().forEach(Customers::add);
+        return Customers;
+    }
+
         public Customer createCustomer(Customer customer) {
             return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(String customerId) {
-        customerRepository.deleteById(customerId);
+    public void deleteCustomer(String personID) {
+        customerRepository.deleteById(personID);
     }
 
-    public Customer getCustomerById(String customerId) {
-        return customerRepository.findById(customerId).orElse(null);
+    public Customer getCustomerById(String personID) {
+        return customerRepository.findById(personID).orElse(null);
     }
 
 
-    public Customer updateCustomer(String customerId, Customer updatedCustomer) {
+    public Customer updateCustomer(Customer updatedCustomer) {
+
+        String personID = updatedCustomer.getpersonID();
 
         // Retrieve the existing customer from the database
-        Customer existingCustomer = customerRepository.findById(customerId).orElse(null);
+        Customer existingCustomer = customerRepository.findById(personID).orElse(null);
         if (existingCustomer != null) {
             // Update common properties from the updatedCustomer
             existingCustomer.setFirstName(updatedCustomer.getFirstName());
@@ -53,7 +65,7 @@ public class CustomerService {
             return customerRepository.save(existingCustomer);
         } else {
             // Handle the case where the customer is not found in the database
-            throw new EntityNotFoundException("Customer with ID " + customerId + " not found.");
+            throw new EntityNotFoundException("Customer with ID " + personID + " not found.");
         }
     }
 
