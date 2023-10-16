@@ -35,7 +35,7 @@ public abstract class Person {
 
     public Person(){ //Default Constructor
     }
-    
+
     @PrePersist
     public void generateId() {
         if (this.mPersonID == null || this.mPersonID.isEmpty()) {
@@ -85,7 +85,6 @@ public abstract class Person {
 
 
     // Get methods
-
     public String getpersonID() {
         return mPersonID;
     }
