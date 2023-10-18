@@ -27,7 +27,7 @@ public class SalesRepController {
         return salesRepService.getAllSalesReps();
     }
     @GetMapping(value = "/rep/{id}")
-    public SalesRep getSalesRep(@PathVariable("id") String id ){
+    public SalesRep getSalesRep(@PathVariable("id") Long id ){
         return salesRepService.getSalesRep(id);
     }
 
@@ -42,7 +42,7 @@ public class SalesRepController {
     }
 
     @DeleteMapping(value = "/rep/{id}")
-    public void deleteManager(@PathVariable("id") String id ){
+    public void deleteManager(@PathVariable("id") Long id ){
         salesRepService.deleteSalesRep(id);
     }
     

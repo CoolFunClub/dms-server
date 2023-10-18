@@ -26,13 +26,13 @@ public class SalesRepService {
     public void addSalesRep(SalesRep Manager){ 
         salesRepRepository.save(Manager);
     }
-    public SalesRep getSalesRep(String personID){
+    public SalesRep getSalesRep(Long personID){
         return salesRepRepository.findById(personID).get();
     }
     public void updateSalesRep(SalesRep newSalesRep){
         //ManagerRepository.save(Manager);
    
-        String personID = newSalesRep.getpersonID(); 
+        Long personID = newSalesRep.getpersonID(); 
     
         SalesRep existingSalesRep = salesRepRepository.findById(personID)
                                     .orElseThrow(() -> new EntityNotFoundException("Manager not found"));
@@ -47,7 +47,7 @@ public class SalesRepService {
 
         salesRepRepository.save(existingSalesRep);
     }
-    public void deleteSalesRep(String personID){
+    public void deleteSalesRep(Long personID){
         SalesRep salesRep= getSalesRep(personID);
         if(salesRep!=null){
             salesRepRepository.delete(salesRep);

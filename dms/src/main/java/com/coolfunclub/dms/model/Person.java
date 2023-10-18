@@ -6,18 +6,19 @@ package com.coolfunclub.dms.model;
 //@Inheritance(strategy = InheritanceType.JOINED)
 //@Entity
 //import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
+import jakarta.persistence.GenerationType;
 
-import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class Person {
+public class Person {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected String  mPersonID; //PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long  mPersonID; //PK
 
     protected String mFirstName;
     protected String mLastName;
@@ -37,17 +38,6 @@ public abstract class Person {
         this.mEmail = email;
         this.mAddress = address;
     }
-
-    public Person(){ //Default Constructor
-    }
-
-    @PrePersist
-    public void generateId() {
-        if (this.mPersonID == null || this.mPersonID.isEmpty()) {
-            this.mPersonID = UUID.randomUUID().toString();
-        }
-    }
-
 
 /*  // Set methods
        public void setSSN(String personID) {
@@ -83,7 +73,7 @@ public abstract class Person {
     }
 
     // Get methods
-    public String getpersonID() {
+    public Long getpersonID() {
         return mPersonID;
     }
 

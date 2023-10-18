@@ -19,16 +19,13 @@ public class Customer extends Person{
     private Person person;  ------ To Be Deleted*/
 
     // Constructor
+
     public Customer(String firstName, String lastName, String dob, String gender,
                     String phone, String email, String address, String driverLicenseID) {
         super(firstName, lastName, dob, gender, phone, email, address);
         this.mDriverLicenseID = driverLicenseID;
     }
 
-    // Default constructor
-    public Customer() {
-        super(); // Calls the default constructor of the parent class (Person)
-    }
 
     // Getters and setters for driver license ID
     public String getDriverLicenseID() {

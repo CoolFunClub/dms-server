@@ -17,8 +17,6 @@ public class CustomerService {
 
     private CustomerRepository customerRepository;
 
-
-    @Autowired
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
@@ -33,18 +31,18 @@ public class CustomerService {
             return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(String personID) {
+    public void deleteCustomer(Long personID) {
         customerRepository.deleteById(personID);
     }
 
-    public Customer getCustomerById(String personID) {
+    public Customer getCustomerById(Long personID) {
         return customerRepository.findById(personID).orElse(null);
     }
 
 
     public Customer updateCustomer(Customer updatedCustomer) {
 
-        String personID = updatedCustomer.getpersonID();
+        Long personID = updatedCustomer.getpersonID();
 
         // Retrieve the existing customer from the database
         Customer existingCustomer = customerRepository.findById(personID).orElse(null);

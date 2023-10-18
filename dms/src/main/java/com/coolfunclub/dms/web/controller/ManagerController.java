@@ -27,7 +27,7 @@ public class ManagerController {
         return managerService.getAllManagers();
     }
     @GetMapping(value = "/managers/{id}")
-    public Manager getManager(@PathVariable("id") String id ){
+    public Manager getManager(@PathVariable("id") Long id ){
         return managerService.getManager(id);
     }
 
@@ -42,7 +42,7 @@ public class ManagerController {
     }
 
     @DeleteMapping(value = "/managers/{id}")
-    public void deleteManager(@PathVariable("id") String id ){
+    public void deleteManager(@PathVariable("id") Long id ){
         managerService.deleteManager(id);
     }
     
