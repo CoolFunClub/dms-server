@@ -1,11 +1,11 @@
 package com.coolfunclub.dms.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+// import jakarta.persistence.PrimaryKeyJoinColumn;
 
 
 @Entity
-@PrimaryKeyJoinColumn(name = "mPersonID")
+//@PrimaryKeyJoinColumn(name = "mPersonID")
 public class Manager extends Person {
 
 

@@ -1,30 +1,31 @@
 package com.coolfunclub.dms.model;
-import java.util.UUID;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.PrePersist;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Inheritance;
+//import jakarta.persistence.InheritanceType;
+//import jakarta.persistence.PrePersist;
+//@Inheritance(strategy = InheritanceType.JOINED)
 //@Entity
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+
+import java.util.UUID;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.MappedSuperclass;
+
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String  mPersonID; //PK
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected String  mPersonID; //PK
 
-    private String mFirstName;
-    private String mLastName;
-    private String mDateBirth;
-    private String mGender;
-    private String mPhone;
-    private String mEmail;
-    private String mAddress;
+    protected String mFirstName;
+    protected String mLastName;
+    protected String mDateBirth;
+    protected String mGender;
+    protected String mPhone;
+    protected String mEmail;
+    protected String mAddress;
 
     public Person(String firstName, String lastName,String dob, String gender, String phone, String email, String address){
         //this.mPersonID = personID;
