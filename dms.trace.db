@@ -58,6 +58,9 @@ org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-21
 2023-10-18 20:25:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 193f0ca (Fixed the Customer table inher)
 2023-10-19 13:29:03 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-19 13:39:41 jdbc[3]: exception
@@ -66,6 +69,7 @@ org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-21
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-19 14:11:56 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+<<<<<<< HEAD
 2023-10-19 14:41:26 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "MSSN" not found; SQL statement:
 insert into manager (m_address,m_date_birth,m_email,m_first_name,m_gender,m_last_name,m_phone,mssn,m_personid) values (?,?,?,?,?,?,?,?,default) [42122-214]
@@ -1375,3 +1379,5 @@ alter table if exists sales_rep alter column m_personid set data type varchar(25
 	at com.coolfunclub.dms.DmsApplication.main(DmsApplication.java:10)
 =======
 >>>>>>> 6242416 (Adjusting inheritance)
+=======
+>>>>>>> 193f0ca (Fixed the Customer table inher)

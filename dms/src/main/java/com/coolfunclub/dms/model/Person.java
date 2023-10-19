@@ -7,7 +7,6 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Person {
-
  /* @Id
 
  /* @Id
