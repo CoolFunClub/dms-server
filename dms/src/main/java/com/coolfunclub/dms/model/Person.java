@@ -1,21 +1,11 @@
 package com.coolfunclub.dms.model;
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.Inheritance;
-//import jakarta.persistence.InheritanceType;
-//import jakarta.persistence.PrePersist;
-//@Inheritance(strategy = InheritanceType.JOINED)
-//@Entity
-//import javax.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Person {
+public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long  mPersonID; //PK
@@ -24,25 +14,14 @@ public class Person {
     protected String mLastName;
     protected String mDateBirth;
     protected String mGender;
-    protected String mPhone;
+    protected int mPhone;
     protected String mEmail;
     protected String mAddress;
 
-    public Person(String firstName, String lastName,String dob, String gender, String phone, String email, String address){
-        //this.mPersonID = personID;
-        this.mFirstName = firstName;
-        this.mLastName = lastName;
-        this.mDateBirth = dob;
-        this.mGender = gender;
-        this.mPhone = phone;
-        this.mEmail = email;
-        this.mAddress = address;
-    }
 
-/*  // Set methods
-       public void setSSN(String personID) {
-        this.mPersonID = personID;
-    }   */
+    public void setId(Long mPersonID){
+        this.mPersonID = mPersonID;
+    }
 
     public void setFirstName(String mFirstName) {
         this.mFirstName = mFirstName;
@@ -60,7 +39,7 @@ public class Person {
         this.mGender = mGender;
     }
 
-    public void setPhone(String mPhone) {
+    public void setPhone(int mPhone) {
         this.mPhone = mPhone;
     }
 
@@ -94,7 +73,7 @@ public class Person {
         return mGender;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return mPhone;
     }
 

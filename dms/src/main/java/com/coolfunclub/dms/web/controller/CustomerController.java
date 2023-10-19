@@ -11,38 +11,42 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.coolfunclub.dms.model.Customer;
-import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.service.CustomerService;
-import com.coolfunclub.dms.service.ManagerService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("cfc/")
 public class CustomerController {
 
-    @Autowired
-    private CustomerService customerService;
+  @Autowired
+  CustomerService customerService;
 
-    @GetMapping(value = "/customers")
-    public List<Customer> getCustomers(){
-        return customerService.getAllCustomers();
-    }
+  @PostMapping(value = "addcustomers")
+  public void addCustomer(@RequestBody Customer customer ){
+     customerService.addCustomer(customer);
+}
 
-    @GetMapping(value = "/customers/{id}")
-    public Customer getCustomerById(@PathVariable("id") Long id ){
-        return customerService.getCustomerById(id);
-    }
+@GetMapping(value = "customers")
+public List<Customer> getCustomers(){
+    return customerService.getAllCustomers();
+}
 
-    @PostMapping(value = "/customers")
-    public void createCustomer(@RequestBody Customer customer ){
-        customerService.createCustomer(customer);
-    }
+@GetMapping(value = "/customers/{id}")
+public Customer getCustomerById(@PathVariable("id") Long id ){
+    return customerService.getCustomerById(id);
+}
 
-    @PutMapping(value = "/customers")
-    public void updateCustomer(@RequestBody Customer customer ){
-        customerService.updateCustomer(customer);
-    }
+@DeleteMapping(value = "/customers/{id}")
+public void deleteCustomerById(@PathVariable("id") Long id ){
+    customerService.deleteCustomer(id);
+}
 
+//----------Update Doesn't work
+@PutMapping(value = "customers")
+public void updateCustomer(@RequestBody Customer customer ){
+    customerService.updateCustomer(customer);
+}
 
 }
