@@ -5,31 +5,31 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.coolfunclub.dms.model.Customer;
-import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.CustomerRepository;
-
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class CustomerService {
 
-    private CustomerRepository customerRepository;
+    @Autowired
+    CustomerRepository customerRepository;
 
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    //Constructor
+    public CustomerService(){
+
     }
 
-     public List<Customer> getAllCustomers(){
+    public Customer addCustomer(Customer customer) {
+            return customerRepository.save(customer);
+    }
+
+    public List<Customer> getAllCustomers(){
         List<Customer> Customers = new LinkedList<>();
         customerRepository.findAll().forEach(Customers::add);
         return Customers;
     }
 
-        public Customer createCustomer(Customer customer) {
-            return customerRepository.save(customer);
-    }
 
     public void deleteCustomer(Long personID) {
         customerRepository.deleteById(personID);
@@ -68,3 +68,4 @@ public class CustomerService {
     }
 
 }
+

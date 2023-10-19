@@ -1,8 +1,11 @@
 package com.coolfunclub.dms.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
-import com.coolfunclub.dms.model.Manager;
+import org.springframework.stereotype.Repository;
 
-public interface ManagerRepository extends CrudRepository<Manager,Long>{
-    
+import com.coolfunclub.dms.model.Manager;
+@Repository
+public interface ManagerRepository extends JpaRepository<Manager,Long>{
+
 }

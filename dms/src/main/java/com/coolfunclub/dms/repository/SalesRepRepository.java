@@ -1,8 +1,11 @@
 package com.coolfunclub.dms.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
-import com.coolfunclub.dms.model.SalesRep;
+import org.springframework.stereotype.Repository;
 
-public interface SalesRepRepository  extends CrudRepository<SalesRep, Long>{
-    
+import com.coolfunclub.dms.model.SalesRep;
+@Repository
+public interface SalesRepRepository  extends JpaRepository<SalesRep, Long>{
+
 }
