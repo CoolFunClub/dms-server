@@ -1,0 +1,67 @@
+2023-10-18 17:11:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 17:21:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 17:33:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 17:33:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 17:35:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 17:36:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 18:12:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 18:17:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 18:17:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 18:25:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 18:49:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 18:49:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 19:06:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 19:07:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "dsvsdv" [22018-214]
+2023-10-18 19:07:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "dsvsdv" [22018-214]
+2023-10-18 19:25:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 19:26:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "dsvsdv" [22018-214]
+2023-10-18 19:26:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 19:27:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "dsvsdv" [22018-214]
+2023-10-18 19:30:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'dsvsdv' (CUSTOMER_COPY_3_0: ""M_PHONE"" INTEGER)"; SQL statement:
+INSERT INTO "PUBLIC"."CUSTOMER_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_DRIVER_LICENSEID", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE" FROM "PUBLIC"."CUSTOMER" [22018-214]
+2023-10-18 19:30:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "dsvsdv" [22018-214]
+2023-10-18 20:10:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 20:11:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-18 20:25:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-19 13:29:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-19 13:39:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-19 14:10:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-10-19 14:11:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
