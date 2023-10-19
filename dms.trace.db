@@ -57,6 +57,7 @@ org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-21
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-18 20:25:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+<<<<<<< HEAD
 2023-10-19 13:29:03 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-19 13:39:41 jdbc[3]: exception
@@ -1372,3 +1373,5 @@ alter table if exists sales_rep alter column m_personid set data type varchar(25
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
 	at com.coolfunclub.dms.DmsApplication.main(DmsApplication.java:10)
+=======
+>>>>>>> 6242416 (Adjusting inheritance)
