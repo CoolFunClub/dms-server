@@ -75,5 +75,12 @@ public class ManagerController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
+    //Note:
+    // Don't pass the PersonID with the JSON attriputes, but instead put it in the link path e.g. localhost:8080/cfc/managers/95
+    @PutMapping(value = "/managers/{id}")
+    public void updateManager(@PathVariable Long id, @RequestBody Manager manager){
+        manager.setId(id);
+        managerService.updateManager(manager);
+    }
 }
