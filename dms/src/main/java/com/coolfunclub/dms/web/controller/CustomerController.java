@@ -43,10 +43,11 @@ public void deleteCustomerById(@PathVariable("id") Long id ){
     customerService.deleteCustomer(id);
 }
 
-//----------Update Doesn't work
-@PutMapping(value = "customers")
-public void updateCustomer(@RequestBody Customer customer ){
+//Note:
+// Don't pass the PersonID with the JSON attriputes, but instead put it in the link path e.g. localhost:8080/cfc/customers/95
+@PutMapping(value = "/customers/{id}")
+public void updateCustomer(@PathVariable Long id, @RequestBody Customer customer){
+    customer.setId(id);
     customerService.updateCustomer(customer);
 }
-
 }

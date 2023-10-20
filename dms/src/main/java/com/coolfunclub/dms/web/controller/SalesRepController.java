@@ -14,36 +14,41 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("cfc/")
 public class SalesRepController {
 
     @Autowired
-    private SalesRepService salesRepService;
+    SalesRepService salesRepService;
 
-    @GetMapping(value = "/rep")
+    @PostMapping(value = "addrep")
+    public void addSalesRep(@RequestBody SalesRep salesRep ){
+        salesRepService.addSalesRep(salesRep);
+    }
+
+    @GetMapping(value = "rep")
     public List<SalesRep> getSalesReps(){
         return salesRepService.getAllSalesReps();
     }
+
     @GetMapping(value = "/rep/{id}")
     public SalesRep getSalesRep(@PathVariable("id") Long id ){
-        return salesRepService.getSalesRep(id);
-    }
-
-    @PostMapping(value = "/rep")
-    public void createSalesRep(@RequestBody SalesRep salesRep ){
-        salesRepService.addSalesRep(salesRep);
-    }
-    
-    @PutMapping(value = "/rep")
-    public void updateSalesRep(@RequestBody SalesRep salesRep ){
-        salesRepService.updateSalesRep(salesRep);
+        return salesRepService.getSalesRepById(id);
     }
 
     @DeleteMapping(value = "/rep/{id}")
-    public void deleteManager(@PathVariable("id") Long id ){
+    public void deleteManagerById(@PathVariable("id") Long id ){
         salesRepService.deleteSalesRep(id);
     }
-    
+
+    //Note:
+    // Don't pass the PersonID with the JSON attriputes, but instead put it in the link path e.g. localhost:8080/cfc/rep/95
+    @PutMapping(value = "/rep/{id}")
+    public void updateSalesRep(@PathVariable Long id, @RequestBody SalesRep salesRep ){
+        salesRep.setId(id);
+        salesRepService.updateSalesRep(salesRep);
+    }
 }
