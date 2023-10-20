@@ -15,8 +15,8 @@ public class Customer extends Person{
         return mDriverLicenseID;
     }
 
-    public void setDriverLicenseID(String driverLicenseID) {
-        this.mDriverLicenseID = driverLicenseID;
+    public void setDriverLicenseID(String mDriverLicenseID) {
+        this.mDriverLicenseID = mDriverLicenseID;
     }
 
 }

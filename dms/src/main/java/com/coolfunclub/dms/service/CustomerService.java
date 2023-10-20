@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.coolfunclub.dms.model.Customer;
 import com.coolfunclub.dms.repository.CustomerRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class CustomerService {
@@ -20,16 +19,15 @@ public class CustomerService {
 
     }
 
-    public Customer addCustomer(Customer customer) {
-            return customerRepository.save(customer);
+    public void addCustomer(Customer customer) {
+            customerRepository.save(customer);
     }
 
     public List<Customer> getAllCustomers(){
-        List<Customer> Customers = new LinkedList<>();
-        customerRepository.findAll().forEach(Customers::add);
-        return Customers;
+        List<Customer> customers = new LinkedList<>();
+        customerRepository.findAll().forEach(customers::add);
+        return customers;
     }
-
 
     public void deleteCustomer(Long personID) {
         customerRepository.deleteById(personID);
@@ -39,33 +37,8 @@ public class CustomerService {
         return customerRepository.findById(personID).orElse(null);
     }
 
-
-    public Customer updateCustomer(Customer updatedCustomer) {
-
-        Long personID = updatedCustomer.getpersonID();
-
-        // Retrieve the existing customer from the database
-        Customer existingCustomer = customerRepository.findById(personID).orElse(null);
-        if (existingCustomer != null) {
-            // Update common properties from the updatedCustomer
-            existingCustomer.setFirstName(updatedCustomer.getFirstName());
-            existingCustomer.setLastName(updatedCustomer.getLastName());
-            existingCustomer.setDateBirth(updatedCustomer.getDateBirth());
-            existingCustomer.setGender(updatedCustomer.getGender());
-            existingCustomer.setPhone(updatedCustomer.getPhone());
-            existingCustomer.setEmail(updatedCustomer.getEmail());
-            existingCustomer.setAddress(updatedCustomer.getAddress());
-
-            // Update customer-specific properties
-            existingCustomer.setDriverLicenseID(updatedCustomer.getDriverLicenseID());
-
-            // Save the updated customer entity
-            return customerRepository.save(existingCustomer);
-        } else {
-            // Handle the case where the customer is not found in the database
-            throw new EntityNotFoundException("Customer with ID " + personID + " not found.");
-        }
-    }
-
+    public void updateCustomer(Customer updatedCustomer) {
+            customerRepository.save(updatedCustomer);
+     }
 }
 
