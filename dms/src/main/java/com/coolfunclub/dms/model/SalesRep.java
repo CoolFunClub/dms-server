@@ -11,6 +11,9 @@ public class SalesRep extends Person {
     @Id
     @Column(name = "mSSN")
     private int mSSN;
+    @OneToOne
+    @JoinColumn(name = "account_id",referencedColumnName = "id")
+    private Account account;
 
     @OneToOne
     @JoinColumn(name = "account_id",referencedColumnName = "id")
