@@ -3,6 +3,7 @@ package com.coolfunclub.dms.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +26,8 @@ public class ManagerController {
     ManagerService managerService;
 
     @PostMapping(value = "addmanagers")
-    public void addManager(@RequestBody Manager manager ){
-        managerService.addManager(manager);
+    public ResponseEntity<String> addManager(@RequestBody Manager manager){
+        return managerService.addManager(manager);
     }
 
     @GetMapping(value = "managers")
@@ -34,21 +35,19 @@ public class ManagerController {
         return managerService.getAllManagers();
     }
 
-    @GetMapping(value = "/managers/{id}")
-    public Manager getManagerById(@PathVariable("id") Long id ){
-        return managerService.getManagerById(id);
+    @GetMapping(value = "/managers/{ssn}")
+    public Manager getManagerById(@PathVariable("ssn") int ssn ){
+        return managerService.getManagerById(ssn);
     }
 
-    @DeleteMapping(value = "/managers/{id}")
-    public void deleteManager(@PathVariable("id") Long id ){
-        managerService.deleteManager(id);
+    @DeleteMapping(value = "/managers/{ssn}")
+    public void deleteManager(@PathVariable("ssn") int ssn ){
+        managerService.deleteManager(ssn);
     }
 
-    //Note:
-    // Don't pass the PersonID with the JSON attriputes, but instead put it in the link path e.g. localhost:8080/cfc/managers/95
-    @PutMapping(value = "/managers/{id}")
-    public void updateManager(@PathVariable Long id, @RequestBody Manager manager){
-        manager.setId(id);
+    @PutMapping(value = "/managers/{ssn}")
+    public void updateManager(@PathVariable int ssn, @RequestBody Manager manager){
+        manager.setSSN(ssn);
         managerService.updateManager(manager);
     }
 }

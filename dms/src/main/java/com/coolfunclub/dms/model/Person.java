@@ -6,9 +6,10 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Person {
-    @Id
+
+ /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long  mPersonID; //PK
+    protected Long  mPersonID; //PK      */
 
     protected String mFirstName;
     protected String mLastName;
@@ -18,10 +19,10 @@ public abstract class Person {
     protected String mEmail;
     protected String mAddress;
 
-
+/*
     public void setId(Long mPersonID){
         this.mPersonID = mPersonID;
-    }
+    }   */
 
     public void setFirstName(String mFirstName) {
         this.mFirstName = mFirstName;
@@ -51,10 +52,10 @@ public abstract class Person {
         this.mAddress = mAddress;
     }
 
-    // Get methods
+ /*   // Get methods
     public Long getpersonID() {
         return mPersonID;
-    }
+    } */
 
     public String getFirstName() {
         return mFirstName;

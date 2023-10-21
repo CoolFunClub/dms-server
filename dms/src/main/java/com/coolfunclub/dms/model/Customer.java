@@ -1,6 +1,7 @@
 package com.coolfunclub.dms.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
@@ -8,6 +9,7 @@ import jakarta.persistence.Table;
 @Table(name= "customers")
 public class Customer extends Person{
 
+    @Id
     private String mDriverLicenseID;
 
     // Getters and setters for driver license ID

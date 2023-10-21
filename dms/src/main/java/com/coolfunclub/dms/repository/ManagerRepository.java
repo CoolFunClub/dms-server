@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.coolfunclub.dms.model.Manager;
 @Repository
-public interface ManagerRepository extends JpaRepository<Manager,Long>{
+public interface ManagerRepository extends JpaRepository<Manager,Integer>{
 
 }
