@@ -1,5 +1,6 @@
 package com.coolfunclub.dms.model;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
@@ -8,14 +9,21 @@ import jakarta.persistence.MappedSuperclass;
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "mPersonID")
     protected Long  mPersonID; //PK
-
+    @Column(name = "mFirstName")
     protected String mFirstName;
+    @Column(name = "mLastName")
     protected String mLastName;
+    @Column(name = "mDateBirth")
     protected String mDateBirth;
+    @Column(name = "mGender")
     protected String mGender;
+    @Column(name = "mPhone")
     protected int mPhone;
+    @Column(name = "mEmail")
     protected String mEmail;
+    @Column(name = "mAddress")
     protected String mAddress;
 
 
