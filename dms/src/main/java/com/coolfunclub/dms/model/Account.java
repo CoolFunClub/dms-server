@@ -2,6 +2,8 @@ package com.coolfunclub.dms.model;
 
 import java.util.Date;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
@@ -14,7 +16,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor  
-// @Entity
+@Entity
 @Setter
 @Getter
 public class Account {
@@ -23,8 +25,9 @@ public class Account {
     private Date mCloseDate;
     private String mStatus;
     
-    // @Id
-    // @OneToOne
-    // @JoinColumn(name = "mPersonID")
-    // private Person person;  
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+      
 }
