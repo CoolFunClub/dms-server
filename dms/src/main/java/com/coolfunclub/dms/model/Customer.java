@@ -25,4 +25,12 @@ public class Customer extends Person{
         this.mDriverLicenseID = mDriverLicenseID;
     }
 
+    public void setAccount(Account account){
+        this.account=account;
+    }
+    public Account getAccount(){
+        return account;
+    }
+
+
 }

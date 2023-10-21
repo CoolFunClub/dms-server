@@ -23,4 +23,10 @@ public class Manager extends Person {
     public void setSSN(int mSSN){
         this.mSSN = mSSN;
     }
+    public void setAccount(Account account){
+        this.account=account;
+    }
+    public Account getAccount(){
+        return account;
+    }
 }
