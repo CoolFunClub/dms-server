@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import './Menu.css';
 import logo from './assets/logo-placeholder.png';
 
@@ -45,7 +45,7 @@ function MainContent() {
 }
 
 function WelcomePage({ page }) {
-  const pageClass = page == 0 ? '' : 'Hidden';
+  const pageClass = page === 0 ? '' : 'Hidden';
 
   return (
     <div className={pageClass}>
