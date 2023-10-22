@@ -13,6 +13,7 @@ public abstract class Person {
  /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long  mPersonID; //PK      */
+    //@Id
     @Column(name = "mPersonID")
     protected Long  mPersonID; //PK
     @Column(name = "mFirstName")
