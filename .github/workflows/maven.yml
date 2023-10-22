@@ -29,6 +29,7 @@ jobs:
     - name: Update deployment branch
       run: |
         git fetch
+        git rebase
         git checkout deploy2
         git rebase main
     - name: Set bot email
