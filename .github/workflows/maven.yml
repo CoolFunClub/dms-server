@@ -24,7 +24,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Fast forward only
+    - name: Set bot email
+      run: git config --global user.email "kaylale@cpp.edu"
+    - name: Set bot name
+      run: git config --global user.name "Otto"
+    - name: Rebase over new changes
       run: git config pull.rebase true
     - name: Sync with main
       run: git pull origin main
