@@ -32,14 +32,10 @@ jobs:
       run: git config pull.rebase true
     - name: Sync with main
       run: git pull origin main
-    - name: Change into correct directory
-      run: cd ./dms
-    - name: Debug mvn
-      run: ls
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn clean install -f ./dms/pom.xml
     - name: Move jar out of target
-      run: mv ./target/dms-0.0.1-SNAPSHOT.jar ./
+      run: mv ./dms/target/dms-0.0.1-SNAPSHOT.jar ./dms
     - name: Add new .jar to commit
       run: git add .
     - name: Commit change to branch
