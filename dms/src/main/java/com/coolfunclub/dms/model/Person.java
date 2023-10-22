@@ -7,11 +7,17 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Person {
-    @Id
+
+ /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
     @Column(name = "mPersonID")
     protected Long  mPersonID; //PK
     @Column(name = "mFirstName")
+=======
+    protected Long  mPersonID; //PK      */
+
+>>>>>>> c63527f (- Adjusting Inheritance by deleting the PersonID PK and assign driverLic, SSN, SSN to be the PK of the child classes- Customer, Manager, SalesRep respectively)
     protected String mFirstName;
     @Column(name = "mLastName")
     protected String mLastName;
@@ -26,10 +32,10 @@ public abstract class Person {
     @Column(name = "mAddress")
     protected String mAddress;
 
-
+/*
     public void setId(Long mPersonID){
         this.mPersonID = mPersonID;
-    }
+    }   */
 
     public void setFirstName(String mFirstName) {
         this.mFirstName = mFirstName;
@@ -59,10 +65,10 @@ public abstract class Person {
         this.mAddress = mAddress;
     }
 
-    // Get methods
+ /*   // Get methods
     public Long getpersonID() {
         return mPersonID;
-    }
+    } */
 
     public String getFirstName() {
         return mFirstName;

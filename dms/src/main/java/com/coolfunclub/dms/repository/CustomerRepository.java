@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.coolfunclub.dms.model.Customer;
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer,Long> {
+public interface CustomerRepository extends JpaRepository<Customer,String> {
+
+// boolean exsitsByDriverLic(String driverLicenseID);
 
 }
