@@ -7,8 +7,6 @@ name: Sync and create new .jar for deployment
 on:
   push:
     branches: [ "deploy2" ]
-  pull_request:
-    branches: [ "main", "deploy2" ]
 
 jobs:
   build:
