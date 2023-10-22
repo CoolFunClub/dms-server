@@ -24,6 +24,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Fast forward only
+      run: git config pull.ff only
     - name: Sync with main
       run: git pull origin main
     - name: Change into correct directory
