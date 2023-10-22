@@ -26,14 +26,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Update deployment branch
+      run: |
+        git checkout main
+        git fetch
+        git rebase
+        git checkout deploy2
+        git rebase main
     - name: Set bot email
       run: git config --global user.email "kaylale@cpp.edu"
     - name: Set bot name
       run: git config --global user.name "Otto"
-    - name: Get up to date code
-      run: git fetch
-    - name: Sync with main
-      run: git rebase main
     - name: Build with Maven
       run: mvn clean install -f ./dms/pom.xml
     - name: Move jar out of target
