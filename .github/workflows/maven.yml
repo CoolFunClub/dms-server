@@ -33,7 +33,7 @@ jobs:
     - name: Sync with main
       run: git pull origin main
     - name: Change into correct directory
-      run: cd dms
+      run: cd ./dms
     - name: Debug mvn
       run: ls
     - name: Build with Maven
