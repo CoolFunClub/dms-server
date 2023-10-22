@@ -33,7 +33,7 @@ jobs:
     - name: Get up to date code
       run: git fetch
     - name: Sync with main
-      run: git rebase origin main
+      run: git rebase main
     - name: Build with Maven
       run: mvn clean install -f ./dms/pom.xml
     - name: Move jar out of target
