@@ -1,0 +1,40 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+
+name: Sync and create new .jar for deployment
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        ref: deploy2
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Sync with main
+      run: git pull origin main
+    - name: Change into correct directory
+      run: cd dms
+    - name: Build with Maven
+      run: mvn clean install
+    - name: Move jar out of target
+      run: mv ./target/dms-0.0.1-SNAPSHOT.jar ./
+    - name: Add new .jar to commit
+      run: git add .
+    - name: Commit change to branch
+      run: git commit -m "[AUTO] new .jar"
+    - name: Push changes to origin
+      run: git push
