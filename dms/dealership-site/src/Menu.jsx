@@ -1,7 +1,7 @@
 import React, { useState, useContext, createContext } from 'react';
 import './Menu.css';
 import logo from './assets/logo.png';
-import { ViewCars } from './Pages'
+import { WelcomePage, ViewCars } from './Pages'
 
 const PageContext = createContext(1);
 
@@ -14,7 +14,7 @@ function LogoBar() {
 }
 
 function NavBarAndContent() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   return (
     <div className="NavBarAndContent">
@@ -48,6 +48,7 @@ function MainContent() {
 
   return (
     <div>
+      <WelcomePage page={page} />
       <ViewCars page={page} />
     </div>
   );

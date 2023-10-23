@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import welcomeCar from './assets/welcome-car.jpg';
 import redCar from './assets/car-placeholder-red.jpeg';
 import { WELCOME, VIEW_CARS} from './PageNumbers.js';
 import './Pages.css';
 
-export function Welcome({ page }) {
+export function WelcomePage({ page }) {
   const pageClass = page === WELCOME ? '' : 'Hidden';
+
+  return (
+    <div className={pageClass}>
+      <div className="WelcomePage">
+        Welcome!
+      </div>
+      <img class="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
+    </div>
+  )
 }
 
 export function ViewCars({ page }) {
