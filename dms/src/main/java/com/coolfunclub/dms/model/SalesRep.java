@@ -15,10 +15,6 @@ public class SalesRep extends Person {
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
 
-    @OneToOne
-    @JoinColumn(name = "account_id",referencedColumnName = "id")
-    private Account account;
-
     //Getters and Setters
     public int getSSN(){
         return mSSN;
