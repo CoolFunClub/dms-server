@@ -2,10 +2,14 @@
   background-color: #0c336e;
   color: white;
   margin-left: 4vw;
-  margin-top: 4vh;
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.CarPic {
+  margin-left: 4vw;
+  margin-top: 4vh;
 }
 
 .InfoCell {
