@@ -22,9 +22,9 @@ import com.coolfunclub.dms.repository.CustomerRepository;
 import com.coolfunclub.dms.service.CustomerService;
 import com.coolfunclub.dtos.AccountDTO;
 
-@CrossOrigin(origins = {"http://localhost:3000", "http://18.117.76.202:3000"})
 @RestController
 @RequestMapping("cfc/")
+@CrossOrigin(origins = {"http://localhost:3000", "http://18.117.76.202:3000"})
 public class CustomerController {
 
   @Autowired

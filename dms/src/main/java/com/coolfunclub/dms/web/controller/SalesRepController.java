@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@CrossOrigin(origins = {"http://localhost:3000", "http://18.117.76.202:3000"})
 @RestController
 @RequestMapping("cfc/")
+@CrossOrigin(origins = {"http://localhost:3000", "http://18.117.76.202:3000"})
 public class SalesRepController {
 
     @Autowired
