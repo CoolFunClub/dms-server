@@ -22,7 +22,7 @@ import com.coolfunclub.dms.service.CarService;
 
 import jakarta.persistence.EntityExistsException;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://18.117.76.202:3000"})
 @RestController
 public class CarController {
 
