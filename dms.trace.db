@@ -57,13 +57,6 @@ org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-21
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-18 20:25:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 193f0ca (Fixed the Customer table inher)
-=======
->>>>>>> 4206287117f1c9c07c7cad87a38c7df0cba2b775
 2023-10-19 13:29:03 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-19 13:39:41 jdbc[3]: exception
@@ -72,13 +65,6 @@ org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-21
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-19 14:11:56 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 228c5a6 (Fixed all Inheritance errors Manager, and SalesRep - Model,Repo,Service,Controller)
-=======
->>>>>>> 4206287117f1c9c07c7cad87a38c7df0cba2b775
 2023-10-19 14:41:26 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "MSSN" not found; SQL statement:
 insert into manager (m_address,m_date_birth,m_email,m_first_name,m_gender,m_last_name,m_phone,mssn,m_personid) values (?,?,?,?,?,?,?,?,default) [42122-214]
@@ -1185,8 +1171,6 @@ org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-21
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
 2023-10-19 22:02:44 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-<<<<<<< HEAD
-<<<<<<< HEAD
 2023-10-21 03:35:54 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'Y2345098' (CUSTOMERS_COPY_3_0: ""M_DRIVER_LICENSEID"" BIGINT)"; SQL statement:
 INSERT INTO "PUBLIC"."CUSTOMERS_COPY_3_0"("M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE", "M_DRIVER_LICENSEID") OVERRIDING SYSTEM VALUE SELECT "M_PERSONID", "M_ADDRESS", "M_DATE_BIRTH", "M_EMAIL", "M_FIRST_NAME", "M_GENDER", "M_LAST_NAME", "M_PHONE", "M_DRIVER_LICENSEID" FROM "PUBLIC"."CUSTOMERS" [22018-214]
@@ -1388,11 +1372,3 @@ alter table if exists sales_rep alter column m_personid set data type varchar(25
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
 	at com.coolfunclub.dms.DmsApplication.main(DmsApplication.java:10)
-=======
->>>>>>> 6242416 (Adjusting inheritance)
-=======
->>>>>>> 193f0ca (Fixed the Customer table inher)
-=======
->>>>>>> 228c5a6 (Fixed all Inheritance errors Manager, and SalesRep - Model,Repo,Service,Controller)
-=======
->>>>>>> 4206287117f1c9c07c7cad87a38c7df0cba2b775
