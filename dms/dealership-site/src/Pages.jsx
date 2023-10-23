@@ -23,7 +23,12 @@ export function ViewCars({ page }) {
 
   useEffect(() => {
     const getMsg = async () => {
-      const data = await fetch("http://localhost:8080/cars");
+      const data = await fetch("http://localhost:8080/cars", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const msgJson = await data.json();
       console.log(msgJson);
       setCarList(msgJson);
