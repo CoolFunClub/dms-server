@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CoolFunClub's DMS",
+  "name": "CoolFunClub's Dealership Management Site for CS 4800-01",
   "icons": [
     {
       "src": "favicon.ico",
