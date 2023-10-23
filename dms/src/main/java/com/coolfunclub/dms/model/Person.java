@@ -14,8 +14,6 @@ public abstract class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long  mPersonID; //PK      */
     //@Id
-    @Column(name = "mPersonID")
-    protected Long  mPersonID; //PK
     @Column(name = "mFirstName")
     protected String mFirstName;
     @Column(name = "mLastName")

@@ -12,6 +12,7 @@ import jakarta.persistence.Table;
 @Table(name= "customers")
 public class Customer extends Person{
 
+    @Column(name = "mDriverLicenseID")
     @Id
     private String mDriverLicenseID;
     @OneToOne
