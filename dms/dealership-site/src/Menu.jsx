@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import './Menu.css';
-import logo from './assets/logo-placeholder.png';
+import logo from './assets/logo.png';
+import { ViewCars } from './Pages'
 
 const PageContext = createContext(1);
 
@@ -27,6 +28,14 @@ function NavBarAndContent() {
           >
             Welcome page
           </button>
+          <button
+            className="NavButton"
+            onClick={() => {
+              setPage(1);
+            }}
+          >
+            View all cars
+          </button>
         </div>
         <MainContent />
       </PageContext.Provider>
@@ -39,34 +48,12 @@ function MainContent() {
 
   return (
     <div>
-      <WelcomePage page={page} />
-    </div>
-  );
-}
-
-function WelcomePage({ page }) {
-  const pageClass = page == 0 ? '' : 'Hidden';
-
-  return (
-    <div className={pageClass}>
-      <p>Welcome!</p>
+      <ViewCars page={page} />
     </div>
   );
 }
 
 function App() {
-  // const [msg, setMsg] = useState('');
-
-  // useEffect(() => {
-  //   const getMsg = async () => {
-  //     const data = await fetch("http://localhost:8080/cars");
-  //     const msgJson = await data.json();
-  //     console.log(msgJson);
-  //     setMsg(msgJson[0].vin);
-  //   }
-  //   getMsg();
-  // }, []);
-
   return (
     <div>
       <LogoBar />
