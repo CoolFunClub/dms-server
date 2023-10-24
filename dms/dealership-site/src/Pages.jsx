@@ -23,7 +23,7 @@ export function ViewCars({ page }) {
 
   useEffect(() => {
     const getMsg = async () => {
-      const data = await fetch("http://localhost:8080/cars", {
+      const data = await fetch("http://18.117.76.202:3000/api/cars", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
