@@ -1,9 +1,12 @@
 HELP.md
-target/
-nohup.out
 !.mvn/wrapper/maven-wrapper.jar
+target/
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+### System files ###
+.DS_Store
+nohup.out
 
 ### STS ###
 .apt_generated
@@ -38,3 +41,4 @@ node_modules/
 
 ### Apache Derby ###
 derby.log
+dms.trace.db
