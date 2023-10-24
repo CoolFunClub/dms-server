@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("cfc/")
-@CrossOrigin(origins = {"http://localhost:3000", "http://18.117.76.202:3000"})
 public class SalesRepController {
 
     @Autowired
