@@ -22,11 +22,7 @@ public class DmsApplication {
         	CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
 
-		List<String> allowedOrigins = new ArrayList<>();
-		allowedOrigins.add("http://localhost:3000");
-		allowedOrigins.add("http://18.117.76.202:3000");
-        	config.setAllowedOrigins(allowedOrigins);
-
+		config.addAllowedOrigin("*");
         	config.addAllowedMethod("*");
         	config.addAllowedHeader("*");
         	source.registerCorsConfiguration("/**", config);
