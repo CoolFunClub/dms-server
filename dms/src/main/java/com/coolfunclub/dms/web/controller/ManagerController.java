@@ -50,4 +50,26 @@ public class ManagerController {
         manager.setSSN(ssn);
         managerService.updateManager(manager);
     }
+
+    @PostMapping("manager/{ssn}/associate-account")
+    public ResponseEntity<Manager> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+        System.out.println(accountDto.toString());
+        try {
+            // Transform DTO to Entity
+            Account account = new Account();
+            account.setCloseDate(accountDto.getCloseDate());
+            account.setOpenDate(accountDto.getOpenDate());
+            account.setStatus(accountDto.getStatus());
+
+            // Call the service to perform the association
+            Manager updatedManager = managerService.associateAccountToManager(ssn, account);
+
+            return new ResponseEntity<>(updatedManager, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

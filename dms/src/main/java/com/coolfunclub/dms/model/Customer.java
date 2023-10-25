@@ -6,14 +6,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.ToString;
 
-
+@ToString
 @Entity
 @Table(name= "customers")
 public class Customer extends Person{
 
     @Column(name = "mDriverLicenseID")
     @Id
+    @Column (name="mDriverLicenseID")
     private String mDriverLicenseID;
     @OneToOne
     @JoinColumn(name = "account_id",referencedColumnName = "id")
