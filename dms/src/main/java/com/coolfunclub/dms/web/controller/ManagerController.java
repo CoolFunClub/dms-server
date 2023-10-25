@@ -3,6 +3,7 @@ package com.coolfunclub.dms.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.coolfunclub.dms.model.Account;
+import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.service.ManagerService;
+import com.coolfunclub.dtos.AccountDTO;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -50,4 +54,26 @@ public class ManagerController {
         manager.setSSN(ssn);
         managerService.updateManager(manager);
     }
+
+    @PostMapping("manager/{ssn}/associate-account")
+    public ResponseEntity<Manager> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+        System.out.println(accountDto.toString());
+        try {
+            // Transform DTO to Entity
+            Account account = new Account();
+            account.setCloseDate(accountDto.getCloseDate());
+            account.setOpenDate(accountDto.getOpenDate());
+            account.setStatus(accountDto.getStatus());
+
+            // Call the service to perform the association
+            Manager updatedManager = managerService.associateAccountToManager(ssn, account);
+
+            return new ResponseEntity<>(updatedManager, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
 }

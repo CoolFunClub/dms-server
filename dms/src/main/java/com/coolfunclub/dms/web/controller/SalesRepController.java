@@ -1,11 +1,14 @@
 package com.coolfunclub.dms.web.controller;
 
+import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.SalesRep;
 import com.coolfunclub.dms.service.SalesRepService;
+import com.coolfunclub.dtos.AccountDTO;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,18 +22,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("cfc/")
 public class SalesRepController {
 
     @Autowired
     SalesRepService salesRepService;
 
-    @PostMapping(value = "addrep")
+    @PostMapping(value = "/rep")
     public ResponseEntity<String> addSalesRep(@RequestBody SalesRep salesRep){
         return salesRepService.addSalesRep(salesRep);
     }
 
-    @GetMapping(value = "rep")
+    @GetMapping(value = "/rep")
     public List<SalesRep> getSalesReps(){
         return salesRepService.getAllSalesReps();
     }
@@ -51,4 +53,29 @@ public class SalesRepController {
         //salesRep.setId(id);
         salesRepService.updateSalesRep(salesRep);
     }
+    @PostMapping("rep/{ssn}/associate-account")
+    public ResponseEntity<SalesRep> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+        System.out.println(accountDto.toString());
+        try {
+            // Transform DTO to Entity
+            Account account = new Account();
+            account.setCloseDate(accountDto.getCloseDate());
+            account.setOpenDate(accountDto.getOpenDate());
+            account.setStatus(accountDto.getStatus());
+
+            // Call the service to perform the association
+            SalesRep updatedSalesRep = salesRepService.associateAccountToSalesRep(ssn, account);
+
+            return new ResponseEntity<>(updatedSalesRep, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
+
+
 }

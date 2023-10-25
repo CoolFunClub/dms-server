@@ -12,7 +12,7 @@ public class SalesRep extends Person {
     @Column(name = "mSSN")
     private int mSSN;
 
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
 

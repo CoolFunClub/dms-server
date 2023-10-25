@@ -7,14 +7,20 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.SalesRep;
-import com.coolfunclub.dms.repository.SalesRepository;
+import com.coolfunclub.dms.repository.SalesRepRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class SalesRepService {
 
     @Autowired
-    SalesRepository salesRepository;
+    SalesRepRepository salesRepRepository;
+    @Autowired 
+    AccountService accountService;
 
     //Constructor
     public SalesRepService(){
@@ -22,32 +28,38 @@ public class SalesRepService {
     }
 
     public ResponseEntity<String> addSalesRep(SalesRep salesRep){
-        Optional <SalesRep> existingSalesRep = salesRepository.findById(salesRep.getSSN());
+        Optional <SalesRep> existingSalesRep = salesRepRepository.findById(salesRep.getSSN());
         if (existingSalesRep.isPresent()){
             return ResponseEntity.badRequest().body("SalesRep already exists with the provided SSN.");
         } else{
 
-         salesRepository.save(salesRep);
+         salesRepRepository.save(salesRep);
          return ResponseEntity.ok("SalesRep added successfully");
         }
     }
 
     public List<SalesRep> getAllSalesReps(){
         List<SalesRep> salesReps = new LinkedList<>();
-        salesRepository.findAll().forEach(salesReps::add);
+        salesRepRepository.findAll().forEach(salesReps::add);
         return salesReps;
     }
 
     public void deleteSalesRep(int ssn){
-            salesRepository.deleteById(ssn);
+            salesRepRepository.deleteById(ssn);
     }
 
     public SalesRep getSalesRepById(int ssn){
-        return salesRepository.findById(ssn).orElse(null);
+        return salesRepRepository.findById(ssn).orElse(null);
     }
 
 
     public void updateSalesRep(SalesRep newSalesRep){
-        salesRepository.save(newSalesRep);
+        salesRepRepository.save(newSalesRep);
+    }
+    public SalesRep associateAccountToSalesRep(int ssn, Account account) {
+        System.out.println(account.toString());
+        SalesRep salesRep = salesRepRepository.findById(ssn).orElseThrow(() -> new EntityNotFoundException("SalesRep not found"));
+        salesRep.setAccount(accountService.addAccount(account));
+        return salesRepRepository.save(salesRep);
     }
 }
