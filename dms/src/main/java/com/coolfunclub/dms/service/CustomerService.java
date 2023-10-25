@@ -14,7 +14,8 @@ import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.CustomerRepository;
 
 import jakarta.persistence.EntityNotFoundException;
-
+import lombok.ToString;
+@ToString
 @Service
 public class CustomerService {
 

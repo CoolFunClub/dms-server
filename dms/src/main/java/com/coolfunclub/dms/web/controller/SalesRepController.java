@@ -53,7 +53,7 @@ public class SalesRepController {
         //salesRep.setId(id);
         salesRepService.updateSalesRep(salesRep);
     }
-    @PostMapping("/{ssn}/associate-account")
+    @PostMapping("rep/{ssn}/associate-account")
     public ResponseEntity<SalesRep> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
         System.out.println(accountDto.toString());
         try {

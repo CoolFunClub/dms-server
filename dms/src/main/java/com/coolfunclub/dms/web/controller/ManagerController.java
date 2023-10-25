@@ -55,7 +55,7 @@ public class ManagerController {
         managerService.updateManager(manager);
     }
 
-    @PostMapping("/{ssn}/associate-account")
+    @PostMapping("manager/{ssn}/associate-account")
     public ResponseEntity<Manager> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
         System.out.println(accountDto.toString());
         try {

@@ -33,6 +33,7 @@ public class CustomerController {
 
   @PostMapping(value = "addcustomers")
   public ResponseEntity<String> addCustomer(@RequestBody Customer customer ){
+    System.out.println(customer.toString());
     return customerService.addCustomer(customer);
 }
 
@@ -57,7 +58,7 @@ public void updateCustomer(@PathVariable String driverLic, @RequestBody Customer
     customerService.updateCustomer(customer);
 }
 
-@PostMapping("/{dl}/associate-account")
+@PostMapping("customer/{dl}/associate-account")
 public ResponseEntity<Customer> associateAccount(@PathVariable String dl, @RequestBody AccountDTO accountDto) {
     System.out.println(accountDto.toString());
     try {
