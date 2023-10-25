@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Customer;
 import com.coolfunclub.dms.repository.CustomerRepository;
 
@@ -18,6 +20,10 @@ public class CustomerService {
 
     @Autowired
     CustomerRepository customerRepository;
+
+
+    @Autowired
+    AccountService accountService;
 
     //Constructor
     public CustomerService(){
@@ -52,5 +58,11 @@ public class CustomerService {
             customerRepository.save(updatedCustomer);
      }
 
+     public Customer associateAccountToCustomer(String dl, Account account) {
+        System.out.println(account.toString());
+        Customer customer = customerRepository.findById(dl).orElseThrow(() -> new EntityNotFoundException("Customer not found"));
+        customer.setAccount(accountService.addAccount(account));
+        return customerRepository.save(customer);
+    }
 }
 

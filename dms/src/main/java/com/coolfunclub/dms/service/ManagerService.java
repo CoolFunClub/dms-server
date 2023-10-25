@@ -7,14 +7,20 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.ManagerRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ManagerService {
 
     @Autowired
     ManagerRepository managerRepository;
+    @Autowired
+    AccountService accountService;
 
     //Constructor
     public ManagerService(){
@@ -46,5 +52,13 @@ public class ManagerService {
 
     public void updateManager(Manager newManager){
         managerRepository.save(newManager);
+    }
+
+
+    public Manager associateAccountToManager(int ssn, Account account) {
+        System.out.println(account.toString());
+        Manager manager = managerRepository.findById(ssn).orElseThrow(() -> new EntityNotFoundException("Manager not found"));
+        manager.setAccount(accountService.addAccount(account));
+        return managerRepository.save(manager);
     }
 }

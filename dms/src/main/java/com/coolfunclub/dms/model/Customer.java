@@ -13,7 +13,6 @@ import lombok.ToString;
 @Table(name= "customers")
 public class Customer extends Person{
 
-    @Column(name = "mDriverLicenseID")
     @Id
     @Column (name="mDriverLicenseID")
     private String mDriverLicenseID;
