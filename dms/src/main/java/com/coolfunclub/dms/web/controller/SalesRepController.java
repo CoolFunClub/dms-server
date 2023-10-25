@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-@RequestMapping("cfc/")
 public class SalesRepController {
 
     @Autowired
@@ -30,6 +29,11 @@ public class SalesRepController {
     @PostMapping(value = "/rep")
     public ResponseEntity<String> addSalesRep(@RequestBody SalesRep salesRep){
         return salesRepService.addSalesRep(salesRep);
+    }
+
+    @GetMapping(value = "/rep")
+    public List<SalesRep> getSalesReps(){
+        return salesRepService.getAllSalesReps();
     }
 
     @GetMapping(value = "/rep/{ssn}")

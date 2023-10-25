@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Customer;
+import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.CustomerRepository;
+
 import jakarta.persistence.EntityNotFoundException;
 import lombok.ToString;
 @ToString
@@ -64,4 +66,3 @@ public class CustomerService {
     }
 
 }
-

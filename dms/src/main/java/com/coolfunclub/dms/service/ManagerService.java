@@ -13,6 +13,8 @@ import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.model.SalesRep;
 import com.coolfunclub.dms.repository.ManagerRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class ManagerService {
 
