@@ -1,6 +1,28 @@
+a:link {
+  text-decoration: none;
+}
+
 .LogoBar {
   background-color: #0D1117;
   width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.LoginBtn {
+  background-color: #2062c6;
+  color: white;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 40px;
+}
+
+.LoginBtn:hover {
+  background-color: #417cd5;
 }
 
 .NavBarAndContent {
@@ -11,19 +33,23 @@
   background-color: #223148;
   color: white;
   width: 15vw;
+  min-width: 120px;
   height: 100vh;
 }
 
-.NavButton {
+.NavBtn {
   background-color: #223148;
   color: white;
+  text-wrap: nowrap;
   border: none;
   width: 15vw;
+  min-width: 120px;
   height: 5vh;
+  min-height: 25px;
   font-size: large;
 }
 
-.NavButton:hover {
+.NavBtn:hover {
   background-color: #324869;
 }
 

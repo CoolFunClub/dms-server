@@ -1,0 +1,15 @@
+.Header {
+  display: flex;
+  background-color: #0D1117;
+  width: 100%;
+  padding: 2vh;
+  color: white;
+  font-size: xx-large;
+  align-content: flex-start;
+}
+
+.ClickableLogo {
+  max-width: 50px;
+  max-height: 50px;
+  padding-right: 5px;
+}
