@@ -9,8 +9,12 @@ public class FullPurchase extends Purchase {
 
     private double totalPaid;
 
-    public FullPurchase(Date openDate, double tax, double registrationFee, double totalPaid) {
-        super(openDate, tax, registrationFee);
+    public FullPurchase(){
+
+    }
+
+    public FullPurchase(Date purDate, double tax, double registrationFee, double totalPaid) {
+        super(purDate, tax, registrationFee);
         this.totalPaid = totalPaid;
     }
 

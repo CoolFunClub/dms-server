@@ -15,8 +15,8 @@ public class Finance extends Purchase{
 
     }
 
-    public Finance(Date openDate,double tax,double registrationFee, double interestRate, double downPay, double term) {
-        super(openDate, tax, registrationFee);
+    public Finance(Date purDate,double tax,double registrationFee, double interestRate, double downPay, double term) {
+        super(purDate, tax, registrationFee);
         this.interestRate = interestRate;
         this.downPay = downPay;
         this.term = term;

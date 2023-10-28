@@ -30,7 +30,7 @@ public abstract class Purchase {
     @JoinColumn(name = "car_vin",referencedColumnName ="vin")
     private Car car;
 
-    private Date openDate;
+    private Date purDate;
     private double tax;
     private double registrationFee;
 
@@ -38,8 +38,8 @@ public abstract class Purchase {
 
     }
 
-   public Purchase(Date openDate, double tax, double registrationFee) {
-        this.openDate = openDate;
+   public Purchase(Date purDate, double tax, double registrationFee) {
+        this.purDate = purDate;
         this.tax = tax;
         this.registrationFee = registrationFee;
     }
@@ -68,12 +68,12 @@ public abstract class Purchase {
         this.car = car;
     }
 
-    public Date getOpenDate() {
-        return openDate;
+    public Date getPurDate() {
+        return purDate;
     }
 
-    public void setOpenDate(Date openDate) {
-        this.openDate = openDate;
+    public void setPurDate(Date purDate) {
+        this.purDate = purDate;
     }
 
     public double getTax() {
