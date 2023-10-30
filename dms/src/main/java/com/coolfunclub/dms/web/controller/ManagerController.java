@@ -22,57 +22,37 @@ import com.coolfunclub.dms.service.ManagerService;
 import com.coolfunclub.dtos.AccountDTO;
 
 @RestController
-@RequestMapping("cfc/")
 public class ManagerController {
 
     @Autowired
     ManagerService managerService;
 
-    @PostMapping(value = "addmanagers")
+    @PostMapping(value = "/manager")
     public ResponseEntity<String> addManager(@RequestBody Manager manager){
         return managerService.addManager(manager);
     }
 
-    @GetMapping(value = "managers")
+    @GetMapping(value = "/manager")
     public List<Manager> getManagers(){
         return managerService.getAllManagers();
     }
 
-    @GetMapping(value = "/managers/{ssn}")
+    @GetMapping(value = "/manager/{ssn}")
     public Manager getManagerById(@PathVariable("ssn") int ssn ){
         return managerService.getManagerById(ssn);
     }
 
-    @DeleteMapping(value = "/managers/{ssn}")
+    @DeleteMapping(value = "/manager/{ssn}")
     public void deleteManager(@PathVariable("ssn") int ssn ){
         managerService.deleteManager(ssn);
     }
 
-    @PutMapping(value = "/managers/{ssn}")
+    @PutMapping(value = "/manager/{ssn}")
     public void updateManager(@PathVariable int ssn, @RequestBody Manager manager){
         manager.setSSN(ssn);
         managerService.updateManager(manager);
     }
 
-    @PostMapping("manager/{ssn}/associate-account")
-    public ResponseEntity<Manager> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
-        System.out.println(accountDto.toString());
-        try {
-            // Transform DTO to Entity
-            Account account = new Account();
-            account.setCloseDate(accountDto.getCloseDate());
-            account.setOpenDate(accountDto.getOpenDate());
-            account.setStatus(accountDto.getStatus());
-
-            // Call the service to perform the association
-            Manager updatedManager = managerService.associateAccountToManager(ssn, account);
-
-            return new ResponseEntity<>(updatedManager, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            e.printStackTrace();
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+    
     
 }

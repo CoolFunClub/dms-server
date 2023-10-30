@@ -15,9 +15,7 @@ import lombok.ToString;
 @ToString
 public class AccountDTO {
     @NonNull
-    private Date openDate;
+    private String userName;
     @NonNull
-    private Date closeDate;
-    @NonNull
-    private String status;
+    private String pw;
 }
