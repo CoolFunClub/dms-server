@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.EntityAlreadyExistsException;
@@ -32,6 +33,9 @@ public class AccountService {
                 throw new EntityAlreadyExistsException("account with ID " + account.getId() + " already exists.");
             }
         }
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hasedPassword=passwordEncoder.encode(account.getPw());
+        account.setPw(hasedPassword);
         return accountRepository.save(account);
     }
     public Account getAccount(Long id){
