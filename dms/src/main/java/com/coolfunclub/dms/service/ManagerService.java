@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Manager;
+import com.coolfunclub.dms.model.SalesRep;
 import com.coolfunclub.dms.repository.ManagerRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -54,10 +55,9 @@ public class ManagerService {
         managerRepository.save(newManager);
     }
 
-
     public Manager associateAccountToManager(int ssn, Account account) {
         System.out.println(account.toString());
-        Manager manager = managerRepository.findById(ssn).orElseThrow(() -> new EntityNotFoundException("Manager not found"));
+        Manager manager = managerRepository.findById(ssn).orElseThrow(() -> new EntityNotFoundException("SalesRep not found"));
         manager.setAccount(accountService.addAccount(account));
         return managerRepository.save(manager);
     }

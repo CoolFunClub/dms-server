@@ -20,7 +20,6 @@ import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.service.ManagerService;
 import com.coolfunclub.dtos.AccountDTO;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("cfc/")
 public class ManagerController {

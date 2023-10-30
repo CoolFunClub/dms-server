@@ -3,6 +3,7 @@ package com.coolfunclub.dms.web.controller;
 import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.SalesRep;
 import com.coolfunclub.dms.service.SalesRepService;
+import com.coolfunclub.dtos.AccountDTO;
 
 import java.util.List;
 
@@ -28,12 +29,12 @@ public class SalesRepController {
     @Autowired
     SalesRepService salesRepService;
 
-    @PostMapping(value = "addrep")
+    @PostMapping(value = "/rep")
     public ResponseEntity<String> addSalesRep(@RequestBody SalesRep salesRep){
         return salesRepService.addSalesRep(salesRep);
     }
 
-    @GetMapping(value = "rep")
+    @GetMapping(value = "/rep")
     public List<SalesRep> getSalesReps(){
         return salesRepService.getAllSalesReps();
     }

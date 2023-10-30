@@ -18,6 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.ToString;
 
 @Builder
 @AllArgsConstructor
@@ -25,6 +26,7 @@ import lombok.ToString;
 @Entity
 @Setter
 @Getter
+@ToString
 @ToString
 public class Account {
     @Column(name = "openDate")

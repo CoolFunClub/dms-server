@@ -14,7 +14,7 @@ public class Manager extends Person {
     @Column(name = "mSSN")
     @Id
     private int mSSN;
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
 

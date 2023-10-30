@@ -7,7 +7,9 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.ToString;
+import lombok.ToString;
 
+@ToString
 @ToString
 @Entity
 @Table(name= "customers")
@@ -15,8 +17,9 @@ public class Customer extends Person{
 
     @Id
     @Column (name="mDriverLicenseID")
+    @Column (name="mDriverLicenseID")
     private String mDriverLicenseID;
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")
     private Account account;
 

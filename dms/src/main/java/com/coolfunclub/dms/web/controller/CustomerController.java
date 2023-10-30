@@ -14,15 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Customer;
+import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.CustomerRepository;
 import com.coolfunclub.dms.service.CustomerService;
 import com.coolfunclub.dtos.AccountDTO;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("cfc/")
 public class CustomerController {
@@ -69,9 +67,9 @@ public ResponseEntity<Customer> associateAccount(@PathVariable String dl, @Reque
         account.setStatus(accountDto.getStatus());
 
         // Call the service to perform the association
-        Customer updatedCustomer = customerService.associateAccountToCustomer(dl, account);
+        Customer updatedManager = customerService.associateAccountToCustomer(dl, account);
 
-        return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
+        return new ResponseEntity<>(updatedManager, HttpStatus.OK);
     } catch (Exception e) {
         System.out.println(e.toString());
         e.printStackTrace();
