@@ -27,7 +27,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-@ToString
 public class Account {
     @Column(name = "openDate")
     private Date openDate;
