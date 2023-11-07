@@ -3,6 +3,7 @@ package com.coolfunclub.dms.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,9 +33,9 @@ public class FinanceController {
         return financeService.getFinanceById(purID);
     }
 
-    @PostMapping(value = "finan")
-    public void addFinancePur(@RequestBody Finance finance){
-        financeService.addFinance(finance);
+    @PostMapping(value = "finan/{id}")
+    public ResponseEntity<String> addFinancePur(@RequestBody Finance finance, @PathVariable ("id") Long accountId){
+        return financeService.addFinance(finance, accountId);
     }
 
     @DeleteMapping(value = "finan/{id}")

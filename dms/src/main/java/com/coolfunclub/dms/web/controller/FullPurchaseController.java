@@ -3,6 +3,7 @@ package com.coolfunclub.dms.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ import com.coolfunclub.dms.service.FullPurchaseService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/cfc/purs")
+@RequestMapping("cfc/")
 public class FullPurchaseController {
 
     @Autowired
@@ -32,9 +33,9 @@ public class FullPurchaseController {
         return fullPurchaseService.getFullPurchaseById(purID);
     }
 
-    @PostMapping(value = "fullp")
-    public void addFullPurchase(@RequestBody FullPurchase fullPurchase){
-        fullPurchaseService.addFullPurchase(fullPurchase);
+    @PostMapping(value = "fullp/{id}")
+    public ResponseEntity<String> addFullPurchase(@RequestBody FullPurchase fullPurchase, @PathVariable ("id") Long accountId){
+        return fullPurchaseService.addFullPurchase(fullPurchase, accountId);
     }
 
     @DeleteMapping(value = "fullp/{id}")

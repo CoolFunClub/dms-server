@@ -1,6 +1,7 @@
 package com.coolfunclub.dms.model;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -11,6 +12,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 
@@ -29,6 +31,9 @@ public abstract class Purchase {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_vin",referencedColumnName ="vin")
     private Car car;
+
+    @OneToMany(mappedBy = "purchase", cascade = CascadeType.ALL)
+    private List<Payment> payments;
 
     private Date purDate;
     private double tax;
