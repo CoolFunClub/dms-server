@@ -23,7 +23,7 @@ public class Car {
     private String status;
     private double price;
 
-    public Car(String vin, String manufacturer, String model, int carYear, int mileage, String trim, String color, double price, String status) { 
+    public Car(String vin, String manufacturer, String model, int carYear, int mileage, String trim, String color, double price, String status) {
         this.vin = vin;
         this.manufacturer = manufacturer;
         this.model = model;

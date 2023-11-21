@@ -24,7 +24,7 @@ public class AccountService {
         accountRepository.findAll().forEach(accounts::add);
         return accounts;
     }
-    public Account addAccount(Account account){ 
+    public Account addAccount(Account account){
         System.out.println(account.toString());
         if(account.getId()!=null){
             Optional<Account> existingAccount = accountRepository.findById(account.getId());
@@ -42,9 +42,9 @@ public class AccountService {
     }
     public void updateAccount(Account newAccountData){
         //accountRepository.save(account);
-   
+
         Long id = newAccountData.getId(); // Assuming the VIN is what you're using to identify accounts
-        try { 
+        try {
             Account existingAccount = getAccount(id);
             existingAccount.setStatus(newAccountData.getStatus());
             existingAccount.setCloseDate(newAccountData.getCloseDate());
@@ -53,10 +53,10 @@ public class AccountService {
         }
         catch(NoSuchElementException e){
             return;
-        }    
+        }
     }
     public void deleteAccount(Long id){
-        try{ 
+        try{
             Account account= getAccount(id);
             if(account!=null){
                 accountRepository.delete(account);
@@ -64,9 +64,9 @@ public class AccountService {
         }catch (NoSuchElementException e){
             return;
         }
-        
+
     }
 
 
-    
+
 }

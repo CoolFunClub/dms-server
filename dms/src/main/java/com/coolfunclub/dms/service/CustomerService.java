@@ -9,9 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.coolfunclub.dms.model.Account;
+
+import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Customer;
 import com.coolfunclub.dms.model.Manager;
 import com.coolfunclub.dms.repository.CustomerRepository;
+
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.ToString;
@@ -22,7 +25,7 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    @Autowired 
+    @Autowired
     AccountService accountService;
 
     //Constructor
@@ -58,11 +61,10 @@ public class CustomerService {
             customerRepository.save(updatedCustomer);
     }
 
-    public Customer associateAccountToCustomer(String dl, Account account) {
+     public Customer associateAccountToCustomer(String dl, Account account) {
         System.out.println(account.toString());
-        Customer customer = customerRepository.findById(dl).orElseThrow(() -> new EntityNotFoundException("SalesRep not found"));
+        Customer customer = customerRepository.findById(dl).orElseThrow(() -> new EntityNotFoundException("Customer not found"));
         customer.setAccount(accountService.addAccount(account));
         return customerRepository.save(customer);
     }
-
 }

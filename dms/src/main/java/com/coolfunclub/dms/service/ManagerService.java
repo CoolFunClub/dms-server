@@ -20,7 +20,7 @@ public class ManagerService {
 
     @Autowired
     ManagerRepository managerRepository;
-    @Autowired 
+    @Autowired
     AccountService accountService;
 
     //Constructor

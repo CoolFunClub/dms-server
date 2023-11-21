@@ -1,0 +1,44 @@
+HELP.md
+!.mvn/wrapper/maven-wrapper.jar
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### System files ###
+.DS_Store
+nohup.out
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Node Modules ###
+node_modules/
+
+### VS Code ###
+.vscode/
+
+### Apache Derby ###
+derby.log
+dms.trace.db

@@ -7,5 +7,5 @@ import com.coolfunclub.dms.model.Account;
 
 
 public interface AccountRepository extends JpaRepository<Account,Long> {
-    
+
 }
