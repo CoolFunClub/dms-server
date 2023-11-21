@@ -69,12 +69,16 @@ public class CarService {
             carRepository.delete(car);
         }
     }
-    public void addImageToCar(String vin, Long imageId) {
+    public boolean addImageToCar(String vin, Long imageId) {
         Car car = getCar(vin);
         Image image = imageService.getImage(imageId);
+        if(car!=null && image!=null){
+            car.getImages().add(image);
+            carRepository.save(car);
+            return true;
+        }else{ 
+            return false;
+        }
         
-
-        car.getImages().add(image);
-        carRepository.save(car);
     }
 }

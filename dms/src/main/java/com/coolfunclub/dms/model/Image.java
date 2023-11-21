@@ -23,12 +23,14 @@ public class Image {
 
     private String name; // Original file name
     private String url;  // URL or file path
-    // private String type; // Content type (e.g., 'image/png')
-    // private Long size;   // File size in bytes
+    // private String type; 
+    // ^^^^^ use that for the content type that the controller returns!
+    // i think controller would throw error if we have another type 
+    // and we set the content type to jpeg
 
-    
-    // private String title;       // Optional title
-    // private String description; // Optional description
+    // private Long size;   
+    // private String title;       
+    // private String description; 
 
 }  
 

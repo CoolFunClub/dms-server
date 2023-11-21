@@ -55,8 +55,12 @@ public class CarController {
 
     @PostMapping("cars/{carVin}/images/{imageId}")
     public ResponseEntity<?> addImageToCar(@PathVariable String carVin, @PathVariable Long imageId) {
-        carService.addImageToCar(carVin, imageId);
-        return ResponseEntity.ok("Image added to car successfully");
+        if(carService.addImageToCar(carVin, imageId)){
+            return ResponseEntity.ok("Image added to car successfully");
+        } else{ 
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error assoc image to car");
+        }
+        
     }
     
 
