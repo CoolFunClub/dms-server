@@ -27,14 +27,9 @@ public class CarController {
 
     @Autowired
     private CarService carService;
-
-
     @PostMapping(value="/cars")
     public void addCar(@RequestBody Car car) {
-    
-        carService.addCar(car); 
-        
-               
+        carService.addCar(car);        
     }
     @GetMapping(value = "/cars")
     public List<Car> getCars(){
@@ -44,9 +39,6 @@ public class CarController {
     public void updateCar(@PathVariable String id,@RequestBody Car car){
         carService.updateCar(car);
     }
-
-
-
     @ExceptionHandler(EntityAlreadyExistsException.class)
     public ResponseEntity<Object> handleEntityAlreadyExists(EntityAlreadyExistsException ex) {
         Map<String, Object> errorMap = new HashMap<>();

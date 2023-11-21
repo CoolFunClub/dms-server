@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,8 @@ public class AccountService {
                 throw new EntityAlreadyExistsException("account with ID " + account.getId() + " already exists.");
             }
         }
+        String hasedPassword=BCrypt.hashpw(account.getPw(), BCrypt.gensalt());
+        account.setPw(hasedPassword);
         return accountRepository.save(account);
     }
     public Account getAccount(Long id){

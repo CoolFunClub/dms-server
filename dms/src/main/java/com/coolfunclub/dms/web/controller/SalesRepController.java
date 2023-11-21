@@ -55,29 +55,5 @@ public class SalesRepController {
         //salesRep.setId(id);
         salesRepService.updateSalesRep(salesRep);
     }
-    @PostMapping("rep/{ssn}/associate-account")
-    public ResponseEntity<SalesRep> associateAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
-        System.out.println(accountDto.toString());
-        try {
-            // Transform DTO to Entity
-            Account account = new Account();
-            account.setCloseDate(accountDto.getCloseDate());
-            account.setOpenDate(accountDto.getOpenDate());
-            account.setStatus(accountDto.getStatus());
-
-            // Call the service to perform the association
-            SalesRep updatedSalesRep = salesRepService.associateAccountToSalesRep(ssn, account);
-
-            return new ResponseEntity<>(updatedSalesRep, HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            e.printStackTrace();
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-
-
-
-
+    
 }
