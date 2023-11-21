@@ -10,13 +10,20 @@ import org.springframework.stereotype.Service;
 
 import com.EntityAlreadyExistsException;
 import com.coolfunclub.dms.model.Car;
+import com.coolfunclub.dms.model.Image;
 import com.coolfunclub.dms.repository.CarRepository;
+import com.coolfunclub.dms.repository.ImageRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class CarService {
 
     @Autowired
     private CarRepository carRepository;
+
+    @Autowired
+    private ImageService imageService;
 
     public List<Car> getAllCars(){
         List<Car> cars=new LinkedList<>();
@@ -61,5 +68,13 @@ public class CarService {
         if(car!=null){
             carRepository.delete(car);
         }
+    }
+    public void addImageToCar(String vin, Long imageId) {
+        Car car = getCar(vin);
+        Image image = imageService.getImage(imageId);
+        
+
+        car.getImages().add(image);
+        carRepository.save(car);
     }
 }

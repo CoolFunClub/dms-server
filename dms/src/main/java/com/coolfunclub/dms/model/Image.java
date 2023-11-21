@@ -1,0 +1,34 @@
+package com.coolfunclub.dms.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
+public class Image {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name; // Original file name
+    private String url;  // URL or file path
+    // private String type; // Content type (e.g., 'image/png')
+    // private Long size;   // File size in bytes
+
+    
+    // private String title;       // Optional title
+    // private String description; // Optional description
+
+}  
+

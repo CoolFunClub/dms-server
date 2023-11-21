@@ -1,10 +1,21 @@
 package com.coolfunclub.dms.model;
 
+import java.util.HashSet;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -23,6 +34,14 @@ public class Car {
     private String status;
     private double price;
 
+    @ManyToMany
+    @JoinTable(
+        name = "car_images",
+        joinColumns = @JoinColumn(name = "car_vin"),
+        inverseJoinColumns = @JoinColumn(name = "image_id")
+    )
+    private final Set<Image> images = new HashSet<>();
+
     public Car(String vin, String manufacturer, String model, int carYear, int mileage, String trim, String color, double price, String status) {
         this.vin = vin;
         this.manufacturer = manufacturer;
@@ -33,6 +52,9 @@ public class Car {
         this.color = color;
         this.price = price;
         this.status = status;
+    }
+    public Set<Image> getImages(){
+        return images;
     }
 
     public void setVIN(String vin) {

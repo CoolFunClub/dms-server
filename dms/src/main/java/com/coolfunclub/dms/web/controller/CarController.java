@@ -31,6 +31,11 @@ public class CarController {
     public void addCar(@RequestBody Car car) {
         carService.addCar(car);        
     }
+    @GetMapping(value = "/cars/{id}")
+    public Car getCar(@PathVariable String id){
+        return carService.getCar(id);
+    }
+
     @GetMapping(value = "/cars")
     public List<Car> getCars(){
         return carService.getAllCars();
@@ -47,6 +52,13 @@ public class CarController {
 
         return new ResponseEntity<>(errorMap, HttpStatus.CONFLICT);
     }
+
+    @PostMapping("/{carVin}/images/{imageId}")
+    public ResponseEntity<?> addImageToCar(@PathVariable String carVin, @PathVariable Long imageId) {
+        carService.addImageToCar(carVin, imageId);
+        return ResponseEntity.ok("Image added to car successfully");
+    }
+    
 
 
 }
