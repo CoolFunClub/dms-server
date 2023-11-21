@@ -53,7 +53,7 @@ public class CarController {
         return new ResponseEntity<>(errorMap, HttpStatus.CONFLICT);
     }
 
-    @PostMapping("/{carVin}/images/{imageId}")
+    @PostMapping("cars/{carVin}/images/{imageId}")
     public ResponseEntity<?> addImageToCar(@PathVariable String carVin, @PathVariable Long imageId) {
         carService.addImageToCar(carVin, imageId);
         return ResponseEntity.ok("Image added to car successfully");
