@@ -1,4 +1,4 @@
-.LoginPage {
+.SignUpPage {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -23,12 +23,13 @@
 .MainForm {
 	background-color: #1f2f78;
 	color: white;
-	width: 15%;
+	width: 15vw;
+	height: 40vh;
 	padding: 2vh;
 	margin-top: 20vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .SubmitBtn {
@@ -42,4 +43,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.PwdMsg {
+	height: 30px;
+	margin-top: 20px;
+	margin-bottom: 0;
 }

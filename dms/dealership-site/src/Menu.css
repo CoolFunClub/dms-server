@@ -1,5 +1,6 @@
 a:link {
   text-decoration: none;
+	color: white;
 }
 
 .LogoBar {
@@ -10,19 +11,33 @@ a:link {
   align-items: flex-end;
 }
 
-.LoginBtn {
-  background-color: #2062c6;
+.AcctBtns {
+	width: 20vw;
+	margin: 1vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.Button {
   color: white;
   font-size: x-large;
+  height: 40px;
+  width: 9vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75px;
-  height: 40px;
 }
 
-.LoginBtn:hover {
+.Login {
+  background-color: #2062c6;
+}
+
+.Login:hover {
   background-color: #417cd5;
+}
+
+.SignUp {
+  background-color: #8d39e1;
 }
 
 .NavBarAndContent {

@@ -21,9 +21,10 @@ export function ViewCars({ page }) {
   const pageClass = page === VIEW_CARS ? "" : "Hidden";
   const [carList, setCarList] = useState([]);
 
+	// only causes a CORS error when testing locally
   useEffect(() => {
     const getMsg = async () => {
-      const data = await fetch("http://18.117.76.202:3000/api/cars", {
+      const data = await fetch("https://www.afkauto.com/api/cars", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

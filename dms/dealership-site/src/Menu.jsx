@@ -9,11 +9,18 @@ function LogoBar() {
   return (
     <div className="LogoBar">
       <img src={logo} alt="Car dealership logo" />
-      <a href="/login">
-        <div className="LoginBtn">
-          Login
-        </div>
-      </a>
+			<div className="AcctBtns">
+				<a href="/login">
+					<div className="Login Button">
+						Login
+					</div>
+				</a>
+				<a href="/signup">
+					<div className="SignUp Button">
+						Sign up
+					</div>
+				</a>
+			</div>
     </div>
   );
 }

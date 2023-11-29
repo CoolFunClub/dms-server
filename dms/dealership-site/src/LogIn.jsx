@@ -19,10 +19,8 @@ function MainForm() {
 			<label for="username">Username</label>
 			<input id="username" />
 			<label for="password">Password</label>
-			<input id="password" />
-			<div>
-				<button className="SubmitBtn">Login</button> or sign up for an account
-			</div>
+			<input type="password" id="password" />
+			<button className="SubmitBtn">Login</button>
 		</div>
 	);
 }
