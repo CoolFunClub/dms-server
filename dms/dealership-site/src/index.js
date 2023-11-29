@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import Menu from './Menu';
-import MainForm from './LogIn';
+import LoginPage from './LogIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +11,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" Component={Menu} />
-        <Route path="/login" Component={MainForm} />
+        <Route path="/login" Component={LoginPage} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

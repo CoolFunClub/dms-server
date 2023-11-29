@@ -14,9 +14,26 @@ function Header() {
 }
 
 function MainForm() {
+	return (
+		<div className="MainForm">
+			<label for="username">Username</label>
+			<input id="username" />
+			<label for="password">Password</label>
+			<input id="password" />
+			<div>
+				<button className="SubmitBtn">Login</button> or sign up for an account
+			</div>
+		</div>
+	);
+}
+
+function LoginPage() {
   return (
-    <Header />
+		<div className="LoginPage">
+			<Header />
+			<MainForm />
+		</div>
   );
 }
 
-export default MainForm
+export default LoginPage
