@@ -5,25 +5,26 @@ import { WELCOME, VIEW_CARS} from './PageNumbers.js';
 import './Pages.css';
 
 export function WelcomePage({ page }) {
-  const pageClass = page === WELCOME ? '' : 'Hidden';
+  const pageClass = page === WELCOME ? "" : "Hidden";
 
   return (
     <div className={pageClass}>
       <div className="WelcomePage">
         Welcome!
+				<img class="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
       </div>
-      <img class="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
     </div>
   )
 }
 
 export function ViewCars({ page }) {
-  const pageClass = page === VIEW_CARS ? '' : 'Hidden';
+  const pageClass = page === VIEW_CARS ? "" : "Hidden";
   const [carList, setCarList] = useState([]);
 
+	// only causes a CORS error when testing locally
   useEffect(() => {
     const getMsg = async () => {
-      const data = await fetch("http://18.117.76.202:3000/api/cars", {
+      const data = await fetch("https://www.afkauto.com/api/cars", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

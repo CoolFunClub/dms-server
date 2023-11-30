@@ -9,6 +9,18 @@ function LogoBar() {
   return (
     <div className="LogoBar">
       <img src={logo} alt="Car dealership logo" />
+			<div className="AcctBtns">
+				<a href="/login">
+					<div className="Login Button">
+						Login
+					</div>
+				</a>
+				<a href="/signup">
+					<div className="SignUp Button">
+						Sign up
+					</div>
+				</a>
+			</div>
     </div>
   );
 }
@@ -21,7 +33,7 @@ function NavBarAndContent() {
       <PageContext.Provider value={page}>
         <div className="NavBar">
           <button
-            className="NavButton"
+            className="NavBtn"
             onClick={() => {
               setPage(0);
             }}
@@ -29,7 +41,7 @@ function NavBarAndContent() {
             Welcome page
           </button>
           <button
-            className="NavButton"
+            className="NavBtn"
             onClick={() => {
               setPage(1);
             }}
@@ -54,7 +66,7 @@ function MainContent() {
   );
 }
 
-function App() {
+function Menu() {
   return (
     <div>
       <LogoBar />
@@ -63,4 +75,4 @@ function App() {
   );
 }
 
-export default App;
+export default Menu;

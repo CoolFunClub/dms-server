@@ -1,29 +1,71 @@
+a:link {
+  text-decoration: none;
+	color: white;
+}
+
 .LogoBar {
   background-color: #0D1117;
   width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.AcctBtns {
+	width: 20vw;
+	margin: 1vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.Button {
+  color: white;
+  font-size: x-large;
+  height: 40px;
+  width: 9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login {
+  background-color: #2062c6;
+}
+
+.Login:hover {
+  background-color: #417cd5;
+}
+
+.SignUp {
+  background-color: #8d39e1;
 }
 
 .NavBarAndContent {
   display: flex;
+	flex-direction: column;
 }
 
 .NavBar {
   background-color: #223148;
   color: white;
-  width: 15vw;
-  height: 100vh;
+  width: 100vw;
+  min-width: 120px;
+  height: 5vh;
 }
 
-.NavButton {
+.NavBtn {
   background-color: #223148;
   color: white;
+  text-wrap: nowrap;
   border: none;
   width: 15vw;
+  min-width: 120px;
   height: 5vh;
+  min-height: 25px;
   font-size: large;
 }
 
-.NavButton:hover {
+.NavBtn:hover {
   background-color: #324869;
 }
 
