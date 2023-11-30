@@ -1,8 +1,7 @@
 .WelcomePage {
   font-size: xx-large;
-  width: 80vw;
+  width: 100vw;
   padding-top: 40px;
-  padding-bottom: 40px;
   text-align: center;
   display: flexbox;
   justify-content: center;

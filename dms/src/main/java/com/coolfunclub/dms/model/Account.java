@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.ToString;
@@ -34,6 +35,11 @@ public class Account {
     private Date closeDate;
     @Column(name = "status")
     private String status;
+
+    @Column(name="userName")
+    private String userName;
+    @Column(name="pw")
+    private String pw;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -27,15 +27,15 @@ public class CarController {
 
     @Autowired
     private CarService carService;
-
-
     @PostMapping(value="/cars")
     public void addCar(@RequestBody Car car) {
-    
-        carService.addCar(car); 
-        
-               
+        carService.addCar(car);        
     }
+    @GetMapping(value = "/cars/{id}")
+    public Car getCar(@PathVariable String id){
+        return carService.getCar(id);
+    }
+
     @GetMapping(value = "/cars")
     public List<Car> getCars(){
         return carService.getAllCars();
@@ -44,9 +44,6 @@ public class CarController {
     public void updateCar(@PathVariable String id,@RequestBody Car car){
         carService.updateCar(car);
     }
-
-
-
     @ExceptionHandler(EntityAlreadyExistsException.class)
     public ResponseEntity<Object> handleEntityAlreadyExists(EntityAlreadyExistsException ex) {
         Map<String, Object> errorMap = new HashMap<>();
@@ -55,6 +52,17 @@ public class CarController {
 
         return new ResponseEntity<>(errorMap, HttpStatus.CONFLICT);
     }
+
+    @PostMapping("cars/{carVin}/images/{imageId}")
+    public ResponseEntity<?> addImageToCar(@PathVariable String carVin, @PathVariable Long imageId) {
+        if(carService.addImageToCar(carVin, imageId)){
+            return ResponseEntity.ok("Image added to car successfully");
+        } else{ 
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error assoc image to car");
+        }
+        
+    }
+    
 
 
 }
