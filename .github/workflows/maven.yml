@@ -1,11 +1,11 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
-name: Sync and create new .jar for deployment
+name: Sync deployment branch with main and create new .jar for deployment
 
 on:
   push:
-    branches: ["deploy"]
+    branches: ["main"]
 
 jobs:
   build:
@@ -25,13 +25,15 @@ jobs:
       - name: Set bot name and email
         run: |
           git config --global user.name "Otto"
-          git config --global user.email "kaylale@cpp.edu"
+          git config --global user.email "kaylale2014@gmail.com"
+          
       - name: Sync deployment branch with main
         run: |
           git checkout main
           git pull origin main
           git checkout deploy
           git merge main
+          
       - name: Build with Maven
         run: mvn clean install -f ./dms/pom.xml
 
