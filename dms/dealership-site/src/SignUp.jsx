@@ -1,7 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './SignUp.css';
 import logo from './assets/logo_cropped.png';
 
+
+function checkPasswords() {
+	return document.getElementById("password").value === document.getElementById("confirm").value;
+}
+
+async function submitSignUp() {
+	const dlNum = document.getElementById("dlnum").value;
+	const userNamePw = {
+		userName: document.getElementById("username").value,
+		pw: document.getElementById("password").value
+	};
+
+	const data = await fetch(`https://www.afkauto.com/api/account/customer/${dlNum}`, {
+		body: JSON.stringify(userNamePw),
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	const msgJson = await data.json;
+	console.log(msgJson);
+}
 
 function Header() {
   return (
@@ -12,10 +35,6 @@ function Header() {
       Sign up
     </div>
   );
-}
-
-function checkPasswords() {
-	return document.getElementById("password").value == document.getElementById("confirm").value;
 }
 
 function MainForm() {
@@ -36,7 +55,7 @@ function MainForm() {
 			<input type="password" id="confirm" onChange={()=>{setDoesMatch(checkPasswords())}} />
 
 			{doesMatch ? 
-				<button className="SubmitBtn">Submit</button> :
+				<button className="SubmitBtn" onClick={()=>{submitSignUp()}}>Submit</button> :
 				<p className="PwdMsg">Passwords must match!</p>
 			}
 		</div>
