@@ -58,7 +58,7 @@ public class SalesRepService {
     }
     public SalesRep associateAccountToSalesRep(int ssn, Account account) {
         System.out.println(account.toString());
-        SalesRep salesRep = salesRepRepository.findById(ssn).orElseThrow(() -> new EntityNotFoundException("SalesRep not found"));
+        SalesRep salesRep = salesRepRepository.findById(ssn).orElse(null);
         salesRep.setAccount(accountService.addAccount(account));
         return salesRepRepository.save(salesRep);
     }

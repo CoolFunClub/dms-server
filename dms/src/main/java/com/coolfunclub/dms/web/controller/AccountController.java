@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.mindrot.jbcrypt.BCrypt;
 
 import com.coolfunclub.dms.model.Account;
 import com.coolfunclub.dms.model.Customer;
@@ -67,4 +68,50 @@ public class AccountController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @PostMapping("/login/customer/{dl}")
+    public ResponseEntity<String> loginCustomerAccount(@PathVariable String dl, @RequestBody AccountDTO accountDto) {
+        Customer customer = customerService.getCustomerById(dl);
+        if(customer !=null){ 
+            String storedPW = customer.getAccount().getPw();
+            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) { 
+                return ResponseEntity.status(HttpStatus.OK).body("Verified");
+            }else { 
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid");
+            }
+        }else { 
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
+        }
+    }
+    @PostMapping("/login/manager/{ssn}")
+    public ResponseEntity<String> loginManagerAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+        Manager manager = managerService.getManagerById(ssn);
+        if (manager != null) { 
+            String storedPW = manager.getAccount().getPw();
+            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) { 
+                return ResponseEntity.status(HttpStatus.OK).body("Verified");
+            } else { 
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid");
+            }
+        } else { 
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
+        }
+    }
+
+    @PostMapping("/login/salesRep/{ssn}")
+    public ResponseEntity<?> loginSalesRepAccount(@PathVariable int ssn, @RequestBody AccountDTO accountDto) {
+        SalesRep salesRep = salesRepService.getSalesRepById(ssn);
+        if(salesRep !=null){ 
+            String storedPW = salesRep.getAccount().getPw();
+            if (BCrypt.checkpw(accountDto.getPw(), storedPW)) { 
+                return ResponseEntity.status(HttpStatus.OK).body("Verified");
+            }else { 
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid");
+            }
+        }else { 
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
+        }
+        
+    }
+
+    
 }
