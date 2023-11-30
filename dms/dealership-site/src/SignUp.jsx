@@ -22,7 +22,7 @@ async function submitSignUp() {
 		},
 	});
 
-	const msgJson = await data.json;
+	const msgJson = await data.json();
 	console.log(msgJson);
 }
 
@@ -37,25 +37,52 @@ function Header() {
   );
 }
 
+function FormItem({id, label, type, onChange}) {
+	return (
+		<div className="FormItem">
+			<label for={id}>{label}</label>
+			<input id={id} type={type | ""} onChange={onChange | ""}/>
+		</div>
+	);
+}
+
 function MainForm() {
 	const [doesMatch, setDoesMatch] = useState(true);
 
 	return (
 		<div className="MainForm">
-			<label for="dlnum">Driver's license number</label>
-			<input id="dlnum" />
+			<div className="FormRow">
+				<FormItem id="fn" label="First name" />
+				<FormItem id="ln" label="Last name" />
+				<FormItem id="dob" label="Date of birth" />				
+			</div>
 
-			<label for="username">Username</label>
-			<input id="username" />
+			<div className="FormRow">
+				<FormItem id="gender" label="Gender" />
+				<FormItem id="phonenum" label="Phone number" />
+				<FormItem id="dlnum" label="Driver's license number" />
+			</div>
 
-			<label for="password">Password</label>
-			<input type="password" id="password" onChange={()=>{setDoesMatch(checkPasswords())}} />
+			<FormItem id="address" label="Home address" />
 
-			<label for="confirm">Confirm password</label>
-			<input type="password" id="confirm" onChange={()=>{setDoesMatch(checkPasswords())}} />
+			<div className="FormRow">
+				<FormItem id="email" label="Email address" />
+				<FormItem id="username" label="Username" />
+			</div>
+
+			<div className="FormRow">
+				<FormItem 
+						id="password" label="Password" type="password"
+						onChange={()=>{setDoesMatch(checkPasswords())}}
+					/>
+				<FormItem
+					id="confirm" label="Confirm password" type="password"
+					onChange={()=>{setDoesMatch(checkPasswords())}}
+				/>
+			</div>
 
 			{doesMatch ? 
-				<button className="SubmitBtn" onClick={()=>{submitSignUp()}}>Submit</button> :
+				<button className="SubmitBtn" onClick={async ()=>{await submitSignUp()}}>Submit</button> :
 				<p className="PwdMsg">Passwords must match!</p>
 			}
 		</div>
