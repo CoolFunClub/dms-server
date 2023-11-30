@@ -63,7 +63,7 @@ public class CustomerService {
 
      public Customer associateAccountToCustomer(String dl, Account account) {
         System.out.println(account.toString());
-        Customer customer = customerRepository.findById(dl).orElseThrow(() -> new EntityNotFoundException("Customer not found"));
+        Customer customer = customerRepository.findById(dl).orElse(null);
         customer.setAccount(accountService.addAccount(account));
         return customerRepository.save(customer);
     }

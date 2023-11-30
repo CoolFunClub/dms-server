@@ -57,7 +57,7 @@ public class ManagerService {
 
     public Manager associateAccountToManager(int ssn, Account account) {
         System.out.println(account.toString());
-        Manager manager = managerRepository.findById(ssn).orElseThrow(() -> new EntityNotFoundException("SalesRep not found"));
+        Manager manager = managerRepository.findById(ssn).orElse(null);
         manager.setAccount(accountService.addAccount(account));
         return managerRepository.save(manager);
     }
