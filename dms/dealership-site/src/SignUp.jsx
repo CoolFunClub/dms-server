@@ -8,10 +8,34 @@ function checkPasswords() {
 }
 
 async function submitSignUp() {
+	// make customer entity
 	const dlNum = document.getElementById("dlnum").value;
+	const customer = {
+		mFirstName: document.getElementById("fn").value,
+		mLastName: document.getElementById("ln").value,
+		mDateBirth: document.getElementById("dob").value,
+		mGender: document.getElementById("gender").value,
+		mPhone: document.getElementById("phonenum").value,
+		mEmail: document.getElementById("email").value,
+		mAddress: document.getElementById("address").value,
+		mDriverLicenseID: dlNum,
+	};
+
+	const makeEntity = await fetch("`https://www.afkauto.com/api/cfc/addcustomers", {
+		body: JSON.stringify(customer),
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	const makeEntityMsg = await makeEntity.json();
+	console.log(makeEntityMsg);
+
+	// make customer account
 	const userNamePw = {
 		userName: document.getElementById("username").value,
-		pw: document.getElementById("password").value
+		pw: document.getElementById("password").value,
 	};
 
 	const data = await fetch(`https://www.afkauto.com/api/account/customer/${dlNum}`, {
