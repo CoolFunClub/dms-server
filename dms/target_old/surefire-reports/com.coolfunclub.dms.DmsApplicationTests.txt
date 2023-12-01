@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.coolfunclub.dms.DmsApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.442 s - in com.coolfunclub.dms.DmsApplicationTests

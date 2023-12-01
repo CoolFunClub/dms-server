@@ -1,4 +1,0 @@
-2023/10/29 09:44:28 [error] 4502#4502: *1211 client intended to send too large body: 10485761 bytes, client: 185.91.69.110, server: 3.129.45.213, request: "POST / HTTP/1.1", host: "3.129.45.213"
-2023/10/30 00:00:01 [notice] 2510#2510: signal 10 (SIGUSR1) received from 193558, reopening logs
-2023/10/30 00:00:01 [notice] 2510#2510: reopening logs
-2023/10/30 00:00:01 [notice] 4502#4502: reopening logs
