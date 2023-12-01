@@ -65,7 +65,7 @@ function FormItem({id, label, type, onChange}) {
 	return (
 		<div className="FormItem">
 			<label for={id}>{label}</label>
-			<input id={id} type={type | ""} onChange={onChange | ""}/>
+			<input id={id} type={type || ""} onChange={onChange || ""}/>
 		</div>
 	);
 }
