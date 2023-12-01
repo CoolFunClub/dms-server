@@ -1,0 +1,191 @@
+2023/10/30 02:37:38 [warn] 200792#200792: server name "/etc/pki/tls/certs/nginx-selfsigned.crt" has suspicious symbols in /etc/nginx/conf.d/dealership-site.conf:16
+2023/10/30 02:37:38 [warn] 200792#200792: server name "/etc/pki/tls/private/nginx-selfsigned.key" has suspicious symbols in /etc/nginx/conf.d/dealership-site.conf:16
+2023/10/30 02:37:38 [emerg] 200792#200792: no "ssl_certificate" is defined for the "listen ... ssl" directive in /etc/nginx/conf.d/dealership-site.conf:8
+2023/10/30 02:38:39 [emerg] 200876#200876: invalid value "ssl_prefer_server_ciphers" in /etc/nginx/conf.d/dealership-site.conf:16
+2023/10/30 02:39:34 [emerg] 200961#200961: invalid value "ssl_prefer_server_ciphers" in /etc/nginx/conf.d/dealership-site.conf:16
+2023/10/30 02:40:29 [notice] 201046#201046: signal process started
+2023/10/30 02:40:29 [notice] 2510#2510: signal 1 (SIGHUP) received from 201046, reconfiguring
+2023/10/30 02:40:29 [notice] 2510#2510: reconfiguring
+2023/10/30 02:40:29 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 02:40:29 [notice] 2510#2510: start worker processes
+2023/10/30 02:40:29 [notice] 2510#2510: start worker process 201047
+2023/10/30 02:40:29 [notice] 4502#4502: gracefully shutting down
+2023/10/30 02:40:29 [notice] 4502#4502: exiting
+2023/10/30 02:40:29 [notice] 4502#4502: exit
+2023/10/30 02:40:29 [notice] 2510#2510: signal 17 (SIGCHLD) received from 4502
+2023/10/30 02:40:29 [notice] 2510#2510: worker process 4502 exited with code 0
+2023/10/30 02:40:29 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 02:42:46 [notice] 201141#201141: signal process started
+2023/10/30 02:42:46 [notice] 2510#2510: signal 1 (SIGHUP) received from 201141, reconfiguring
+2023/10/30 02:42:46 [notice] 2510#2510: reconfiguring
+2023/10/30 02:42:46 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 02:42:46 [notice] 2510#2510: start worker processes
+2023/10/30 02:42:46 [notice] 2510#2510: start worker process 201142
+2023/10/30 02:42:46 [notice] 201047#201047: gracefully shutting down
+2023/10/30 02:42:46 [notice] 201047#201047: exiting
+2023/10/30 02:42:46 [notice] 201047#201047: exit
+2023/10/30 02:42:46 [notice] 2510#2510: signal 17 (SIGCHLD) received from 201047
+2023/10/30 02:42:46 [notice] 2510#2510: worker process 201047 exited with code 0
+2023/10/30 02:42:46 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:01:50 [notice] 202214#202214: signal process started
+2023/10/30 03:01:50 [notice] 2510#2510: signal 1 (SIGHUP) received from 202214, reconfiguring
+2023/10/30 03:01:50 [notice] 2510#2510: reconfiguring
+2023/10/30 03:01:50 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:01:50 [notice] 2510#2510: start worker processes
+2023/10/30 03:01:50 [notice] 2510#2510: start worker process 202222
+2023/10/30 03:01:50 [notice] 201142#201142: gracefully shutting down
+2023/10/30 03:01:50 [notice] 201142#201142: exiting
+2023/10/30 03:01:50 [notice] 201142#201142: exit
+2023/10/30 03:01:50 [notice] 2510#2510: signal 17 (SIGCHLD) received from 201142
+2023/10/30 03:01:50 [notice] 2510#2510: worker process 201142 exited with code 0
+2023/10/30 03:01:50 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:16:26 [notice] 202987#202987: signal process started
+2023/10/30 03:16:26 [notice] 2510#2510: signal 1 (SIGHUP) received from 202987, reconfiguring
+2023/10/30 03:16:26 [notice] 2510#2510: reconfiguring
+2023/10/30 03:16:26 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:16:26 [notice] 2510#2510: start worker processes
+2023/10/30 03:16:26 [notice] 2510#2510: start worker process 202988
+2023/10/30 03:16:26 [notice] 202222#202222: gracefully shutting down
+2023/10/30 03:16:26 [notice] 202222#202222: exiting
+2023/10/30 03:16:26 [notice] 202222#202222: exit
+2023/10/30 03:16:26 [notice] 2510#2510: signal 17 (SIGCHLD) received from 202222
+2023/10/30 03:16:26 [notice] 2510#2510: worker process 202222 exited with code 0
+2023/10/30 03:16:26 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:23:28 [notice] 203365#203365: signal process started
+2023/10/30 03:23:28 [notice] 2510#2510: signal 1 (SIGHUP) received from 203365, reconfiguring
+2023/10/30 03:23:28 [notice] 2510#2510: reconfiguring
+2023/10/30 03:23:28 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:23:28 [notice] 2510#2510: start worker processes
+2023/10/30 03:23:28 [notice] 2510#2510: start worker process 203377
+2023/10/30 03:23:28 [notice] 202988#202988: gracefully shutting down
+2023/10/30 03:23:28 [notice] 202988#202988: exiting
+2023/10/30 03:23:28 [notice] 202988#202988: exit
+2023/10/30 03:23:28 [notice] 2510#2510: signal 17 (SIGCHLD) received from 202988
+2023/10/30 03:23:28 [notice] 2510#2510: worker process 202988 exited with code 0
+2023/10/30 03:23:28 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:28:48 [notice] 203836#203836: signal process started
+2023/10/30 03:28:48 [notice] 2510#2510: signal 1 (SIGHUP) received from 203836, reconfiguring
+2023/10/30 03:28:48 [notice] 2510#2510: reconfiguring
+2023/10/30 03:28:48 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:28:48 [notice] 2510#2510: start worker processes
+2023/10/30 03:28:48 [notice] 2510#2510: start worker process 203837
+2023/10/30 03:28:48 [notice] 203377#203377: gracefully shutting down
+2023/10/30 03:28:48 [notice] 203377#203377: exiting
+2023/10/30 03:28:48 [notice] 203377#203377: exit
+2023/10/30 03:28:48 [notice] 2510#2510: signal 17 (SIGCHLD) received from 203377
+2023/10/30 03:28:48 [notice] 2510#2510: worker process 203377 exited with code 0
+2023/10/30 03:28:48 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:46:19 [notice] 204851#204851: signal process started
+2023/10/30 03:46:19 [notice] 2510#2510: signal 1 (SIGHUP) received from 204851, reconfiguring
+2023/10/30 03:46:19 [notice] 2510#2510: reconfiguring
+2023/10/30 03:46:19 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:46:19 [notice] 2510#2510: start worker processes
+2023/10/30 03:46:19 [notice] 2510#2510: start worker process 204859
+2023/10/30 03:46:19 [notice] 203837#203837: gracefully shutting down
+2023/10/30 03:46:19 [notice] 203837#203837: exiting
+2023/10/30 03:46:19 [notice] 203837#203837: exit
+2023/10/30 03:46:19 [notice] 2510#2510: signal 17 (SIGCHLD) received from 203837
+2023/10/30 03:46:19 [notice] 2510#2510: worker process 203837 exited with code 0
+2023/10/30 03:46:19 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:48:22 [notice] 205011#205011: signal process started
+2023/10/30 03:48:22 [notice] 2510#2510: signal 1 (SIGHUP) received from 205011, reconfiguring
+2023/10/30 03:48:22 [notice] 2510#2510: reconfiguring
+2023/10/30 03:48:22 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:48:22 [notice] 2510#2510: start worker processes
+2023/10/30 03:48:22 [notice] 2510#2510: start worker process 205012
+2023/10/30 03:48:22 [notice] 204859#204859: gracefully shutting down
+2023/10/30 03:48:22 [notice] 204859#204859: exiting
+2023/10/30 03:48:22 [notice] 204859#204859: exit
+2023/10/30 03:48:22 [notice] 2510#2510: signal 17 (SIGCHLD) received from 204859
+2023/10/30 03:48:22 [notice] 2510#2510: worker process 204859 exited with code 0
+2023/10/30 03:48:22 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 03:57:22 [notice] 205677#205677: signal process started
+2023/10/30 03:57:22 [notice] 2510#2510: signal 1 (SIGHUP) received from 205677, reconfiguring
+2023/10/30 03:57:22 [notice] 2510#2510: reconfiguring
+2023/10/30 03:57:22 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 03:57:22 [notice] 2510#2510: start worker processes
+2023/10/30 03:57:22 [notice] 2510#2510: start worker process 205678
+2023/10/30 03:57:22 [notice] 205012#205012: gracefully shutting down
+2023/10/30 03:57:26 [notice] 205012#205012: exiting
+2023/10/30 03:57:26 [notice] 205012#205012: exit
+2023/10/30 03:57:26 [notice] 2510#2510: signal 17 (SIGCHLD) received from 205012
+2023/10/30 03:57:26 [notice] 2510#2510: worker process 205012 exited with code 0
+2023/10/30 03:57:26 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:04:02 [notice] 206155#206155: signal process started
+2023/10/30 04:04:02 [notice] 2510#2510: signal 1 (SIGHUP) received from 206155, reconfiguring
+2023/10/30 04:04:02 [notice] 2510#2510: reconfiguring
+2023/10/30 04:04:02 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 04:04:02 [notice] 2510#2510: start worker processes
+2023/10/30 04:04:02 [notice] 2510#2510: start worker process 206156
+2023/10/30 04:04:02 [notice] 205678#205678: gracefully shutting down
+2023/10/30 04:04:03 [notice] 205678#205678: exiting
+2023/10/30 04:04:03 [notice] 205678#205678: exit
+2023/10/30 04:04:03 [notice] 2510#2510: signal 17 (SIGCHLD) received from 205678
+2023/10/30 04:04:03 [notice] 2510#2510: worker process 205678 exited with code 0
+2023/10/30 04:04:03 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:08:27 [notice] 206444#206444: signal process started
+2023/10/30 04:08:27 [notice] 2510#2510: signal 1 (SIGHUP) received from 206444, reconfiguring
+2023/10/30 04:08:27 [notice] 2510#2510: reconfiguring
+2023/10/30 04:08:27 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 04:08:27 [notice] 2510#2510: start worker processes
+2023/10/30 04:08:27 [notice] 2510#2510: start worker process 206445
+2023/10/30 04:08:27 [notice] 206156#206156: gracefully shutting down
+2023/10/30 04:08:27 [notice] 206156#206156: exiting
+2023/10/30 04:08:27 [notice] 206156#206156: exit
+2023/10/30 04:08:27 [notice] 2510#2510: signal 17 (SIGCHLD) received from 206156
+2023/10/30 04:08:27 [notice] 2510#2510: worker process 206156 exited with code 0
+2023/10/30 04:08:27 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:17:06 [notice] 207020#207020: signal process started
+2023/10/30 04:17:06 [notice] 2510#2510: signal 1 (SIGHUP) received from 207020, reconfiguring
+2023/10/30 04:17:06 [notice] 2510#2510: reconfiguring
+2023/10/30 04:17:06 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 04:17:06 [notice] 2510#2510: start worker processes
+2023/10/30 04:17:06 [notice] 2510#2510: start worker process 207021
+2023/10/30 04:17:06 [notice] 206445#206445: gracefully shutting down
+2023/10/30 04:17:06 [notice] 206445#206445: exiting
+2023/10/30 04:17:06 [notice] 206445#206445: exit
+2023/10/30 04:17:06 [notice] 2510#2510: signal 17 (SIGCHLD) received from 206445
+2023/10/30 04:17:06 [notice] 2510#2510: worker process 206445 exited with code 0
+2023/10/30 04:17:06 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:24:07 [notice] 207460#207460: signal process started
+2023/10/30 04:24:07 [notice] 2510#2510: signal 1 (SIGHUP) received from 207460, reconfiguring
+2023/10/30 04:24:07 [notice] 2510#2510: reconfiguring
+2023/10/30 04:24:07 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 04:24:07 [notice] 2510#2510: start worker processes
+2023/10/30 04:24:07 [notice] 2510#2510: start worker process 207461
+2023/10/30 04:24:07 [notice] 207021#207021: gracefully shutting down
+2023/10/30 04:24:07 [notice] 207021#207021: exiting
+2023/10/30 04:24:07 [notice] 207021#207021: exit
+2023/10/30 04:24:07 [notice] 2510#2510: signal 17 (SIGCHLD) received from 207021
+2023/10/30 04:24:07 [notice] 2510#2510: worker process 207021 exited with code 0
+2023/10/30 04:24:07 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:25:42 [emerg] 207471#207471: unexpected "}" in /etc/nginx/conf.d/dealership-site.conf:13
+2023/10/30 04:26:36 [notice] 207553#207553: signal process started
+2023/10/30 04:26:36 [notice] 2510#2510: signal 1 (SIGHUP) received from 207553, reconfiguring
+2023/10/30 04:26:36 [notice] 2510#2510: reconfiguring
+2023/10/30 04:26:36 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 04:26:36 [notice] 2510#2510: start worker processes
+2023/10/30 04:26:36 [notice] 2510#2510: start worker process 207554
+2023/10/30 04:26:36 [notice] 207461#207461: gracefully shutting down
+2023/10/30 04:26:36 [notice] 207461#207461: exiting
+2023/10/30 04:26:36 [notice] 207461#207461: exit
+2023/10/30 04:26:36 [notice] 2510#2510: signal 17 (SIGCHLD) received from 207461
+2023/10/30 04:26:36 [notice] 2510#2510: worker process 207461 exited with code 0
+2023/10/30 04:26:36 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:29:15 [notice] 207717#207717: signal process started
+2023/10/30 04:29:15 [notice] 2510#2510: signal 1 (SIGHUP) received from 207717, reconfiguring
+2023/10/30 04:29:15 [notice] 2510#2510: reconfiguring
+2023/10/30 04:29:15 [notice] 2510#2510: using the "epoll" event method
+2023/10/30 04:29:15 [notice] 2510#2510: start worker processes
+2023/10/30 04:29:15 [notice] 2510#2510: start worker process 207718
+2023/10/30 04:29:15 [notice] 207554#207554: gracefully shutting down
+2023/10/30 04:29:15 [notice] 207554#207554: exiting
+2023/10/30 04:29:15 [notice] 207554#207554: exit
+2023/10/30 04:29:15 [notice] 2510#2510: signal 17 (SIGCHLD) received from 207554
+2023/10/30 04:29:15 [notice] 2510#2510: worker process 207554 exited with code 0
+2023/10/30 04:29:15 [notice] 2510#2510: signal 29 (SIGIO) received
+2023/10/30 04:39:29 [notice] 2510#2510: signal 1 (SIGHUP) received from 208436, reconfiguring
+2023/10/30 04:39:29 [notice] 2510#2510: reconfiguring
+2023/10/30 04:39:29 [notice] 207718#207718: gracefully shutting down
+2023/10/30 04:39:29 [notice] 207718#207718: exiting
+2023/10/30 04:39:29 [notice] 207718#207718: exit

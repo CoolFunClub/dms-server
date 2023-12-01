@@ -1,8 +1,8 @@
 HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 target/
-!**/src/main/**/target/
-!**/src/test/**/target/
+nginx-logs/
+api_access.log*
 
 ### System files ###
 .DS_Store
@@ -42,3 +42,4 @@ node_modules/
 ### Apache Derby ###
 derby.log
 dms.trace.db
+dms.mv.db
