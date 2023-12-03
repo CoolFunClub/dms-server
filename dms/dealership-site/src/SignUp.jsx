@@ -11,14 +11,14 @@ async function submitSignUp() {
 	// make customer entity
 	const dlNum = document.getElementById("dlnum").value;
 	const customer = {
-		mFirstName: document.getElementById("fn").value,
-		mLastName: document.getElementById("ln").value,
+		firstName: document.getElementById("fn").value,
+		lastName: document.getElementById("ln").value,
 		mDateBirth: document.getElementById("dob").value,
-		mGender: document.getElementById("gender").value,
-		mPhone: document.getElementById("phonenum").value,
-		mEmail: document.getElementById("email").value,
-		mAddress: document.getElementById("address").value,
-		mDriverLicenseID: dlNum,
+		gender: document.getElementById("gender").value,
+		phone: document.getElementById("phonenum").value,
+		email: document.getElementById("email").value,
+		address: document.getElementById("address").value,
+		driverLicenseID: dlNum,
 	};
 
 	const makeEntity = await fetch("`https://www.afkauto.com/api/cfc/addcustomers", {
