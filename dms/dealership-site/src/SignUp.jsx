@@ -21,8 +21,7 @@ async function submitSignUp() {
 		driverLicenseID: dlNum,
 	};
 
-	console.log(customer);
-	const makeEntity = await fetch("https://www.afkauto.com/api/cfc/addcustomers", {
+	await fetch("https://www.afkauto.com/api/cfc/addcustomers", {
 		body: JSON.stringify(customer),
 		method: "POST",
 		headers: {
@@ -30,9 +29,7 @@ async function submitSignUp() {
 		},
 	});
 
-	const makeEntityMsg = await makeEntity.json();
-	console.log(makeEntityMsg);
-
+	console.log("*** Customer entity made");
 	// make customer account
 	const userNamePw = {
 		userName: document.getElementById("username").value,
@@ -48,6 +45,7 @@ async function submitSignUp() {
 	});
 
 	const msgJson = await data.json();
+	console.log("*** Customer account made");
 	console.log(msgJson);
 }
 
