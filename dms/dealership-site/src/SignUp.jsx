@@ -15,13 +15,13 @@ async function submitSignUp() {
 		lastName: document.getElementById("ln").value,
 		dateBirth: document.getElementById("dob").value,
 		gender: document.getElementById("gender").value,
-		phone: document.getElementById("phonenum").value,
+		phone: parseInt(document.getElementById("phonenum").value),
 		email: document.getElementById("email").value,
 		address: document.getElementById("address").value,
 		driverLicenseID: dlNum,
-		personID: dlNum,
 	};
 
+	console.log(customer);
 	const makeEntity = await fetch("https://www.afkauto.com/api/cfc/addcustomers", {
 		body: JSON.stringify(customer),
 		method: "POST",
