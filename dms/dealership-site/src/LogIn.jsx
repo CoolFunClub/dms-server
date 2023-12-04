@@ -21,13 +21,15 @@ async function login() {
 		pw: document.getElementById("password").value,
 	};
 
-	await fetch(`https://www.afkauto.com/api/login/${id}`, {
+	const data = await fetch(`https://www.afkauto.com/api/login/customer/${id}`, {
 		body: JSON.stringify(accountDto),
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 	});
+	
+	console.log(data);
 }
 
 function MainForm() {
