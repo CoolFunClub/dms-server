@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './SignUp.css';
 import logo from './assets/logo_cropped.png';
 
@@ -63,7 +64,7 @@ function Header() {
 function FormItem({id, label, type, onChange}) {
 	return (
 		<div className="FormItem">
-			<label for={id}>{label}</label>
+			<label htmlFor={id}>{label}</label>
 			<input id={id} type={type || ""} onChange={onChange || ""}/>
 		</div>
 	);
@@ -71,6 +72,7 @@ function FormItem({id, label, type, onChange}) {
 
 function MainForm() {
 	const [doesMatch, setDoesMatch] = useState(true);
+	const navigate = useNavigate();
 
 	return (
 		<div className="MainForm">
@@ -105,7 +107,15 @@ function MainForm() {
 			</div>
 
 			{doesMatch ? 
-				<button className="SubmitBtn" onClick={async ()=>{await submitSignUp()}}>Submit</button> :
+				<button className="SubmitBtn" onClick={
+					async ()=>{
+						await submitSignUp();
+						navigate("/");
+					}
+				}
+				>
+					Submit
+				</button> :
 				<p className="PwdMsg">Passwords must match!</p>
 			}
 		</div>
