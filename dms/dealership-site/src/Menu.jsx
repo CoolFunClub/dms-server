@@ -2,10 +2,14 @@ import React, { useState, useContext, createContext } from 'react';
 import './Menu.css';
 import logo from './assets/logo.png';
 import { WelcomePage, ViewCars } from './Pages'
+import { useLoginData } from './LoginContext';
 
 const PageContext = createContext(1);
 
 function LogoBar() {
+  const { acct, updateAcct } = useLoginData();
+  console.log(`*** Currently logged in: ${acct}`);
+
   return (
     <div className="LogoBar">
       <img src={logo} alt="Car dealership logo" />

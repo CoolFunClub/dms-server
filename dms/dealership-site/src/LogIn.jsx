@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
+import { useLoginData } from "./LoginContext";
 import logo from './assets/logo_cropped.png';
+
 
 function Header() {
   return (
@@ -14,26 +16,33 @@ function Header() {
   );
 }
 
-async function login() {
-	const id = document.getElementById("dlNum").value;
-	const accountDto = {
-		userName: document.getElementById("username").value,
-		pw: document.getElementById("password").value,
-	};
-
-	const data = await fetch(`https://www.afkauto.com/api/login/customer/${id}`, {
-		body: JSON.stringify(accountDto),
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
-	
-	console.log(data);
-}
-
 function MainForm() {
+	const { acct, updateAcct } = useLoginData();
 	const navigate = useNavigate();
+
+	function login() {
+		const id = document.getElementById("dlNum").value;
+		const username = document.getElementById("username").value;
+
+		const accountDto = {
+			userName: username,
+			pw: document.getElementById("password").value,
+		};
+
+		fetch(`https://www.afkauto.com/api/login/customer/${id}`, {
+			body: JSON.stringify(accountDto),
+			method: "POST",
+				headers: {
+			"Content-Type": "application/json",
+			},
+		}).then((response) => {
+			if (response.status === 200) {
+				updateAcct(username);
+				console.log(`*** acct value ${acct}`);
+				navigate("/");
+			}
+		});
+	}
 
 	return (
 		<div className="MainForm">
@@ -43,24 +52,18 @@ function MainForm() {
 			<input id="username" />
 			<label htmlFor="password">Password</label>
 			<input type="password" id="password" />
-			<button className="SubmitBtn" onClick={async ()=>{
-				await login();
-				navigate("/");
-			}}
-			>
-				Login
-			</button>
+			<button className="SubmitBtn" onClick={()=>{login()}}>Login</button>
 		</div>
 	);
 }
 
 function LoginPage() {
-  return (
+	return (
 		<div className="LoginPage">
 			<Header />
 			<MainForm />
 		</div>
-  );
+	);
 }
 
 export default LoginPage
