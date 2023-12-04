@@ -13,15 +13,16 @@ async function submitSignUp() {
 	const customer = {
 		firstName: document.getElementById("fn").value,
 		lastName: document.getElementById("ln").value,
-		mDateBirth: document.getElementById("dob").value,
+		dateBirth: document.getElementById("dob").value,
 		gender: document.getElementById("gender").value,
 		phone: document.getElementById("phonenum").value,
 		email: document.getElementById("email").value,
 		address: document.getElementById("address").value,
 		driverLicenseID: dlNum,
+		personID: dlNum,
 	};
 
-	const makeEntity = await fetch("`https://www.afkauto.com/api/cfc/addcustomers", {
+	const makeEntity = await fetch("https://www.afkauto.com/api/cfc/addcustomers", {
 		body: JSON.stringify(customer),
 		method: "POST",
 		headers: {
