@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from "react";
-import welcomeCar from "../assets/welcome-car.jpg";
 import redCar from "../assets/car-placeholder-red.jpeg";
-import { WELCOME, VIEW_CARS} from "./PageNumbers.js";
+import { VIEW_CARS} from "./PageNumbers.js";
 import "./Pages.css";
 import { InfoCell } from "./Pages";
 
 
-export function WelcomePage({ page }) {
-  const pageClass = page === WELCOME ? "" : "Hidden";
-
-  return (
-    <div className={pageClass}>
-      <div className="Welcome Page">
-        Welcome!
-				<img className="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
-      </div>
-    </div>
-  )
-}
-
 export function ViewCars({ page }) {
-  const pageClass = page === VIEW_CARS ? "" : "Hidden";
+  const pageClass = page === VIEW_CARS ? "Page" : "Hidden";
   const [carList, setCarList] = useState([]);
 
 	// only causes a CORS error when testing locally

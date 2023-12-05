@@ -29,7 +29,7 @@
 }
 
 .Page {
-	width: 100vw;
+	width: 70vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

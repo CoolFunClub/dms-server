@@ -3,7 +3,8 @@ import "./Menu.css";
 import logo from "./assets/logo.png";
 import { WELCOME, VIEW_CARS, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
-import { WelcomePage, ViewCars } from "./pages/CustomerPages";
+import { WelcomePage } from "./pages/Pages.jsx";
+import { ViewCars } from "./pages/CustomerPages";
 import { MakeSalePage } from "./pages/SalesRepPages.jsx";
 import { ViewManagers, ViewCustomers, ViewSalesReps } from "./pages/ManagerPages.jsx";
 
@@ -123,28 +124,30 @@ function MainContent() {
 	const { acct } = useLoginData();
 
 	return (
-		<div>
-			<WelcomePage page={page} />
-			<ViewCars page={page} />
-			{(acct.type === "manager" || acct.type === "salesRep") &&
-				<ViewCustomers page={page} />
-			}
-			{acct.type === "salesRep" &&
-				<MakeSalePage page={page} />
-			}
-			{acct.type === "manager" &&
-				<>
-					<ViewManagers page={page} />
-					<ViewSalesReps page={page} />
-				</>
-			}
+		<div className="MenuBg">
+			<div className="MenuBox">
+				<WelcomePage page={page} />
+				<ViewCars page={page} />
+				{(acct.type === "manager" || acct.type === "salesRep") &&
+					<ViewCustomers page={page} />
+				}
+				{acct.type === "salesRep" &&
+					<MakeSalePage page={page} />
+				}
+				{acct.type === "manager" &&
+					<>
+						<ViewManagers page={page} />
+						<ViewSalesReps page={page} />
+					</>
+				}
+			</div>
 		</div>
 	);
 }
 
 function Menu() {
 	return (
-		<div>
+		<div className="Menu">
 			<LogoBar />
 			<NavBarAndContent />
 		</div>

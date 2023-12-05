@@ -8,6 +8,23 @@ a:link {
 	color: white;
 }
 
+.Menu {
+	background-image: url("./assets/carbg.png");
+}
+
+.MenuBg {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.MenuBox {
+	background-color: white;
+	width: 70vw;
+	height: 100vh;
+}
+
 .LogoBar {
 	background-color: #0D1117;
 	width: 100vw;
