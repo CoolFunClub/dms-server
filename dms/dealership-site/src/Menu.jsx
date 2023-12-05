@@ -1,10 +1,10 @@
 import React, { useState, useContext, createContext } from "react";
 import "./Menu.css";
 import logo from "./assets/logo.png";
-import { WELCOME, VIEW_CARS, VIEW_REPS } from "./pages/PageNumbers.js";
+import { WELCOME, VIEW_CARS, VIEW_REPS, VIEW_CUSTOMERS, VIEW_MANAGERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
 import { WelcomePage, ViewCars } from "./pages/CustomerPages";
-import { ViewSalesReps } from "./pages/ManagerPages.jsx";
+import { ViewManagers, ViewCustomers, ViewSalesReps } from "./pages/ManagerPages.jsx";
 
 const PageContext = createContext(1);
 
@@ -68,29 +68,37 @@ function NavBarAndContent() {
 				<div className="NavBar">
 					<button
 						className="NavBtn"
-						onClick={() => {
-							setPage(WELCOME);
-						}}
+						onClick={()=>{setPage(WELCOME)}}
 					>
 						Welcome page
 					</button>
 					<button
 						className="NavBtn"
-						onClick={() => {
-							setPage(VIEW_CARS);
-						}}
+						onClick={()=>{setPage(VIEW_CARS)}}
 					>
 						View all cars
 					</button>
 					{acct.type === "manager" &&
-						<button
-							className="NavBtn"
-							onClick={() => {
-								setPage(VIEW_REPS);
-							}}
-						>
-							View all sales reps
-						</button>
+						(<>
+							<button
+								className="NavBtn"
+								onClick={()=>{setPage(VIEW_MANAGERS)}}
+							>
+								View all managers
+							</button>
+							<button
+								className="NavBtn"
+								onClick={()=>{setPage(VIEW_REPS)}}
+							>
+								View all sales reps
+							</button>
+							<button
+								className="NavBtn"
+								onClick={()=>{setPage(VIEW_CUSTOMERS)}}
+							>
+								View all customers
+							</button>
+						</>)
 					}
 				</div>
 				<MainContent />
@@ -107,8 +115,12 @@ function MainContent() {
 		<div>
 			<WelcomePage page={page} />
 			<ViewCars page={page} />
-			{acct.type === "manager" && 
-				<ViewSalesReps page={page} />
+			{acct.type === "manager" &&
+				<>
+					<ViewManagers page={page} />
+					<ViewSalesReps page={page} />
+					<ViewCustomers page={page} />
+				</>
 			}
 		</div>
 	);
