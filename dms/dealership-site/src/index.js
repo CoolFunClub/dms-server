@@ -17,10 +17,8 @@ root.render(
 				<Routes>
 					<Route exact path="/" Component={Menu} />
 					<Route path="/login" Component={LoginPage} />
-					<Route path="/signup" Component={RedirectToHome}>
-						<Route path="customer" Component={CustomerSignUpPage} />
-						<Route path="manager" Component={ManagerSignUpPage} />
-					</ Route>
+					<Route path="/signup/customer" Component={CustomerSignUpPage} />
+					<Route path="/signup/manager" Component={ManagerSignUpPage} />
 				</Routes>
 			</BrowserRouter>
 		</LoginProvider>

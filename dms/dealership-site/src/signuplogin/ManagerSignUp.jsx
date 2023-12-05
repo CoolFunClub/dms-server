@@ -10,7 +10,7 @@ function checkPasswords() {
 
 async function submitSignUp() {
 	// make manager entity
-	const ssn = document.getElementById("ssn").value;
+	const ssn = parseInt(document.getElementById("ssn").value);
 	const manager = {
 		firstName: document.getElementById("fn").value,
 		lastName: document.getElementById("ln").value,
@@ -19,7 +19,7 @@ async function submitSignUp() {
 		phone: parseInt(document.getElementById("phonenum").value),
 		email: document.getElementById("email").value,
 		address: document.getElementById("address").value,
-		driverLicenseID: ssn,
+		ssn: ssn,
 	};
 
 	await fetch("https://www.afkauto.com/api/manager", {
