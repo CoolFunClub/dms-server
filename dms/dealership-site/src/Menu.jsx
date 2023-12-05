@@ -1,9 +1,10 @@
 import React, { useState, useContext, createContext } from "react";
 import "./Menu.css";
 import logo from "./assets/logo.png";
-import { WELCOME, VIEW_CARS, VIEW_REPS, VIEW_CUSTOMERS, VIEW_MANAGERS } from "./pages/PageNumbers.js";
+import { WELCOME, VIEW_CARS, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
 import { WelcomePage, ViewCars } from "./pages/CustomerPages";
+import { MakeSalePage } from "./pages/SalesRepPages.jsx";
 import { ViewManagers, ViewCustomers, ViewSalesReps } from "./pages/ManagerPages.jsx";
 
 const PageContext = createContext(1);
@@ -86,6 +87,14 @@ function NavBarAndContent() {
 							View all customers
 						</button>
 					}
+					{acct.type === "salesRep" &&
+						<button
+							className="NavBtn"
+							onClick={()=>{setPage(MAKE_SALE)}}
+						>
+							Make a sale
+						</button>
+				}
 					{acct.type === "manager" &&
 						<>
 							<button
@@ -117,11 +126,16 @@ function MainContent() {
 		<div>
 			<WelcomePage page={page} />
 			<ViewCars page={page} />
+			{acct.type === "manager" || acct.type === "salesRep" &&
+				<ViewCustomers page={page} />
+			}
+			{acct.type === "salesRep" &&
+				<MakeSalePage page={page} />
+			}
 			{acct.type === "manager" &&
 				<>
 					<ViewManagers page={page} />
 					<ViewSalesReps page={page} />
-					<ViewCustomers page={page} />
 				</>
 			}
 		</div>

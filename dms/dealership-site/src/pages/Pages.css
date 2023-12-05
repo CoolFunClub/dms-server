@@ -5,17 +5,47 @@
 	width: 30%;
 }
 
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.FormCols {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.LabelCol {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.IdCol {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
 .Page {
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
 
 .Welcome {
 	font-size: xx-large;
 	padding-top: 40px;
 	text-align: center;
+}
+
+.SaleForm {
+	width: 25%;
+	margin-top: 5vh;
+	display: flex;
 }
 
 .ViewSalesReps {
@@ -33,7 +63,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 10px;
-	display: flex;
 }
 
 .Car {
