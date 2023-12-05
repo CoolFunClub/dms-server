@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import Menu from './Menu';
-import LoginPage from './LogIn';
-import SignUpPage from './SignUp';
-import { LoginProvider } from './LoginContext';
+import LoginPage from './signuplogin/LogIn';
+import SignUpPage from './signuplogin/SignUp';
+import { LoginProvider } from './signuplogin/LoginContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
