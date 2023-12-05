@@ -11,7 +11,7 @@ export function WelcomePage({ page }) {
     <div className={pageClass}>
       <div className="WelcomePage">
         Welcome!
-				<img class="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
+				<img className="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
       </div>
     </div>
   )

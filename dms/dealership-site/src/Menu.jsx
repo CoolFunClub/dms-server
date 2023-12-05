@@ -1,8 +1,10 @@
 import React, { useState, useContext, createContext } from 'react';
 import './Menu.css';
 import logo from './assets/logo.png';
-import { WelcomePage, ViewCars } from './Pages'
+import { WELCOME, VIEW_CARS, VIEW_REPS } from './PageNumbers.js';
 import { useLoginData } from './signuplogin/LoginContext';
+import { WelcomePage, ViewCars } from './Pages'
+import { ViewSalesReps } from './ManagerPages.jsx';
 
 const PageContext = createContext(1);
 
@@ -57,6 +59,7 @@ function DropDownLink({ isVisible, href, label }) {
 	);
 }
 function NavBarAndContent() {
+	const { acct } = useLoginData();
 	const [page, setPage] = useState(0);
 
 	return (
@@ -66,7 +69,7 @@ function NavBarAndContent() {
 					<button
 						className="NavBtn"
 						onClick={() => {
-							setPage(0);
+							setPage(WELCOME);
 						}}
 					>
 						Welcome page
@@ -74,11 +77,21 @@ function NavBarAndContent() {
 					<button
 						className="NavBtn"
 						onClick={() => {
-							setPage(1);
+							setPage(VIEW_CARS);
 						}}
 					>
 						View all cars
 					</button>
+					{acct.type === "manager" &&
+						<button
+							className="NavBtn"
+							onClick={() => {
+								setPage(VIEW_REPS);
+							}}
+						>
+							View all sales reps
+						</button>
+					}
 				</div>
 				<MainContent />
 			</PageContext.Provider>
@@ -88,11 +101,15 @@ function NavBarAndContent() {
 
 function MainContent() {
 	const page = useContext(PageContext);
+	const { acct } = useLoginData();
 
 	return (
 		<div>
 			<WelcomePage page={page} />
 			<ViewCars page={page} />
+			{acct.type === "manager" && 
+				<ViewSalesReps page={page} />
+			}
 		</div>
 	);
 }
