@@ -1,12 +1,12 @@
 import React, { useState, useContext, createContext } from "react";
 import "./Menu.css";
 import logo from "./assets/logo.png";
-import { WELCOME, VIEW_CARS, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS } from "./pages/PageNumbers.js";
+import { WELCOME, VIEW_CARS, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
 import { WelcomePage } from "./pages/Pages.jsx";
 import { ViewCars } from "./pages/CustomerPages";
 import { MakeSalePage } from "./pages/SalesRepPages.jsx";
-import { ViewManagers, ViewCustomers, ViewSalesReps } from "./pages/ManagerPages.jsx";
+import { ViewManagers, ViewCustomers, ViewSalesReps, ManageCustomers } from "./pages/ManagerPages.jsx";
 
 const PageContext = createContext(1);
 
@@ -110,6 +110,12 @@ function NavBarAndContent() {
 							>
 								View all managers
 							</button>
+							<button
+								className="NavBtn"
+								onClick={()=>{setPage(MANAGE_CUSTOMERS)}}
+							>
+								Manage customers
+							</button>
 						</>
 					}
 				</div>
@@ -138,6 +144,7 @@ function MainContent() {
 					<>
 						<ViewManagers page={page} />
 						<ViewSalesReps page={page} />
+						<ManageCustomers page={page} />
 					</>
 				}
 			</div>

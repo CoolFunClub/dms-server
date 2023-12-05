@@ -1,8 +1,35 @@
 import React, { useEffect, useState } from "react";
 import "./Pages.css";
-import { VIEW_REPS, VIEW_CUSTOMERS, VIEW_MANAGERS } from "./PageNumbers";
+import { VIEW_REPS, VIEW_CUSTOMERS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./PageNumbers";
 import { InfoCell } from "./Pages";
 
+
+export function ManageCustomers({ page }) {
+	const visClass = page === MANAGE_CUSTOMERS ? "" : "Hidden";
+
+	return (
+		<div className={visClass}>
+			<label htmlFor="dlNum">Driver's license #</label>
+			<input id="dlNum" />
+			<button
+				onClick={()=>{clearPurchases(document.getElementById("dlNum").value)}}
+			>
+				Clear purchases
+			</button>
+		</div>
+	);
+}
+
+function clearPurchases(dlNum) {
+	fetch(`https://www.afkauto.com/api/cfc/customers/${dlNum}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	}).then((response) => {
+		console.log(response);
+	});
+}
 
 export function ViewManagers({ page }) {
 	const visClass = page === VIEW_MANAGERS ? "ViewSalesReps Page" : "Hidden";

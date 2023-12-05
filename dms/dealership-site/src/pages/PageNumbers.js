@@ -8,6 +8,7 @@ export const MAKE_SALE = 2;
 // manager only pages
 export const VIEW_REPS = 3;
 export const VIEW_MANAGERS = 4;
+export const MANAGE_CUSTOMERS = 5;
 
 // employee pages
-export const VIEW_CUSTOMERS = 5;
+export const VIEW_CUSTOMERS = 6;
