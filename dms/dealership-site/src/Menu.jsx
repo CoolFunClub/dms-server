@@ -1,10 +1,10 @@
-import React, { useState, useContext, createContext } from 'react';
-import './Menu.css';
-import logo from './assets/logo.png';
-import { WELCOME, VIEW_CARS, VIEW_REPS } from './PageNumbers.js';
-import { useLoginData } from './signuplogin/LoginContext';
-import { WelcomePage, ViewCars } from './Pages'
-import { ViewSalesReps } from './ManagerPages.jsx';
+import React, { useState, useContext, createContext } from "react";
+import "./Menu.css";
+import logo from "./assets/logo.png";
+import { WELCOME, VIEW_CARS, VIEW_REPS } from "./pages/PageNumbers.js";
+import { useLoginData } from "./signuplogin/LoginContext";
+import { WelcomePage, ViewCars } from "./pages/CustomerPages";
+import { ViewSalesReps } from "./pages/ManagerPages.jsx";
 
 const PageContext = createContext(1);
 
