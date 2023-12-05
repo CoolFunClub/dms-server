@@ -1,4 +1,3 @@
-/* global BigInt */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Pages.css";
@@ -53,10 +52,13 @@ function FormCol({ ids, labels}) {
 }
 
 function submitSale() {
-	const acctId = BigInt(document.getElementById("accountId").value);
+	const acctId = parseInt(document.getElementById("accountId").value);
 	const sale = {
+		accountId: acctId,
+		purDate: document.getElementById("purDate").value,
+		tax: parseFloat(document.getElementById("purDate").value),
+		registrationFee: parseFloat(document.getElementById("registrationFee").value),
 		totalPaid: parseFloat(document.getElementById("totalPaid").value),
-		// TODO: add other fields (is date necessary?)
 	}
 
 	fetch(`https://www.afkauto.com/api/cfc/fullp/${acctId}`, {

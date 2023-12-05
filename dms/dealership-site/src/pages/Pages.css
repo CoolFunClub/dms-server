@@ -44,6 +44,8 @@
 
 .SaleForm {
 	width: 25%;
+	min-width: 256px;
+	min-height: 128px;
 	margin-top: 5vh;
 	display: flex;
 }
