@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 import { useLoginData } from "./LoginContext";
@@ -36,9 +36,11 @@ function MainForm() {
 			"Content-Type": "application/json",
 			},
 		}).then((response) => {
+			console.log("*** response after attempting login");
+			console.log(response);
+
 			if (response.status === 200) {
-				updateAcct(username);
-				console.log(`*** acct value ${acct}`);
+				updateAcct({ type: "customer", user: username, dlNum: id });
 				navigate("/");
 			}
 		});

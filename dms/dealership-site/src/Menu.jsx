@@ -8,7 +8,7 @@ const PageContext = createContext(1);
 
 function LogoBar() {
   const { acct, updateAcct } = useLoginData();
-  console.log(`*** Currently logged in: ${acct}`);
+  console.log(`*** Currently logged in: ${acct.type} ${acct.user} with DL# ${acct.dlNum || "[not a customer]"}`);
 
   return (
     <div className="LogoBar">
