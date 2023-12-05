@@ -28,8 +28,7 @@ function LogoBar() {
 				<div className={signUpClass} onClick={()=>{setSignUpHovered(!signUpHovered)}}>
 					Sign Up
 					<DropDownLink isVisible={signUpHovered} href={"/signup/customer"} label="Customer" />
-					<DropDownLink isVisible={signUpHovered} href={"/signup/manager"} label="Manager" />
-					<DropDownLink isVisible={signUpHovered} href={"/"} label="Salesperson" />
+					<DropDownLink isVisible={signUpHovered} href={"/signup/employee"} label="Employee" />
 				</div>
 			</div>
     </div>

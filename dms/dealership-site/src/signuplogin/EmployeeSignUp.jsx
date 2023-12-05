@@ -9,9 +9,11 @@ function checkPasswords() {
 }
 
 async function submitSignUp() {
-	// make manager entity
+	const employeeType = document.getElementById("employeetype").value;
+	const entityUrl = employeeType === "manager" ? "manager" : "cfc/rep";
+	// make employee entity
 	const ssn = parseInt(document.getElementById("ssn").value);
-	const manager = {
+	const employee = {
 		firstName: document.getElementById("fn").value,
 		lastName: document.getElementById("ln").value,
 		dateBirth: document.getElementById("dob").value,
@@ -22,22 +24,22 @@ async function submitSignUp() {
 		ssn: ssn,
 	};
 
-	await fetch("https://www.afkauto.com/api/manager", {
-		body: JSON.stringify(manager),
+	await fetch(`https://www.afkauto.com/api/${entityUrl}`, {
+		body: JSON.stringify(employee),
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 	});
 
-	console.log("*** Manager entity made");
-	// make manager account
+	console.log(`*** ${employeeType} entity made`);
+	// make employee account
 	const userNamePw = {
 		userName: document.getElementById("username").value,
 		pw: document.getElementById("password").value,
 	};
 
-	const data = await fetch(`https://www.afkauto.com/api/account/manager/${ssn}`, {
+	const data = await fetch(`https://www.afkauto.com/api/account/${employeeType}/${ssn}`, {
 		body: JSON.stringify(userNamePw),
 		method: "POST",
 		headers: {
@@ -46,7 +48,7 @@ async function submitSignUp() {
 	});
 
 	const msgJson = await data.json();
-	console.log("*** Manager account made");
+	console.log(`*** ${employeeType} account made`);
 	console.log(msgJson);
 }
 
@@ -56,6 +58,13 @@ function MainForm() {
 
 	return (
 		<div className="MainForm">
+			<div className="FormRow">
+				<label htmlFor="employeetype">Employee Type</label>
+				<select id="employeetype">
+					<option value="manager">Manager</option>
+					<option value="salesRep">Salesperson</option>
+				</select>
+			</div>
 			<div className="FormRow">
 				<FormItem id="fn" label="First name" />
 				<FormItem id="ln" label="Last name" />
@@ -102,7 +111,7 @@ function MainForm() {
 	);
 }
 
-function ManagerSignUpPage() {
+function EmployeeSignUpPage() {
   return (
 		<div className="SignUpPage">
 			<Header type="Manager" />
@@ -111,4 +120,4 @@ function ManagerSignUpPage() {
   );
 }
 
-export default ManagerSignUpPage
+export default EmployeeSignUpPage

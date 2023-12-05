@@ -7,7 +7,7 @@ import Menu from './Menu';
 import CustomerLoginPage from './signuplogin/CustomerLogin';
 import CustomerSignUpPage from './signuplogin/CustomerSignUp';
 import ManagerLoginPage from './signuplogin/ManagerLogin';
-import ManagerSignUpPage from './signuplogin/ManagerSignUp';
+import EmployeeSignUpPage from './signuplogin/EmployeeSignUp';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,7 +20,7 @@ root.render(
 					<Route path="/login/customer" Component={CustomerLoginPage} />
 					<Route path="/signup/customer" Component={CustomerSignUpPage} />
 					<Route path="/login/manager" Component={ManagerLoginPage} />
-					<Route path="/signup/manager" Component={ManagerSignUpPage} />
+					<Route path="/signup/employee" Component={EmployeeSignUpPage} />
 				</Routes>
 			</BrowserRouter>
 		</LoginProvider>
