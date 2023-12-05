@@ -27,7 +27,7 @@ function LoginGreeting() {
 		const loginClass = loginHovered ? "Login Button" : "Login Button Collapsed";
 
 		return (
-			<div className="AcctBtns">
+			<div className="AcctBtns top">
 				<div className={loginClass} onClick={()=>{setLoginHovered(!loginHovered)}}>
 					Login
 					<DropDownLink isVisible={loginHovered} href={"/login/customer"} label="Customer" />
@@ -42,7 +42,7 @@ function LoginGreeting() {
 		);
 	} else {
 		return (
-			<p>{`Welcome, ${acct.user}!`}</p>
+			<p className="LoginGreeting top">{`Welcome, ${acct.user}!`}</p>
 		);
 	}
 

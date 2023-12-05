@@ -3,12 +3,23 @@ a:link {
 	color: white;
 }
 
+.top {
+	z-index: 1;
+	color: white;
+	font-size: x-large;
+}
+
 .LogoBar {
 	background-color: #0D1117;
 	width: 100vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+
+.LoginGreeting {
+	margin-right: 9vw;
+	margin-bottom: 5vw;
 }
 
 .AcctBtns {
@@ -19,9 +30,6 @@ a:link {
 }
 
 .Button {
-	z-index: 1;
-	color: white;
-	font-size: x-large;
 	width: 9vw;
 	display: flex;
 	flex-direction: column;
