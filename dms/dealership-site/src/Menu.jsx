@@ -78,14 +78,16 @@ function NavBarAndContent() {
 					>
 						View all cars
 					</button>
+					{acct.type === "manager" || acct.type === "salesRep" &&
+						<button
+							className="NavBtn"
+							onClick={()=>{setPage(VIEW_CUSTOMERS)}}
+						>
+							View all customers
+						</button>
+					}
 					{acct.type === "manager" &&
-						(<>
-							<button
-								className="NavBtn"
-								onClick={()=>{setPage(VIEW_MANAGERS)}}
-							>
-								View all managers
-							</button>
+						<>
 							<button
 								className="NavBtn"
 								onClick={()=>{setPage(VIEW_REPS)}}
@@ -94,11 +96,11 @@ function NavBarAndContent() {
 							</button>
 							<button
 								className="NavBtn"
-								onClick={()=>{setPage(VIEW_CUSTOMERS)}}
+								onClick={()=>{setPage(VIEW_MANAGERS)}}
 							>
-								View all customers
+								View all managers
 							</button>
-						</>)
+						</>
 					}
 				</div>
 				<MainContent />
