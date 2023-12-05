@@ -27,7 +27,9 @@ export function ViewManagers({ page }) {
 	const managerList = [];
 
 	for (const m of managers) {
-		managerList.push(<SalesRepCard rep={m} />);
+		if (m.account) {
+			managerList.push(<SalesRepCard rep={m} />);
+		}
 	}
 
 	return (
