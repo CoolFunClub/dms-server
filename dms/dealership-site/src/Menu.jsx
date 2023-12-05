@@ -7,8 +7,11 @@ import { useLoginData } from './signuplogin/LoginContext';
 const PageContext = createContext(1);
 
 function LogoBar() {
+	const [hovered, setHovered] = useState(false);
   const { acct, updateAcct } = useLoginData();
-  console.log(`*** Currently logged in: ${acct.type} ${acct.user} with DL# ${acct.dlNum || "[not a customer]"}`);
+
+  console.log(`*** Currently logged in: ${acct.type} ${acct.user} with DL#/SSN ${acct.id}`);
+	const signUpBtnClass = hovered ? "SignUpBtn" : "SignUpBtn Collapsed";
 
   return (
     <div className="LogoBar">
@@ -19,16 +22,24 @@ function LogoBar() {
 						Login
 					</div>
 				</a>
-				<a href="/signup">
-					<div className="SignUp Button">
-						Sign up
+					<div className={signUpBtnClass} onClick={()=>{setHovered(!hovered)}}>
+						Sign Up
+						<DropDownLink isVisible={hovered} href={"/signup/customer"} label="Customer" />
+						<DropDownLink isVisible={hovered} href={"/signup/manager"} label="Manager" />
+						<DropDownLink isVisible={hovered} href={"/"} label="Salesperson" />
 					</div>
-				</a>
 			</div>
     </div>
   );
 }
 
+function DropDownLink({ isVisible, href, label }) {
+	const vis = isVisible ? "DropDownLink" : "DropDownLinkHidden";
+
+	return (
+		<a href={href} className={vis}>{label}</a>
+	);
+}
 function NavBarAndContent() {
   const [page, setPage] = useState(0);
 

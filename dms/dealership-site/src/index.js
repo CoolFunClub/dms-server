@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import './index.css';
+import { LoginProvider } from './signuplogin/LoginContext';
 import Menu from './Menu';
 import LoginPage from './signuplogin/LogIn';
-import SignUpPage from './signuplogin/SignUp';
-import { LoginProvider } from './signuplogin/LoginContext';
+import CustomerSignUpPage from './signuplogin/CustomerSignUp';
+import ManagerSignUpPage from './signuplogin/ManagerSignUp';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,10 +17,20 @@ root.render(
 				<Routes>
 					<Route exact path="/" Component={Menu} />
 					<Route path="/login" Component={LoginPage} />
-					<Route path="/signup" Component={SignUpPage} />
+					<Route path="/signup" Component={RedirectToHome}>
+						<Route path="customer" Component={CustomerSignUpPage} />
+						<Route path="manager" Component={ManagerSignUpPage} />
+					</ Route>
 				</Routes>
 			</BrowserRouter>
 		</LoginProvider>
 	</React.StrictMode>
 );
 
+function RedirectToHome() {
+	const navigate = useNavigate();
+
+	return (
+		<div onLoad={()=>{navigate.push("/")}} />
+	);
+}

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 
-const LoginContext = createContext({ type: "", user: "", dlNum: "" });
+const LoginContext = createContext({ type: "", user: "", id: "" });
 
 export function LoginProvider({ children }) {
 	const [acct, setAcct] = useState(useContext(LoginContext));

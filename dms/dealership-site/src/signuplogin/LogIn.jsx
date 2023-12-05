@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 import { useLoginData } from "./LoginContext";
-import logo from './assets/logo_cropped.png';
+import logo from '../assets/logo_cropped.png';
 
 
 function Header() {
@@ -40,7 +40,7 @@ function MainForm() {
 			console.log(response);
 
 			if (response.status === 200) {
-				updateAcct({ type: "customer", user: username, dlNum: id });
+				updateAcct({ type: "customer", user: username, id: id });
 				navigate("/");
 			}
 		});
