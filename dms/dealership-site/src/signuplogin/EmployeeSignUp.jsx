@@ -12,7 +12,7 @@ async function submitSignUp() {
 	const employeeType = document.getElementById("employeetype").value;
 	const entityUrl = employeeType === "manager" ? "manager" : "cfc/rep";
 	// make employee entity
-	const ssn = parseInt(document.getElementById("ssn").value);
+	const id = parseInt(document.getElementById("id").value);
 	const employee = {
 		firstName: document.getElementById("fn").value,
 		lastName: document.getElementById("ln").value,
@@ -21,7 +21,7 @@ async function submitSignUp() {
 		phone: parseInt(document.getElementById("phonenum").value),
 		email: document.getElementById("email").value,
 		address: document.getElementById("address").value,
-		ssn: ssn,
+		ssn: id,
 	};
 
 	await fetch(`https://www.afkauto.com/api/${entityUrl}`, {
@@ -39,7 +39,7 @@ async function submitSignUp() {
 		pw: document.getElementById("password").value,
 	};
 
-	const data = await fetch(`https://www.afkauto.com/api/account/${employeeType}/${ssn}`, {
+	const data = await fetch(`https://www.afkauto.com/api/account/${employeeType}/${id}`, {
 		body: JSON.stringify(userNamePw),
 		method: "POST",
 		headers: {
@@ -74,7 +74,7 @@ function MainForm() {
 			<div className="FormRow">
 				<FormItem id="gender" label="Gender" />
 				<FormItem id="phonenum" label="Phone number" />
-				<FormItem id="ssn" label="SSN" type="password" />
+				<FormItem id="id" label="ID" />
 			</div>
 
 			<FormItem id="address" label="Home address" />

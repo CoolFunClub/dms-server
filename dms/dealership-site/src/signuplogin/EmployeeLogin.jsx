@@ -11,7 +11,7 @@ function MainForm() {
 
 	function login() {
 		const employeeType = document.getElementById("employeetype").value;
-		const id = document.getElementById("ssn").value;
+		const id = document.getElementById("id").value;
 		const username = document.getElementById("username").value;
 
 		const accountDto = {
@@ -44,8 +44,8 @@ function MainForm() {
 				<option value="salesRep">Salesperson</option>
 			</select>
 
-			<label htmlFor="ssn">SSN</label>
-			<input id="ssn" />
+			<label htmlFor="id">ID</label>
+			<input id="id" />
 			<label htmlFor="username">Username</label>
 			<input id="username" />
 			<label htmlFor="password">Password</label>
