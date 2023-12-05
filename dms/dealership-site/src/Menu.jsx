@@ -16,7 +16,7 @@ function LogoBar() {
 }
 
 function LoginGreeting() {
-	const { acct, } = useLoginData();
+	const { acct } = useLoginData();
 	const [signUpHovered, setSignUpHovered] = useState(false);
 	const [loginHovered, setLoginHovered] = useState(false);
 

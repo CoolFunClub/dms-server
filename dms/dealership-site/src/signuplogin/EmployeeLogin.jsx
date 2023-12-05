@@ -6,7 +6,7 @@ import { Header } from "./Login";
 
 
 function MainForm() {
-	const { acct, updateAcct } = useLoginData();
+	const { updateAcct } = useLoginData();
 	const navigate = useNavigate();
 
 	function login() {

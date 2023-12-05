@@ -6,7 +6,6 @@ a:link {
 .top {
 	z-index: 1;
 	color: white;
-	font-size: x-large;
 }
 
 .LogoBar {
@@ -18,8 +17,9 @@ a:link {
 }
 
 .LoginGreeting {
-	margin-right: 9vw;
-	margin-bottom: 5vw;
+	font-size: xx-large;
+	margin-right: 4vw;
+	margin-bottom: 6vh;
 }
 
 .AcctBtns {
@@ -30,6 +30,7 @@ a:link {
 }
 
 .Button {
+	font-size: x-large;
 	width: 9vw;
 	display: flex;
 	flex-direction: column;

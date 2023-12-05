@@ -30,8 +30,8 @@ export function ViewCars({ page }) {
           'Content-Type': 'application/json',
         },
       });
-      const msgJson = await data.json();
-      console.log(msgJson);
+
+			const msgJson = await data.json();
       setCarList(msgJson);
     }
     getMsg();
