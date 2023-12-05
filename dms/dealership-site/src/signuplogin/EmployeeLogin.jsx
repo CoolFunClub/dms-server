@@ -10,6 +10,7 @@ function MainForm() {
 	const navigate = useNavigate();
 
 	function login() {
+		const employeeType = document.getElementById("employeetype").value;
 		const id = document.getElementById("ssn").value;
 		const username = document.getElementById("username").value;
 
@@ -18,7 +19,7 @@ function MainForm() {
 			pw: document.getElementById("password").value,
 		};
 
-		fetch(`https://www.afkauto.com/api/login/manager/${id}`, {
+		fetch(`https://www.afkauto.com/api/login/${employeeType}/${id}`, {
 			body: JSON.stringify(accountDto),
 			method: "POST",
 			headers: {
@@ -29,7 +30,7 @@ function MainForm() {
 			console.log(response);
 
 			if (response.status === 200) {
-				updateAcct({ type: "manager", user: username, id: id });
+				updateAcct({ type: employeeType, user: username, id: id });
 				navigate("/");
 			}
 		});
@@ -37,6 +38,12 @@ function MainForm() {
 
 	return (
 		<div className="MainForm">
+			<label htmlFor="employeetype">Employee Type</label>
+			<select id="employeetype">
+				<option value="manager">Manager</option>
+				<option value="salesRep">Salesperson</option>
+			</select>
+
 			<label htmlFor="ssn">SSN</label>
 			<input id="ssn" />
 			<label htmlFor="username">Username</label>
@@ -48,7 +55,7 @@ function MainForm() {
 	);
 }
 
-function ManagerLoginPage() {
+function EmployeeLoginPage() {
 	return (
 		<div className="LoginPage">
 			<Header />
@@ -57,4 +64,4 @@ function ManagerLoginPage() {
 	);
 }
 
-export default ManagerLoginPage
+export default EmployeeLoginPage

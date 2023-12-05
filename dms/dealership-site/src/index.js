@@ -6,7 +6,7 @@ import { LoginProvider } from './signuplogin/LoginContext';
 import Menu from './Menu';
 import CustomerLoginPage from './signuplogin/CustomerLogin';
 import CustomerSignUpPage from './signuplogin/CustomerSignUp';
-import ManagerLoginPage from './signuplogin/ManagerLogin';
+import EmployeeLoginPage from './signuplogin/EmployeeLogin';
 import EmployeeSignUpPage from './signuplogin/EmployeeSignUp';
 
 
@@ -19,18 +19,10 @@ root.render(
 					<Route exact path="/" Component={Menu} />
 					<Route path="/login/customer" Component={CustomerLoginPage} />
 					<Route path="/signup/customer" Component={CustomerSignUpPage} />
-					<Route path="/login/manager" Component={ManagerLoginPage} />
+					<Route path="/login/employee" Component={EmployeeLoginPage} />
 					<Route path="/signup/employee" Component={EmployeeSignUpPage} />
 				</Routes>
 			</BrowserRouter>
 		</LoginProvider>
 	</React.StrictMode>
 );
-
-function RedirectToHome() {
-	const navigate = useNavigate();
-
-	return (
-		<div onLoad={()=>{navigate.push("/")}} />
-	);
-}
