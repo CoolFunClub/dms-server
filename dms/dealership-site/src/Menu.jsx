@@ -7,27 +7,30 @@ import { useLoginData } from './signuplogin/LoginContext';
 const PageContext = createContext(1);
 
 function LogoBar() {
-	const [hovered, setHovered] = useState(false);
+	const [signUpHovered, setSignUpHovered] = useState(false);
+	const [loginHovered, setLoginHovered] = useState(false);
   const { acct, updateAcct } = useLoginData();
 
   console.log(`*** Currently logged in: ${acct.type} ${acct.user} with DL#/SSN ${acct.id}`);
-	const signUpBtnClass = hovered ? "SignUpBtn" : "SignUpBtn Collapsed";
+	const signUpClass = signUpHovered ? "SignUp Button" : "SignUp Button Collapsed";
+	const loginClass = loginHovered ? "Login Button" : "Login Button Collapsed";
 
   return (
     <div className="LogoBar">
       <img src={logo} alt="Car dealership logo" />
 			<div className="AcctBtns">
-				<a href="/login">
-					<div className="Login Button">
-						Login
-					</div>
-				</a>
-					<div className={signUpBtnClass} onClick={()=>{setHovered(!hovered)}}>
-						Sign Up
-						<DropDownLink isVisible={hovered} href={"/signup/customer"} label="Customer" />
-						<DropDownLink isVisible={hovered} href={"/signup/manager"} label="Manager" />
-						<DropDownLink isVisible={hovered} href={"/"} label="Salesperson" />
-					</div>
+				<div className={loginClass} onClick={()=>{setLoginHovered(!loginHovered)}}>
+					Login
+					<DropDownLink isVisible={loginHovered} href={"/login/customer"} label="Customer" />
+					<DropDownLink isVisible={loginHovered} href={"/login/manager"} label="Manager" />
+					<DropDownLink isVisible={loginHovered} href={"/"} label="Salesperson" />
+				</div>
+				<div className={signUpClass} onClick={()=>{setSignUpHovered(!signUpHovered)}}>
+					Sign Up
+					<DropDownLink isVisible={signUpHovered} href={"/signup/customer"} label="Customer" />
+					<DropDownLink isVisible={signUpHovered} href={"/signup/manager"} label="Manager" />
+					<DropDownLink isVisible={signUpHovered} href={"/"} label="Salesperson" />
+				</div>
 			</div>
     </div>
   );

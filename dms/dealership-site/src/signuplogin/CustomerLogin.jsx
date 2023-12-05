@@ -32,8 +32,8 @@ function MainForm() {
 		fetch(`https://www.afkauto.com/api/login/customer/${id}`, {
 			body: JSON.stringify(accountDto),
 			method: "POST",
-				headers: {
-			"Content-Type": "application/json",
+			headers: {
+				"Content-Type": "application/json",
 			},
 		}).then((response) => {
 			console.log("*** response after attempting login");
@@ -59,7 +59,7 @@ function MainForm() {
 	);
 }
 
-function LoginPage() {
+function CustomerLoginPage() {
 	return (
 		<div className="LoginPage">
 			<Header />
@@ -68,4 +68,4 @@ function LoginPage() {
 	);
 }
 
-export default LoginPage
+export default CustomerLoginPage

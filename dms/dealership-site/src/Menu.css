@@ -19,12 +19,13 @@ a:link {
 }
 
 .Button {
+	z-index: 1;
 	color: white;
 	font-size: x-large;
-	height: 40px;
 	width: 9vw;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 }
 
@@ -43,21 +44,15 @@ a:link {
 }
 
 .DropDownLink {
-	background-color: #8d39e1;
-	color: white;
 	font-size: large;
 }
 
-.SignUpBtn {
-	z-index: 1;
+.SignUp {
 	background-color: #8d39e1;
-	color: white;
-	font-size: x-large;
-	width: 9vw;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
+}
+
+.SignUp:hover {
+	background-color: #9c54e4;
 }
 
 .Collapsed {

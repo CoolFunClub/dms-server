@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import './index.css';
 import { LoginProvider } from './signuplogin/LoginContext';
 import Menu from './Menu';
-import LoginPage from './signuplogin/LogIn';
+import CustomerLoginPage from './signuplogin/CustomerLogin';
 import CustomerSignUpPage from './signuplogin/CustomerSignUp';
+import ManagerLoginPage from './signuplogin/ManagerLogin';
 import ManagerSignUpPage from './signuplogin/ManagerSignUp';
 
 
@@ -16,8 +17,9 @@ root.render(
 			<BrowserRouter>
 				<Routes>
 					<Route exact path="/" Component={Menu} />
-					<Route path="/login" Component={LoginPage} />
+					<Route path="/login/customer" Component={CustomerLoginPage} />
 					<Route path="/signup/customer" Component={CustomerSignUpPage} />
+					<Route path="/login/manager" Component={ManagerLoginPage} />
 					<Route path="/signup/manager" Component={ManagerSignUpPage} />
 				</Routes>
 			</BrowserRouter>
