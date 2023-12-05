@@ -79,7 +79,7 @@ function NavBarAndContent() {
 					>
 						View all cars
 					</button>
-					{acct.type === "manager" || acct.type === "salesRep" &&
+					{(acct.type === "manager" || acct.type === "salesRep") &&
 						<button
 							className="NavBtn"
 							onClick={()=>{setPage(VIEW_CUSTOMERS)}}
@@ -126,7 +126,7 @@ function MainContent() {
 		<div>
 			<WelcomePage page={page} />
 			<ViewCars page={page} />
-			{acct.type === "manager" || acct.type === "salesRep" &&
+			{(acct.type === "manager" || acct.type === "salesRep") &&
 				<ViewCustomers page={page} />
 			}
 			{acct.type === "salesRep" &&
