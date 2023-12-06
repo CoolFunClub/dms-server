@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../assets/logo_cropped.png';
+import logo from "../assets/MenuLogo.png";
 
 
 export function Header() {

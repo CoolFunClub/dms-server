@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext } from "react";
 import "./Menu.css";
-import logo from "./assets/logo.png";
+import logo from "./assets/MenuLogo.png";
 import { WELCOME, VIEW_CARS, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
 import { WelcomePage } from "./pages/Pages.jsx";
