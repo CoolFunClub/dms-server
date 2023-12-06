@@ -12,7 +12,7 @@ export function ManageCustomers({ page }) {
 			<label htmlFor="dlNum">Driver's license #</label>
 			<input id="dlNum" />
 			<button
-				onClick={()=>{clearPurchases(document.getElementById("dlNum").value)}}
+				onClick={async () => {await deleteUser(document.getElementById("dlNum").value)}}
 			>
 				Clear purchases
 			</button>
@@ -20,15 +20,17 @@ export function ManageCustomers({ page }) {
 	);
 }
 
-function clearPurchases(dlNum) {
-	fetch(`https://www.afkauto.com/api/cfc/customers/${dlNum}`, {
-		method: 'GET',
+async function deleteUser(dlNum) {
+	const data = await fetch(`https://www.afkauto.com/api/cfc/customers/${dlNum}`, {
+		method: "DELETE",
 		headers: {
 			'Content-Type': 'application/json',
 		},
-	}).then((response) => {
-		console.log(response);
 	});
+
+	const msgJson = await data.json();
+	console.log("*** got msg json");
+	console.log(msgJson);
 }
 
 export function ViewManagers({ page }) {
