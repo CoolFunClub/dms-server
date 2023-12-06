@@ -33,14 +33,14 @@ function LoginGreeting() {
 		return (
 			<div className="AcctBtns top">
 				<div className={loginClass} onClick={()=>{setLoginHovered(!loginHovered)}}>
-					Login
 					<DropDownLink isVisible={loginHovered} href={"/login/customer"} label="Customer" />
 					<DropDownLink isVisible={loginHovered} href={"/login/employee"} label="Employee" />
+					Login
 				</div>
 				<div className={signUpClass} onClick={()=>{setSignUpHovered(!signUpHovered)}}>
-					Sign Up
 					<DropDownLink isVisible={signUpHovered} href={"/signup/customer"} label="Customer" />
 					<DropDownLink isVisible={signUpHovered} href={"/signup/employee"} label="Employee" />
+					Sign Up
 				</div>
 			</div>
 		);

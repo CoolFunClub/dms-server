@@ -54,6 +54,7 @@ a:link {
 	margin: 1vw;
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-end;
 }
 
 .Button {
@@ -61,8 +62,9 @@ a:link {
 	width: 9vw;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
+	border-radius: 15px;
 }
 
 .Login {
