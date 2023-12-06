@@ -125,6 +125,7 @@ a:link {
 	font-size: large;
 }
 
+.selected,
 .NavBtn:hover {
 	background-color: #324869;
 }

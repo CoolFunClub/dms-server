@@ -1,6 +1,7 @@
 // customer pages
 export const WELCOME = 0;
 export const VIEW_CARS = 1;
+export const EMAIL_REP = 7;
 
 // sales rep pages
 export const MAKE_SALE = 2;
