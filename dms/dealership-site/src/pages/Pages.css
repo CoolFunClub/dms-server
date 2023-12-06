@@ -1,0 +1,84 @@
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+	border-radius: 160px;
+}
+
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.FormCols {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.LabelCol {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.IdCol {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.Page {
+	width: 70vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Welcome {
+	font-size: xx-large;
+	padding-top: 40px;
+	text-align: center;
+}
+
+.SaleForm {
+	width: 25%;
+	min-width: 256px;
+	min-height: 128px;
+	margin-top: 5vh;
+	display: flex;
+}
+
+.ViewSalesReps {
+	align-items: center;
+}
+
+.InfoCell {
+	display: flex;
+}
+
+.Card {
+	background-color: #0c336e;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px;
+	border-radius: 32px;
+}
+
+.Car {
+	margin-left: 4vw;
+}
+
+.CarPic {
+	margin-left: 4vw;
+	margin-top: 4vh;
+}
+
+.SalesRep {
+	margin-top: 4vw;
+	width: 25vw;
+}

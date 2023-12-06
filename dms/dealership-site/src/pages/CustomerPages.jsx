@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import welcomeCar from './assets/welcome-car.jpg';
-import redCar from './assets/car-placeholder-red.jpeg';
-import { WELCOME, VIEW_CARS} from './PageNumbers.js';
-import './Pages.css';
+import React, { useEffect, useState } from "react";
+import redCar from "../assets/car-placeholder-red.jpeg";
+import { VIEW_CARS} from "./PageNumbers.js";
+import "./Pages.css";
+import { InfoCell } from "./Pages";
 
-export function WelcomePage({ page }) {
-  const pageClass = page === WELCOME ? "" : "Hidden";
-
-  return (
-    <div className={pageClass}>
-      <div className="WelcomePage">
-        Welcome!
-				<img class="center" src={welcomeCar} alt="Clipart of a red sports car with a teal background" />
-      </div>
-    </div>
-  )
-}
 
 export function ViewCars({ page }) {
-  const pageClass = page === VIEW_CARS ? "" : "Hidden";
+  const pageClass = page === VIEW_CARS ? "Page" : "Hidden";
   const [carList, setCarList] = useState([]);
 
 	// only causes a CORS error when testing locally
@@ -30,8 +18,8 @@ export function ViewCars({ page }) {
           'Content-Type': 'application/json',
         },
       });
-      const msgJson = await data.json();
-      console.log(msgJson);
+
+			const msgJson = await data.json();
       setCarList(msgJson);
     }
     getMsg();
@@ -46,7 +34,7 @@ export function ViewCars({ page }) {
           <div className="CarPic">
             <img src={redCar} alt="A red 2020 Honda Accord" />
           </div>
-          <div className="CarCard">
+          <div className="Car Card">
             <b>{`${car.carYear} ${car.manufacturer} ${car.model}`}</b>
             <InfoCell header={"VIN:"} value={`${car.vin}`} />
             <InfoCell header={"Status:"} value={`${car.status}`} />
@@ -69,11 +57,3 @@ export function ViewCars({ page }) {
   );
 }
 
-function InfoCell({header, value}) {
-  return (
-    <div className="InfoCell">
-      <b>{header}</b>&nbsp;
-      {value}
-    </div>
-  );
-}
