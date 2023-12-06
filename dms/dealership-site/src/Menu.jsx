@@ -130,24 +130,22 @@ function MainContent() {
 	const { acct } = useLoginData();
 
 	return (
-		<div className="MenuBg">
-			<div className="MenuBox">
-				<WelcomePage page={page} />
-				<ViewCars page={page} />
-				{(acct.type === "manager" || acct.type === "salesRep") &&
-					<ViewCustomers page={page} />
-				}
-				{acct.type === "salesRep" &&
-					<MakeSalePage page={page} />
-				}
-				{acct.type === "manager" &&
-					<>
-						<ViewManagers page={page} />
-						<ViewSalesReps page={page} />
-						<ManageCustomers page={page} />
-					</>
-				}
-			</div>
+		<div className="MenuBox">
+			<WelcomePage page={page} />
+			<ViewCars page={page} />
+			{(acct.type === "manager" || acct.type === "salesRep") &&
+				<ViewCustomers page={page} />
+			}
+			{acct.type === "salesRep" &&
+				<MakeSalePage page={page} />
+			}
+			{acct.type === "manager" &&
+				<>
+					<ViewManagers page={page} />
+					<ViewSalesReps page={page} />
+					<ManageCustomers page={page} />
+				</>
+			}
 		</div>
 	);
 }

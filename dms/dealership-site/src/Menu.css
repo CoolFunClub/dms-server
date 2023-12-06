@@ -1,3 +1,12 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("./assets/carbg.png");
+	background-size: contain;
+	background-repeat: repeat;
+	background-position: center;
+}
+
 a:link {
 	text-decoration: none;
 	color: white;
@@ -9,20 +18,21 @@ a:link {
 }
 
 .Menu {
-	background-image: url("./assets/carbg.png");
-}
-
-.MenuBg {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
+	height: 100vh;
+	overflow: auto;
 }
 
 .MenuBox {
 	background-color: white;
 	width: 70vw;
-	height: 100vh;
+	height: 100%;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .LogoBar {
@@ -88,6 +98,9 @@ a:link {
 .NavBarAndContent {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	overflow: auto;
 }
 
 .NavBar {
