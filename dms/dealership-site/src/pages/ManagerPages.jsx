@@ -19,7 +19,7 @@ export function ManageCustomers({ page }) {
 				<option value="cfc/customers">Customer</option>
 			</select>
 				<button className="ActionBtn">
-					<a href={`https://afkauto.com/api/${acctType}`} target="_blank">
+					<a href={`https://afkauto.com/api/${acctType}`} target="_blank" rel="noreferrer">
 						View all accounts of this type
 					</a>
 				</button>
