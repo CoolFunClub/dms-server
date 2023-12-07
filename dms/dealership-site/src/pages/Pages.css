@@ -11,22 +11,18 @@
 	flex-direction: column;
 }
 
+.marginTop {
+	margin-top: 5vh;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
 .FormCols {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-}
-
-.LabelCol {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-.IdCol {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
 }
 
 .Page {
@@ -55,30 +51,60 @@
 	align-items: center;
 }
 
-.InfoCell {
-	display: flex;
-}
-
 .Card {
 	background-color: #0c336e;
 	color: white;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 10px;
+	justify-content: space-between;
+	padding: 20px;
 	border-radius: 32px;
 }
 
-.Car {
-	margin-left: 4vw;
-}
-
 .CarPic {
-	margin-left: 4vw;
-	margin-top: 4vh;
+	max-width: 400px;
+	max-height: 400px;
+	border-radius: 32px;
+	margin-top: 9vh;
 }
 
-.SalesRep {
+.Car {
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	width: 90%;
+}
+
+.Tile {
 	margin-top: 4vw;
 	width: 25vw;
+}
+
+.ContactLabel {
+	font-size: large;
+	padding-bottom: 2vh;
+}
+
+.SendEmail {
+	margin-top: 5vh;
+	width: 20vw;
+}
+
+.ActionBtn {
+	background-color: #727272;
+	cursor: pointer;
+	font-size: x-large;
+	width: 20vw;
+	margin-top: 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	border: none;
+}
+
+.ActionBtn > a {
+	color: black;
+	flex: 1;
 }

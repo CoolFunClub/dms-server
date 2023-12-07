@@ -1,59 +1,60 @@
 import React, { useEffect, useState } from "react";
-import redCar from "../assets/car-placeholder-red.jpeg";
-import { VIEW_CARS} from "./PageNumbers.js";
-import "./Pages.css";
-import { InfoCell } from "./Pages";
+import "./Pages.css"
+import { EMAIL_REP } from "./PageNumbers";
 
 
-export function ViewCars({ page }) {
-  const pageClass = page === VIEW_CARS ? "Page" : "Hidden";
-  const [carList, setCarList] = useState([]);
+export function EmailRep({ page }) {
+	const [reps, setReps] = useState([]);
+	const [repEmail, setRepEmail] = useState("");
+	const pageClass = page === EMAIL_REP ? "flexCol" : "Hidden";
 
-	// only causes a CORS error when testing locally
-  useEffect(() => {
-    const getMsg = async () => {
-      const data = await fetch("https://www.afkauto.com/api/cars", {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+	useEffect(() => {
+		const getReps = async () => {
+			const data = await fetch("https://www.afkauto.com/api/cfc/rep", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
 
-			const msgJson = await data.json();
-      setCarList(msgJson);
-    }
-    getMsg();
-  }, []);
+			const repsJson = await data.json();
+			setReps(repsJson);
 
-  const results = [];
+			if (repsJson.length > 0) {
+				setRepEmail(repsJson[0].email);
+			}
+		}
 
-  if (carList.length > 0) {
-    for (const car of carList) {
-      results.push(
-        <div>
-          <div className="CarPic">
-            <img src={redCar} alt="A red 2020 Honda Accord" />
-          </div>
-          <div className="Car Card">
-            <b>{`${car.carYear} ${car.manufacturer} ${car.model}`}</b>
-            <InfoCell header={"VIN:"} value={`${car.vin}`} />
-            <InfoCell header={"Status:"} value={`${car.status}`} />
-            <InfoCell header={"Mileage:"} value={`${car.mileage}`} />
-            <InfoCell header={"Price:"} value={`${car.price}`} />
-            <InfoCell header={"Color:"} value={`${car.color}`} />
-            <InfoCell header={"Trim:"} value={`${car.trim}`} />
-          </div>
-        </div>
-      );
-    }
-  } else {
-    results.push(<p>"No cars found!"</p>);
-  }
+		getReps();
+	}, []);
 
-  return (
-    <div className={pageClass}>
-      {results}
-    </div>
-  );
+	const repList = reps.map((r) => {
+		return (<option key={r.ssn} value={r.email}>{`${r.firstName} ${r.lastName}`}</option>);
+	});
+
+	return (
+		<div className={pageClass}>
+			<div className="Tile Card">
+				<label className="ContactLabel" htmlFor="rep">Choose a sales representative.</label>
+				{reps.length > 1 ?
+					<div>
+						<select id="rep"
+							onChange={(event) => {
+								setRepEmail(event.target.value);
+							}}
+						>
+							{repList}
+						</select>
+
+						<a href={`mailto:${repEmail}?subject=${encodeURIComponent("Buying a car")}`}>
+							<button className="Button SendEmail" >
+								Send them an email
+							</button>
+						</a>
+					</div>
+					: <p id="rep">No sales representatives found</p>
+				}
+			</div>
+		</div>
+	);
 }
-
