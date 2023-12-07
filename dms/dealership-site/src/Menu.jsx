@@ -1,11 +1,11 @@
 import React, { useState, useContext, createContext } from "react";
 import "./Menu.css";
 import logo from "./assets/MenuLogo.png";
-import { WELCOME, VIEW_CARS, EMAIL_REP, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./pages/PageNumbers.js";
+import { WELCOME, VIEW_CARS, EMAIL_REP, EDIT_INV, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
 import { WelcomePage, ViewCars } from "./pages/Pages.jsx";
 import { EmailRep } from "./pages/CustomerPages";
-import { MakeSalePage } from "./pages/SalesRepPages.jsx";
+import { EditInventory, MakeSalePage } from "./pages/SalesRepPages.jsx";
 import { ViewManagers, ViewCustomers, ViewSalesReps, ManageCustomers } from "./pages/ManagerPages.jsx";
 
 const PageContext = createContext(1);
@@ -87,7 +87,10 @@ function NavBarAndContent() {
 						<NavBtn linkedPage={EMAIL_REP} label="Interested in buying a car?" />
 					}
 					{(acct.type === "manager" || acct.type === "salesRep") &&
-						<NavBtn linkedPage={VIEW_CUSTOMERS} label="View all customers" />
+						<>
+							<NavBtn linkedPage={VIEW_CUSTOMERS} label="View all customers" />
+							<NavBtn linkedPage={EDIT_INV} label="Edit inventory" />
+						</>
 					}
 					{acct.type === "salesRep" &&
 						<NavBtn linkedPage={MAKE_SALE} label="Make a sale" />
@@ -114,6 +117,7 @@ function MainContent() {
 			<WelcomePage page={page} />
 			<ViewCars page={page} />
 			<EmailRep page={page} />
+			<EditInventory page={page} />
 			<ViewCustomers page={page} />
 			<MakeSalePage page={page} />
 			<ViewManagers page={page} />

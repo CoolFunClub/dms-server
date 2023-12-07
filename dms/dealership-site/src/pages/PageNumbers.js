@@ -5,6 +5,7 @@ export const EMAIL_REP = 7;
 
 // sales rep pages
 export const MAKE_SALE = 2;
+export const EDIT_INV = 8;
 
 // manager only pages
 export const VIEW_REPS = 3;
