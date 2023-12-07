@@ -1,10 +1,10 @@
 import React, { useState, useContext, createContext } from "react";
 import "./Menu.css";
 import logo from "./assets/MenuLogo.png";
-import { WELCOME, VIEW_CARS, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./pages/PageNumbers.js";
+import { WELCOME, VIEW_CARS, EMAIL_REP, MAKE_SALE, VIEW_CUSTOMERS, VIEW_REPS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./pages/PageNumbers.js";
 import { useLoginData } from "./signuplogin/LoginContext";
 import { WelcomePage, ViewCars } from "./pages/Pages.jsx";
-// import { ViewCars } from "./pages/CustomerPages";
+import { EmailRep } from "./pages/CustomerPages";
 import { MakeSalePage } from "./pages/SalesRepPages.jsx";
 import { ViewManagers, ViewCustomers, ViewSalesReps, ManageCustomers } from "./pages/ManagerPages.jsx";
 
@@ -83,6 +83,9 @@ function NavBarAndContent() {
 				<div className="NavBar">
 					<NavBtn linkedPage={WELCOME} label="Home" />
 					<NavBtn linkedPage={VIEW_CARS} label="View all cars" />
+					{acct.type === "customer" &&
+						<NavBtn linkedPage={EMAIL_REP} label="Interested in buying a car?" />
+					}
 					{(acct.type === "manager" || acct.type === "salesRep") &&
 						<NavBtn linkedPage={VIEW_CUSTOMERS} label="View all customers" />
 					}
@@ -105,25 +108,17 @@ function NavBarAndContent() {
 
 function MainContent() {
 	const page = useContext(PageContext);
-	const { acct } = useLoginData();
 
 	return (
 		<div className="MenuBox">
 			<WelcomePage page={page} />
 			<ViewCars page={page} />
-			{(acct.type === "manager" || acct.type === "salesRep") &&
-				<ViewCustomers page={page} />
-			}
-			{acct.type === "salesRep" &&
-				<MakeSalePage page={page} />
-			}
-			{acct.type === "manager" &&
-				<>
-					<ViewManagers page={page} />
-					<ViewSalesReps page={page} />
-					<ManageCustomers page={page} />
-				</>
-			}
+			<EmailRep page={page} />
+			<ViewCustomers page={page} />
+			<MakeSalePage page={page} />
+			<ViewManagers page={page} />
+			<ViewSalesReps page={page} />
+			<ManageCustomers page={page} />
 		</div>
 	);
 }

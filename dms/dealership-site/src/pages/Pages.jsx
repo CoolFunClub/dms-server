@@ -54,7 +54,7 @@ export function ViewCars({ page }) {
   if (carList.length > 0) {
     for (const car of carList) {
       results.push(
-        <div>
+        <div key={car.vin} >
           <div className="CarPic">
             <img src={redCar} alt="A red 2020 Honda Accord" />
           </div>
@@ -71,7 +71,7 @@ export function ViewCars({ page }) {
       );
     }
   } else {
-    results.push(<p>No cars found!</p>);
+    results.push(<p key="no-cars" >No cars found!</p>);
   }
 
   return (

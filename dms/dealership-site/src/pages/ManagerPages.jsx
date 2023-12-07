@@ -105,10 +105,10 @@ export function ViewCustomers({ page }) {
 
 function CustomerCard({ customer }) {
 	return (
-		<div key={customer.dlNum} className="SalesRep Card">
+		<div key={customer.driverLicenseID} className="SalesRep Card">
 			<b>{`${customer.firstName} ${customer.lastName}`}</b>
 			<InfoCell header="Username:" value={customer.account.userName} />
-			<InfoCell header="Driver's license #:" value={customer.dlNum} />
+			<InfoCell header="Driver's license #:" value={customer.driverLicenseID} />
 			<InfoCell header="Email:" value={customer.email} />
 			<InfoCell header="DoB:" value={customer.dateBirth} />
 			<InfoCell header="Gender:" value={customer.gender} />

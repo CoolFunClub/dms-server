@@ -82,3 +82,13 @@
 	margin-top: 4vw;
 	width: 25vw;
 }
+
+.ContactLabel {
+	font-size: large;
+	padding-bottom: 2vh;
+}
+
+.SendEmail {
+	margin-top: 5vh;
+	width: 20vw;
+}
