@@ -50,9 +50,9 @@ export function ViewCars({ page }) {
 	useEffect(() => {
 		const getMsg = async () => {
 			const data = await fetch("https://www.afkauto.com/api/cars", {
-				method: 'GET',
+				method: "GET",
 				headers: {
-					'Content-Type': 'application/json',
+					"Content-Type": "application/json",
 				},
 			});
 
@@ -69,15 +69,7 @@ export function ViewCars({ page }) {
 			results.push(
 				<div key={car.vin} >
 					<img className="CarPic" src={carPlaceholder} alt="Placeholder icon for a car" />
-					<div className="Car Card">
-						<b>{`${car.carYear} ${car.manufacturer} ${car.model}`}</b>
-						<InfoCell label={"VIN:"} value={car.vin} />
-						<InfoCell label={"Status:"} value={car.status} />
-						<InfoCell label={"Mileage:"} value={car.mileage} />
-						<InfoCell label={"Price:"} value={car.price} />
-						<InfoCell label={"Color:"} value={car.color} />
-						<InfoCell label={"Trim:"} value={car.trim} />
-					</div>
+					<CarCard car={car} />
 				</div>
 			);
 		}
@@ -88,6 +80,20 @@ export function ViewCars({ page }) {
 	return (
 		<div className={pageClass}>
 			{results}
+		</div>
+	);
+}
+
+export function CarCard({ car }) {
+	return (
+		<div className="Car Card">
+			<b>{`${car.carYear} ${car.manufacturer} ${car.model}`}</b>
+			<InfoCell label={"VIN:"} value={car.vin} />
+			<InfoCell label={"Status:"} value={car.status} />
+			<InfoCell label={"Mileage:"} value={car.mileage} />
+			<InfoCell label={"Price:"} value={car.price} />
+			<InfoCell label={"Color:"} value={car.color} />
+			<InfoCell label={"Trim:"} value={car.trim} />
 		</div>
 	);
 }

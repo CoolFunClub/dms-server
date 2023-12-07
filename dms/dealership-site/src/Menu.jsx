@@ -89,7 +89,7 @@ function NavBarAndContent() {
 					{(acct.type === "manager" || acct.type === "salesRep") &&
 						<>
 							<NavBtn linkedPage={VIEW_CUSTOMERS} label="View all customers" />
-							<NavBtn linkedPage={EDIT_INV} label="Edit inventory" />
+							<NavBtn linkedPage={EDIT_INV} label="Manage inventory" />
 						</>
 					}
 					{acct.type === "salesRep" &&
