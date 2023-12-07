@@ -54,7 +54,7 @@ function LoginGreeting() {
 }
 
 function DropDownLink({ isVisible, href, label }) {
-	const vis = isVisible ? "DropDownLink" : "DropDownLinkHidden";
+	const vis = isVisible ? "DropDownLink" : "Hidden";
 
 	return (
 		<a href={href} className={vis}>{label}</a>
@@ -96,7 +96,7 @@ function NavBarAndContent() {
 						<>
 							<NavBtn linkedPage={VIEW_REPS} label="View all sales reps" />
 							<NavBtn linkedPage={VIEW_MANAGERS} label="View all managers" />
-							<NavBtn linkedPage={MANAGE_CUSTOMERS} label="Manage customers" />
+							<NavBtn linkedPage={MANAGE_CUSTOMERS} label="Manage accounts" />
 						</>
 					}
 				</div>

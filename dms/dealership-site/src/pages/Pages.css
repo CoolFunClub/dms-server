@@ -11,6 +11,10 @@
 	flex-direction: column;
 }
 
+.marginTop {
+	margin-top: 5vh;
+}
+
 .FormCols {
 	display: flex;
 	justify-content: space-between;
@@ -91,4 +95,23 @@
 .SendEmail {
 	margin-top: 5vh;
 	width: 20vw;
+}
+
+.ActionBtn {
+	background-color: #929292;
+	cursor: pointer;
+	font-size: x-large;
+	width: 20vw;
+	margin-top: 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	border: none;
+}
+
+.ActionBtn > a {
+	color: black;
+	flex: 1;
 }

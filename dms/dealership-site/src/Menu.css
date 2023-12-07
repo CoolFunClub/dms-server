@@ -75,12 +75,6 @@ a:link {
 	background-color: #417cd5;
 }
 
-.DropDownLinkHidden {
-	visibility: hidden;
-	opacity: 0;
-	display: none;
-}
-
 .DropDownLink {
 	font-size: large;
 }
@@ -131,5 +125,7 @@ a:link {
 }
 
 .Hidden {
+	visibility: hidden;
+	opacity: 0;
 	display: none;
 }
