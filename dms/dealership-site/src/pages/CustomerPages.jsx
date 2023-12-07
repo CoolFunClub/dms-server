@@ -34,26 +34,27 @@ export function EmailRep({ page }) {
 
 	return (
 		<div className={pageClass}>
-			<div className="SalesRep Card">
-			<label className="ContactLabel" htmlFor="rep">Choose a sales representative.</label>
-			{reps.length > 1 ?
-				<div>
-					<select id="rep"
-						onChange={(event) => {
-							setRepEmail(event.target.value);
-						}}
-					>
-						{repList}
-					</select>
+			<div className="Tile Card">
+				<label className="ContactLabel" htmlFor="rep">Choose a sales representative.</label>
+				{reps.length > 1 ?
+					<div>
+						<select id="rep"
+							onChange={(event) => {
+								setRepEmail(event.target.value);
+							}}
+						>
+							{repList}
+						</select>
 
-					<a href={`mailto:${repEmail}?subject=${encodeURIComponent("Buying a car")}`}>
-						<button className="Button SendEmail" >
-							Send them an email
-						</button>
-					</a>
-				</div>
-				: <p id="rep">No sales representatives found</p>
-			}
-		</div></div>
+						<a href={`mailto:${repEmail}?subject=${encodeURIComponent("Buying a car")}`}>
+							<button className="Button SendEmail" >
+								Send them an email
+							</button>
+						</a>
+					</div>
+					: <p id="rep">No sales representatives found</p>
+				}
+			</div>
+		</div>
 	);
 }

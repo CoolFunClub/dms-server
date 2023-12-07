@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Pages.css";
 import { VIEW_REPS, VIEW_CUSTOMERS, VIEW_MANAGERS, MANAGE_CUSTOMERS } from "./PageNumbers";
-import { InfoCell } from "./Pages";
+import { InfoCell, InputCell } from "./Pages";
 
 
 export function ManageCustomers({ page }) {
@@ -53,26 +53,15 @@ export function ManageCustomers({ page }) {
 
 function AccountFields({ acct }) {
 	return (
-		<div key={acct.ssn} className="SalesRep Card">
-			<InputCell id="fn" header="First name" value={acct.firstName} />
-			<InputCell id="ln" header="Last name" value={acct.lastName} />
-			<InputCell id="id" header="Driver's license #/ID" value={acct.ssn || acct.driverLicenseID} />
-			<InputCell id="email" header="Email" value={acct.email} />
-			<InputCell id="dob" header="DoB" value={acct.dateBirth} />
-			<InputCell id="gender" header="Gender" value={acct.gender} />
-			<InputCell id="phone" header="Phone #" value={acct.phone} />
-			<InputCell id="address" header="Address" value={acct.address} />
-		</div>
-	);
-}
-
-function InputCell({id, header, value}) {
-	return (
-		<div className="FormCols">
-			<label htmlFor={id}>
-				<b>{header}</b>&nbsp;
-			</label>
-			<input id={id} defaultValue={value} />
+		<div key={acct.ssn} className="Tile Card">
+			<InputCell id="fn" label="First name" value={acct.firstName} />
+			<InputCell id="ln" label="Last name" value={acct.lastName} />
+			<InputCell id="id" label="Driver's license #/ID" value={acct.ssn || acct.driverLicenseID} />
+			<InputCell id="email" label="Email" value={acct.email} />
+			<InputCell id="dob" label="DoB" value={acct.dateBirth} />
+			<InputCell id="gender" label="Gender" value={acct.gender} />
+			<InputCell id="phone" label="Phone #" value={acct.phone} />
+			<InputCell id="address" label="Address" value={acct.address} />
 		</div>
 	);
 }
@@ -153,7 +142,7 @@ export function ViewManagers({ page }) {
 
 	for (const m of managers) {
 		if (m.account) {
-			managerList.push(<SalesRepCard rep={m} />);
+			managerList.push(<EmployeeCard rep={m} />);
 		}
 	}
 
@@ -201,15 +190,15 @@ export function ViewCustomers({ page }) {
 
 function CustomerCard({ customer }) {
 	return (
-		<div key={customer.driverLicenseID} className="SalesRep Card">
+		<div key={customer.driverLicenseID} className="Tile Card">
 			<b>{`${customer.firstName} ${customer.lastName}`}</b>
-			<InfoCell header="Username:" value={customer.account.userName} />
-			<InfoCell header="Driver's license #:" value={customer.driverLicenseID} />
-			<InfoCell header="Email:" value={customer.email} />
-			<InfoCell header="DoB:" value={customer.dateBirth} />
-			<InfoCell header="Gender:" value={customer.gender} />
-			<InfoCell header="Phone #:" value={customer.phone} />
-			<InfoCell header="Address:" value={customer.address} />
+			<InfoCell id="username" label="Username:" value={customer.account.userName} />
+			<InfoCell id="dlNum" label="Driver's license #:" value={customer.driverLicenseID} />
+			<InfoCell id="email" label="Email:" value={customer.email} />
+			<InfoCell id="dob" label="DoB:" value={customer.dateBirth} />
+			<InfoCell id="gender" label="Gender:" value={customer.gender} />
+			<InfoCell id="phone" label="Phone #:" value={customer.phone} />
+			<InfoCell id="address" label="Address:" value={customer.address} />
 		</div>
 	);
 }
@@ -238,7 +227,7 @@ export function ViewSalesReps({ page }) {
 
 	for (const r of reps) {
 		if (r.account) {
-			repList.push(<SalesRepCard rep={r} />);
+			repList.push(<EmployeeCard rep={r} />);
 		}
 	}
 
@@ -249,17 +238,17 @@ export function ViewSalesReps({ page }) {
 	);
 }
 
-function SalesRepCard({ rep }) {
+function EmployeeCard({ rep }) {
 	return (
-		<div key={rep.ssn} className="SalesRep Card">
+		<div key={rep.ssn} className="Tile Card">
 			<b>{`${rep.firstName} ${rep.lastName}`}</b>
-			<InfoCell header="Username:" value={rep.account.userName} />
-			<InfoCell header="ID:" value={rep.ssn} />
-			<InfoCell header="Email:" value={rep.email} />
-			<InfoCell header="DoB:" value={rep.dateBirth} />
-			<InfoCell header="Gender:" value={rep.gender} />
-			<InfoCell header="Phone #:" value={rep.phone} />
-			<InfoCell header="Address:" value={rep.address} />
+			<InfoCell label="Username:" value={rep.account.userName} />
+			<InfoCell label="ID:" value={rep.ssn} />
+			<InfoCell label="Email:" value={rep.email} />
+			<InfoCell label="DoB:" value={rep.dateBirth} />
+			<InfoCell label="Gender:" value={rep.gender} />
+			<InfoCell label="Phone #:" value={rep.phone} />
+			<InfoCell label="Address:" value={rep.address} />
 		</div>
 	);
 }

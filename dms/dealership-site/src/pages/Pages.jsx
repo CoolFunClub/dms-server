@@ -5,11 +5,24 @@ import welcomeCar from "../assets/welcome-car.jpg";
 import redCar from "../assets/car-placeholder-red.jpeg";
 
 
-export function InfoCell({header, value}) {
+export function InfoCell({id, label, value}) {
 	return (
-		<div className="InfoCell">
-			<b>{header}</b>&nbsp;
-			{value}
+		<div className="FormCols">
+			<label htmlFor={id}>
+				<b>{label}</b>
+			</label>
+			<p id={id}>{value}</p>
+		</div>
+	);
+}
+
+export function InputCell({id, label, value}) {
+	return (
+		<div className="FormCols">
+			<label htmlFor={id}>
+				<b>{label}</b>
+			</label>
+			<input id={id} defaultValue={value} />
 		</div>
 	);
 }
@@ -60,12 +73,12 @@ export function ViewCars({ page }) {
           </div>
           <div className="Car Card">
             <b>{`${car.carYear} ${car.manufacturer} ${car.model}`}</b>
-            <InfoCell header={"VIN:"} value={`${car.vin}`} />
-            <InfoCell header={"Status:"} value={`${car.status}`} />
-            <InfoCell header={"Mileage:"} value={`${car.mileage}`} />
-            <InfoCell header={"Price:"} value={`${car.price}`} />
-            <InfoCell header={"Color:"} value={`${car.color}`} />
-            <InfoCell header={"Trim:"} value={`${car.trim}`} />
+            <InfoCell label={"VIN:"} value={`${car.vin}`} />
+            <InfoCell label={"Status:"} value={`${car.status}`} />
+            <InfoCell label={"Mileage:"} value={`${car.mileage}`} />
+            <InfoCell label={"Price:"} value={`${car.price}`} />
+            <InfoCell label={"Color:"} value={`${car.color}`} />
+            <InfoCell label={"Trim:"} value={`${car.trim}`} />
           </div>
         </div>
       );

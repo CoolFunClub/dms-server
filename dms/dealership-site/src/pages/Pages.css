@@ -21,18 +21,6 @@
 	width: 100%;
 }
 
-.LabelCol {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-.IdCol {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-}
-
 .Page {
 	width: 70vw;
 	display: flex;
@@ -59,10 +47,6 @@
 	align-items: center;
 }
 
-.InfoCell {
-	display: flex;
-}
-
 .Card {
 	background-color: #0c336e;
 	color: white;
@@ -82,7 +66,7 @@
 	margin-top: 4vh;
 }
 
-.SalesRep {
+.Tile {
 	margin-top: 4vw;
 	width: 25vw;
 }
