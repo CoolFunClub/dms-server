@@ -15,15 +15,15 @@ public class DmsApplication {
 	}
 
 
-    	@Bean
-    	public CorsFilter corsFilter() {
-        	UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        	CorsConfiguration config = new CorsConfiguration();
+	@Bean
+	public CorsFilter corsFilter() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
 
-					config.addAllowedOrigin("*");
-        	config.addAllowedMethod("*");
-        	config.addAllowedHeader("*");
-        	source.registerCorsConfiguration("/**", config);
-        	return new CorsFilter(source);
-    	}
+		config.addAllowedOrigin("https://www.afkauto.com");
+		config.addAllowedMethod("*");
+		config.addAllowedHeader("*");
+		source.registerCorsConfiguration("/**", config);
+		return new CorsFilter(source);
+	}
 }
