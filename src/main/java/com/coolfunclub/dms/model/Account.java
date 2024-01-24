@@ -46,5 +46,8 @@ public class Account {
     private Long id;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Purchase> purchases;
+    private List<FullPurchase> fullPurchases;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Finance> finances;
 }

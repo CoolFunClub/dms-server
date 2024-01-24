@@ -6,20 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.coolfunclub.dms.model.CreditCard;
+import com.coolfunclub.dms.model.Finance;
+import com.coolfunclub.dms.model.FullPurchase;
 import com.coolfunclub.dms.model.Payment;
 import com.coolfunclub.dms.model.Purchase;
 import com.coolfunclub.dms.repository.CreditCardRepository;
+import com.coolfunclub.dms.repository.FinanceRepository;
+import com.coolfunclub.dms.repository.FullPurchaseRepository;
 import com.coolfunclub.dms.repository.PaymentRepository;
-import com.coolfunclub.dms.repository.PurchaseRepository;
-
+/* import com.coolfunclub.dms.repository.PurchaseRepository;
+ */
 @Service
 public class PaymentService {
 
     @Autowired
     PaymentRepository paymentRepository;
 
+/*     @Autowired
+    private PurchaseRepository purchaseRepository; */
     @Autowired
-    private PurchaseRepository purchaseRepository;
+    private FullPurchaseRepository fullPurchaseRepository;
+
+    @Autowired
+    private FinanceRepository financeRepository;
 
     @Autowired
     private CreditCardRepository creditCardRepository;
@@ -27,7 +36,7 @@ public class PaymentService {
     public PaymentService() {
     }
 
-    public ResponseEntity<String> addCashPayment(Payment payment, Long purchaseId) {
+/*     public ResponseEntity<String> addCashPayment(Payment payment, Long purchaseId) {
         Optional<Purchase> purchaseOptional = purchaseRepository.findById(purchaseId);
         if (purchaseOptional.isPresent()) {
         Purchase purchase = purchaseOptional.get();
@@ -38,9 +47,21 @@ public class PaymentService {
     }else{
             return ResponseEntity.badRequest().body("Purchase does not exist.");
         }
+    } */
+    public ResponseEntity<String> addCashPayment(Payment payment, Long fullPurId) {
+        Optional<FullPurchase> fullPurchaseOptional = fullPurchaseRepository.findById(fullPurId);
+        if (fullPurchaseOptional.isPresent()) {
+        FullPurchase fullPurchase = fullPurchaseOptional.get();
+        payment.setFullPurchase(fullPurchase);
+        // Save the Payment entity with the associated Purchase
+        paymentRepository.save(payment);
+        return ResponseEntity.ok("Payment is added successfully");
+    }else{
+            return ResponseEntity.badRequest().body("Purchase does not exist.");
+        }
     }
 
-
+/*
     public ResponseEntity<String> addCardPayment(Payment payment, Long purchaseId, Long CCNum) {
 
         Optional<Purchase> purchaseOptional = purchaseRepository.findById(purchaseId);
@@ -50,6 +71,32 @@ public class PaymentService {
         if(creditCardOptional.isPresent() ){ //check the existence of the Credit
             Purchase purchase = purchaseOptional.get();
             payment.setPurchase(purchase);
+
+            CreditCard myCard = creditCardOptional.get();
+            payment.setCard(myCard);
+
+            // Save the Payment entity with the associated Purchase
+            paymentRepository.save(payment);
+            return ResponseEntity.ok("Payment is added successfully");
+
+            }else{
+            return ResponseEntity.badRequest().body("Credit/Depit card does not exist.");
+            }
+        }else{
+            return ResponseEntity.badRequest().body("Purchase does not exist.");
+        }
+    } */
+
+
+    public ResponseEntity<String> addCardPayment(Payment payment, Long financeId, Long ccNum) {
+
+        Optional<Finance> financeOptional = financeRepository.findById(financeId);
+       if (financeOptional.isPresent()) {
+
+        Optional<CreditCard> creditCardOptional = creditCardRepository.findById(ccNum);
+        if(creditCardOptional.isPresent() ){ //check the existence of the Credit
+            Finance finance = financeOptional.get();
+            payment.setFinance(finance);
 
             CreditCard myCard = creditCardOptional.get();
             payment.setCard(myCard);

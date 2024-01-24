@@ -16,24 +16,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+/* @Entity */
+/* @Inheritance(strategy = InheritanceType.JOINED) */
 public abstract class Purchase {
 
-    @Id
+/*     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long purID;
+    private Long purID; */
 
-    @ManyToOne
-    @JoinColumn(name = "account_id",referencedColumnName ="id")
-    private Account account;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_vin",referencedColumnName ="vin")
-    private Car car;
-
-    @OneToMany(mappedBy = "purchase", cascade = CascadeType.ALL)
-    private List<Payment> payments;
 
     private Date purDate;
     private double tax;
@@ -49,29 +39,15 @@ public abstract class Purchase {
         this.registrationFee = registrationFee;
     }
 
-    public Long getPurID() {
+/*     public Long getPurID() {
         return purID;
     }
 
     public void setPurID(Long purID) {
         this.purID = purID;
-    }
+    } */
 
-    public Account getAccount() {
-        return account;
-    }
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
 
     public Date getPurDate() {
         return purDate;

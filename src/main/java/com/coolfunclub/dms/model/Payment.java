@@ -22,17 +22,33 @@ public class Payment {
     private double paymentAmount;
     private String paymentMethod;
 
-    @ManyToOne
+/*     @ManyToOne
     @JoinColumn(name = "purID",referencedColumnName ="purID")
-    private Purchase purchase;
+    private Purchase purchase; */
+    @ManyToOne
+    @JoinColumn(name = "fullPurID",referencedColumnName ="fullPurID")
+    private FullPurchase fullPurchase;
 
 
-    public Purchase getPurchase() {
-        return purchase;
+    public FullPurchase getFullPurchase() {
+        return fullPurchase;
     }
 
-    public void setPurchase(Purchase purchase) {
-        this.purchase = purchase;
+    public void setFullPurchase(FullPurchase fullPurchase) {
+        this.fullPurchase = fullPurchase;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "financeID",referencedColumnName ="financeID")
+    private Finance finance;
+
+
+    public Finance getFinance() {
+        return finance;
+    }
+
+    public void setFinance(Finance finance) {
+        this.finance = finance;
     }
 
 
@@ -45,7 +61,7 @@ public class Payment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "creditcard_id")
+    @JoinColumn(name = "creditCardNum")
     private CreditCard creditCard;
 
 
