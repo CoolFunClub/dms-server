@@ -18,7 +18,7 @@ import lombok.ToString;
 public class Customer extends Person{
 
     @Id
-    @Column (name="driverLicenseID")
+    @Column (name="DRIVER_LICENSEID")
     private String driverLicenseID;
     @OneToOne(optional = true)
     @JoinColumn(name = "account_id",referencedColumnName = "id")

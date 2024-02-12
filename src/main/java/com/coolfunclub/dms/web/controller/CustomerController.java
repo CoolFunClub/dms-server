@@ -24,35 +24,34 @@ import com.coolfunclub.dtos.AccountDTO;
 
 
 @RestController
-@RequestMapping("cfc/")
 public class CustomerController {
 
   @Autowired
   CustomerService customerService;
   //CustomerRepository customerRepository;
 
-  @PostMapping(value = "addcustomers")
+  @PostMapping(value="/addcustomers")
   public ResponseEntity<String> addCustomer(@RequestBody Customer customer ){
     System.out.println(customer.toString());
     return customerService.addCustomer(customer);
 }
 
-@GetMapping(value = "customers")
+@GetMapping(value="/customers")
 public List<Customer> getCustomers(){
     return customerService.getAllCustomers();
 }
 
-@GetMapping(value = "/customers/{id}")
+@GetMapping(value="/customers/{id}")
 public Customer getCustomerById(@PathVariable("id") String driverLic ){
     return customerService.getCustomerById(driverLic);
 }
 
-@DeleteMapping(value = "/customers/{id}")
+@DeleteMapping(value="/customers/{id}")
 public void deleteCustomerById(@PathVariable("id") String driverLic ){
     customerService.deleteCustomer(driverLic);
 }
 
-@PutMapping(value = "/customers/{driverLic}")
+@PutMapping(value="/customers/{driverLic}")
 public void updateCustomer(@PathVariable String driverLic, @RequestBody Customer customer){
     customer.setDriverLicenseID(driverLic);
     customerService.updateCustomer(customer);

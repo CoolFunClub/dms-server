@@ -13,17 +13,4 @@ public class DmsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DmsApplication.class, args);
 	}
-
-
-	@Bean
-	public CorsFilter corsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-
-		config.addAllowedOrigin("https://www.afkauto.com");
-		config.addAllowedMethod("*");
-		config.addAllowedHeader("*");
-		source.registerCorsConfiguration("/**", config);
-		return new CorsFilter(source);
-	}
 }

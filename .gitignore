@@ -3,6 +3,7 @@ HELP.md
 target/
 nginx-logs/
 api_access.log*
+*.p12
 
 ### System files ###
 .DS_Store

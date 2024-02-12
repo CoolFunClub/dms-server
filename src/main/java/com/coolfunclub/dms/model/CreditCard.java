@@ -26,7 +26,7 @@ public class CreditCard {
     private List<Payment> payments;
 
     @ManyToOne
-    @JoinColumn(name = "customer_DL",referencedColumnName ="driverLicenseID")
+    @JoinColumn(name = "customer_DL",referencedColumnName ="DRIVER_LICENSEID")
     private Customer customers;
 
     @ManyToOne
