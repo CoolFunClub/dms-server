@@ -21,9 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coolfunclub.dtos.AccountDTO;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("cfc/")
 public class SalesRepController {
 
     @Autowired

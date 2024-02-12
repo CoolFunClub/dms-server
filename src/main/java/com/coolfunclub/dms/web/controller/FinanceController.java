@@ -17,7 +17,7 @@ import com.coolfunclub.dms.service.FinanceService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/cfc/purs")
+@RequestMapping("/purs")
 public class FinanceController {
 
     @Autowired
